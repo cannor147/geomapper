@@ -1,10 +1,10 @@
 package model.rgb;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 @Getter
+@ToString
+@EqualsAndHashCode
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class RGBDistance implements RGB {
     public static RGBDistance of(int red, int green, int blue) {

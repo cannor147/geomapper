@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Russia",
+    "synonyms": [
+      "Russian Federation"
+    ],
+    "coordinates": [
+      {
+        "x": 700,
+        "y": 100
+      },
+      {
+        "x": 725,
+        "y": 40
+      },
+      {
+        "x": 815,
+        "y": 20
+      },
+      {
+        "x": 985,
+        "y": 35
+      },
+      {
+        "x": 1080,
+        "y": 135
+      },
+      {
+        "x": 685,
+        "y": 155
+      },
+      {
+        "x": 635,
+        "y": 115
+      }
+    ]
+  },
+  {
+    "name": "Belarus",
+    "synonyms": [
+      "Republic of Belarus"
+    ],
+    "coordinates": {
+      "x": 660,
+      "y": 120
+    }
+  },
+  {
+    "name": "Ukraine",
+    "synonyms": [],
+    "coordinates": {
+      "x": 675,
+      "y": 140
+    }
+  }
+]

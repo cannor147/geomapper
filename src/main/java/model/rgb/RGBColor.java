@@ -1,10 +1,12 @@
 package model.rgb;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
+
+import java.awt.*;
 
 @Getter
+@ToString
+@EqualsAndHashCode
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class RGBColor implements RGB {
     public static RGBColor of(int red, int green, int blue) {
@@ -39,7 +41,11 @@ public class RGBColor implements RGB {
         return this;
     }
 
+    public Color toColor() {
+        return new Color(red, green, blue);
+    }
+
     public int toInt() {
-        return this.red << 16 | this.green << 8 | this.blue;
+        return toColor().getRGB();
     }
 }
