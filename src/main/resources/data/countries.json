@@ -1,7 +1,9 @@
 [
   {
     "name": "Russia",
-    "synonyms": "Russian Federation",
+    "synonyms": [
+      "Russian Federation"
+    ],
     "coordinates": [
       {
         "x": 700,
@@ -35,7 +37,9 @@
   },
   {
     "name": "Belarus",
-    "synonyms": "Republic of Belarus",
+    "synonyms": [
+      "Republic of Belarus"
+    ],
     "coordinates": {
       "x": 660,
       "y": 120
@@ -51,7 +55,9 @@
   },
   {
     "name": "Kazakhstan",
-    "synonyms": "Republic of Kazakhstan",
+    "synonyms": [
+      "Republic of Kazakhstan"
+    ],
     "coordinates": {
       "x": 800,
       "y": 150
@@ -70,7 +76,9 @@
   },
   {
     "name": "Tajikistan",
-    "synonyms": "Republic of Tajikistan",
+    "synonyms": [
+      "Republic of Tajikistan"
+    ],
     "coordinates": {
       "x": 830,
       "y": 185
@@ -78,7 +86,9 @@
   },
   {
     "name": "Uzbekistan",
-    "synonyms": "Republic of Uzbekistan",
+    "synonyms": [
+      "Republic of Uzbekistan"
+    ],
     "coordinates": {
       "x": 800,
       "y": 175
@@ -86,7 +96,9 @@
   },
   {
     "name": "Turkmenistan",
-    "synonyms": "Turkmenia",
+    "synonyms": [
+      "Turkmenia"
+    ],
     "coordinates": {
       "x": 785,
       "y": 180
@@ -94,7 +106,9 @@
   },
   {
     "name": "Azerbaijan",
-    "synonyms": "Republic of Azerbaijan",
+    "synonyms": [
+      "Republic of Azerbaijan"
+    ],
     "coordinates": {
       "x": 745,
       "y": 180
@@ -102,7 +116,9 @@
   },
   {
     "name": "Armenia",
-    "synonyms": "Republic of Armenia",
+    "synonyms": [
+      "Republic of Armenia"
+    ],
     "coordinates": {
       "x": 730,
       "y": 180
@@ -118,7 +134,9 @@
   },
   {
     "name": "Moldova",
-    "synonyms": "Republic of Moldova",
+    "synonyms": [
+      "Republic of Moldova"
+    ],
     "coordinates": {
       "x": 666,
       "y": 150
@@ -126,14 +144,16 @@
   },
   {
     "name": "Estonia",
-    "synonyms": "Republic of Estonia",
+    "synonyms": [
+      "Republic of Estonia"
+    ],
     "coordinates": [
       {
         "x": 650,
         "y": 100
       },
       {
-        "x": 630,
+        "x": 639,
         "y": 98
       },
       {
@@ -144,7 +164,9 @@
   },
   {
     "name": "Latvia",
-    "synonyms": "Republic of Latvia",
+    "synonyms": [
+      "Republic of Latvia"
+    ],
     "coordinates": {
       "x": 650,
       "y": 105
@@ -152,10 +174,474 @@
   },
   {
     "name": "Lithuania",
-    "synonyms": "Republic of Lithuania",
+    "synonyms": [
+      "Republic of Lithuania"
+    ],
     "coordinates": {
       "x": 645,
       "y": 115
+    }
+  },
+  {
+    "name": "Finland",
+    "synonyms": [
+      "Republic of Finland"
+    ],
+    "coordinates": {
+      "x": 650,
+      "y": 75
+    }
+  },
+  {
+    "name": "Sweden",
+    "synonyms": [
+      "Kingdom of Sweden"
+    ],
+    "coordinates": {
+      "x": 615,
+      "y": 85
+    }
+  },
+  {
+    "name": "Norway",
+    "synonyms": [
+      "Kingdom of Norway"
+    ],
+    "coordinates": [
+      {
+        "x": 595,
+        "y": 90
+      },
+      {
+        "x": 610,
+        "y": 30
+      }
+    ]
+  },
+  {
+    "name": "Denmark",
+    "synonyms": [
+      "Kingdom of Denmark"
+    ],
+    "coordinates": [
+      {
+        "x": 595,
+        "y": 110
+      },
+      {
+        "x": 599,
+        "y": 112
+      },
+      {
+        "x": 603,
+        "y": 111
+      },
+      {
+        "x": 450,
+        "y": 40
+      }
+    ]
+  },
+  {
+    "name": "United Kingdom",
+    "synonyms": [
+      "United Kingdom of Great Britain and Northern Ireland",
+      "UK",
+      "Great Britain",
+      "Britain",
+      "GB"
+    ],
+    "coordinates": [
+      {
+        "x": 555,
+        "y": 125
+      },
+      {
+        "x": 540,
+        "y": 115
+      }
+    ]
+  },
+  {
+    "name": "Ireland",
+    "synonyms": [
+      "Republic of Ireland"
+    ],
+    "coordinates": {
+      "x": 535,
+      "y": 120
+    }
+  },
+  {
+    "name": "Iceland",
+    "synonyms": [],
+    "coordinates": {
+      "x": 535,
+      "y": 120
+    }
+  },
+  {
+    "name": "Poland",
+    "synonyms": [
+      "Republic of Poland"
+    ],
+    "coordinates": {
+      "x": 630,
+      "y": 130
+    }
+  },
+  {
+    "name": "Slovakia",
+    "synonyms": [
+      "Slovak Republic"
+    ],
+    "coordinates": {
+      "x": 630,
+      "y": 140
+    }
+  },
+  {
+    "name": "Hungary",
+    "synonyms": [],
+    "coordinates": {
+      "x": 630,
+      "y": 150
+    }
+  },
+  {
+    "name": "Romania",
+    "synonyms": [],
+    "coordinates": {
+      "x": 655,
+      "y": 155
+    }
+  },
+  {
+    "name": "Bulgaria",
+    "synonyms": [
+      "Republic of Bulgaria"
+    ],
+    "coordinates": {
+      "x": 655,
+      "y": 170
+    }
+  },
+  {
+    "name": "Greece",
+    "synonyms": [
+      "Hellas",
+      "Hellenic Republic"
+    ],
+    "coordinates": [
+      {
+        "x": 640,
+        "y": 180
+      },
+      {
+        "x": 656,
+        "y": 202
+      }
+    ]
+  },
+  {
+    "name": "Albania",
+    "synonyms": [
+      "Republic of Albania"
+    ],
+    "coordinates": {
+      "x": 620,
+      "y": 170
+    }
+  },
+  {
+    "name": "North Macedonia",
+    "synonyms": [
+      "Republic of North Macedonia",
+      "Former Yugoslav Republic of Macedonia",
+      "Macedonia",
+      "Republic of Macedonia",
+      "FYR Macedonia",
+      "FYROM"
+    ],
+    "coordinates": {
+      "x": 641,
+      "y": 172
+    }
+  },
+  {
+    "name": "Serbia",
+    "synonyms": [
+      "Republic of Serbia"
+    ],
+    "coordinates": {
+      "x": 635,
+      "y": 160
+    }
+  },
+  {
+    "name": "Kosovo",
+    "synonyms": [
+      "Republic of Kosovo"
+    ],
+    "coordinates": {
+      "x": 638,
+      "y": 168
+    }
+  },
+  {
+    "name": "Montenegro",
+    "synonyms": [],
+    "coordinates": {
+      "x": 632,
+      "y": 168
+    }
+  },
+  {
+    "name": "Bosnia and Herzegovina",
+    "synonyms": [
+      "BiH",
+      "B&H",
+      "Bosnia-Herzegovina",
+      "Bosnia—Herzegovina",
+      "Bosnia"
+    ],
+    "coordinates": {
+      "x": 627,
+      "y": 162
+    }
+  },
+  {
+    "name": "Croatia",
+    "synonyms": [
+      "Republic of Croatia"
+    ],
+    "coordinates": {
+      "x": 617,
+      "y": 157
+    }
+  },
+  {
+    "name": "Slovenia",
+    "synonyms": [
+      "Republic of Slovenia"
+    ],
+    "coordinates": {
+      "x": 613,
+      "y": 153
+    }
+  },
+  {
+    "name": "Austria",
+    "synonyms": [
+      "Republic of Austria"
+    ],
+    "coordinates": {
+      "x": 615,
+      "y": 145
+    }
+  },
+  {
+    "name": "Czech Republic",
+    "synonyms": [
+      "Czechia"
+    ],
+    "coordinates": {
+      "x": 617,
+      "y": 137
+    }
+  },
+  {
+    "name": "Germany",
+    "synonyms": [
+      "Federal Republic of Germany"
+    ],
+    "coordinates": {
+      "x": 600,
+      "y": 130
+    }
+  },
+  {
+    "name": "Netherlands",
+    "synonyms": [
+      "Kingdom of Netherlands",
+      "Holland"
+    ],
+    "coordinates": {
+      "x": 581,
+      "y": 126
+    }
+  },
+  {
+    "name": "Belgium",
+    "synonyms": [
+      "Kingdom of Belgium"
+    ],
+    "coordinates": {
+      "x": 577,
+      "y": 133
+    }
+  },
+  {
+    "name": "Luxembourg",
+    "synonyms": [
+      "Grand Duchy of Luxembourg"
+    ],
+    "coordinates": {
+      "x": 582,
+      "y": 137
+    }
+  },
+  {
+    "name": "France",
+    "synonyms": [
+      "French Republic"
+    ],
+    "coordinates": [
+      {
+        "x": 570,
+        "y": 150
+      },
+      {
+        "x": 595,
+        "y": 170
+      },
+      {
+        "x": 334,
+        "y": 344
+      },
+      {
+        "x": 1230,
+        "y": 457
+      }
+    ]
+  },
+  {
+    "name": "Andorra",
+    "synonyms": [
+      "Principality of Andorra"
+    ],
+    "coordinates": {
+      "x": 563,
+      "y": 168
+    }
+  },
+  {
+    "name": "Spain",
+    "synonyms": [
+      "Kingdom of Spain"
+    ],
+    "coordinates": [
+      {
+        "x": 550,
+        "y": 170
+      },
+      {
+        "x": 569,
+        "y": 182
+      }
+    ]
+  },
+  {
+    "name": "Portugal",
+    "synonyms": [
+      "Portuguese Republic"
+    ],
+    "coordinates": {
+      "x": 528,
+      "y": 182
+    }
+  },
+  {
+    "name": "Switzerland",
+    "synonyms": [
+      "Swiss Confederation"
+    ],
+    "coordinates": {
+      "x": 590,
+      "y": 150
+    }
+  },
+  {
+    "name": "Liechtenstein",
+    "synonyms": [
+      "Principality of Liechtenstein"
+    ],
+    "coordinates": {
+      "x": 598,
+      "y": 148
+    }
+  },
+  {
+    "name": "Italy",
+    "synonyms": [
+      "Italian Republic"
+    ],
+    "coordinates": [
+      {
+        "x": 607,
+        "y": 167
+      },
+      {
+        "x": 593,
+        "y": 179
+      },
+      {
+        "x": 614,
+        "y": 191
+      }
+    ]
+  },
+  {
+    "name": "San Marino",
+    "synonyms": [
+      "Most Serene Republic of San Marino",
+      "Republic of San Marino"
+    ],
+    "coordinates": {
+      "x": 603,
+      "y": 161
+    }
+  },
+  {
+    "name": "Vatican City",
+    "synonyms": [
+      "Vatican City State",
+      "Vatican"
+    ],
+    "coordinates": {
+      "x": 607,
+      "y": 172
+    }
+  },
+  {
+    "name": "Monaco",
+    "synonyms": [
+      "Principality of Monaco"
+    ],
+    "coordinates": {
+      "x": 587,
+      "y": 163
+    }
+  },
+  {
+    "name": "Malta",
+    "synonyms": [
+      "Republic of Malta",
+      "Melita"
+    ],
+    "coordinates": {
+      "x": 613,
+      "y": 200
+    }
+  },
+  {
+    "name": "Cyprus",
+    "synonyms": [
+      "Republic of Cyprus"
+    ],
+    "coordinates": {
+      "x": 688,
+      "y": 202
     }
   }
 ]
