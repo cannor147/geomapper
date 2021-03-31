@@ -643,5 +643,88 @@
       "x": 688,
       "y": 202
     }
+  },
+  {
+    "name": "Mongolia",
+    "synonyms": [],
+    "coordinates": {
+      "x": 940,
+      "y": 150
+    }
+  },
+  {
+    "name": "China",
+    "synonyms": [
+      "People's Republic of China",
+      "PRC"
+    ],
+    "coordinates": [
+      {
+        "x": 960,
+        "y": 200
+      },
+      {
+        "x": 1005,
+        "y": 275
+      }
+    ]
+  },
+  {
+    "name": "North Korea",
+    "synonyms": [
+      "Democratic People's Republic of Korea",
+      "DPRK",
+      "DPR Korea"
+    ],
+    "coordinates": {
+      "x": 1045,
+      "y": 180
+    }
+  },
+  {
+    "name": "South Korea",
+    "synonyms": [
+      "Republic of Korea",
+      "ROK"
+    ],
+    "coordinates": {
+      "x": 1058,
+      "y": 198
+    }
+  },
+  {
+    "name": "Japan",
+    "synonyms": [
+      "State of Japan"
+    ],
+    "coordinates": [
+      {
+        "x": 1100,
+        "y": 200
+      },
+      {
+        "x": 1095,
+        "y": 165
+      },
+      {
+        "x": 1085,
+        "y": 210
+      },
+      {
+        "x": 1075,
+        "y": 213
+      }
+    ]
+  },
+  {
+    "name": "Taiwan",
+    "synonyms": [
+      "Republic of China",
+      "ROC"
+    ],
+    "coordinates": {
+      "x": 1048,
+      "y": 255
+    }
   }
 ]
