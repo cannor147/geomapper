@@ -57,4 +57,8 @@ public class StraightRequestBuilder {
     public StraightRequest build() {
         return new StraightRequest(configuration, colorToTerritoriesMap, defaultColor);
     }
+
+    public Optional<StraightRequest> buildOptional() {
+        return Optional.of(build());
+    }
 }

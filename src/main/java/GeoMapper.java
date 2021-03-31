@@ -1,86 +1,39 @@
-import configuration.Configuration;
 import configuration.Configurer;
-import model.Color;
-import model.ColorizationTask;
-import model.Territory;
 import model.request.Request;
 import model.request.ScaleRequest;
 import model.request.StraightRequest;
-import model.rgb.RGBColor;
 import resources.ResourceReader;
-import service.ColorizationService;
-import util.RGBUtils;
+import service.RequestService;
 
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
-import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
-
-import static java.awt.image.BufferedImage.TYPE_3BYTE_BGR;
 
 public class GeoMapper {
-    private final Configurer configurer;
-    private final ColorizationService colorizationService;
+    public static final String PNG = "png";
+
+    private final RequestService requestService;
 
     public GeoMapper() throws IOException {
-        configurer = new Configurer(new ResourceReader());
-        colorizationService = new ColorizationService();
+        this.requestService = new RequestService(new Configurer(new ResourceReader()));
     }
 
-    public BufferedImage handleRequest(StraightRequest request) throws IOException {
-        final Configuration configuration = configurer.findConfiguration(request.getConfiguration());
-        final BufferedImage image = deepCopy(configuration.getMap());
-
-        final Queue<ColorizationTask> tasks = request.getColorToTerritoriesMap().entrySet().stream()
-                .flatMap(entry -> entry.getValue().stream()
-                        .map(territory -> configuration.getNameToTerritoryMap().get(territory))
-                        .filter(Objects::nonNull)
-                        .map(territory -> new ColorizationTask(territory, entry.getKey().getRgbColor())))
-                .collect(Collectors.toCollection(LinkedList::new));
-
-        tasks.addAll(createDefaultTasks(configuration, request, tasks));
-        colorizationService.perform(image, tasks);
-        return image;
+    public BufferedImage createMap(Request request) throws IOException {
+        return handleRequest(request);
     }
 
-    public BufferedImage handleRequest(ScaleRequest request) throws IOException {
-        final Configuration configuration = configurer.findConfiguration(request.getConfiguration());
-        final BufferedImage image = deepCopy(configuration.getMap());
-
-        final double distance = request.getMaxValue() - request.getMinValue();
-        final Color minColor = request.getMinColor();
-        final Color maxColor = request.getMaxColor();
-        final List<RGBColor> scheme = RGBUtils.generateScheme(minColor.getRgbColor(), maxColor.getRgbColor());
-        final Queue<ColorizationTask> tasks = request.getTerritoryToValueMap().entrySet().stream()
-                .filter(entry -> configuration.getNameToTerritoryMap().containsKey(entry.getKey()))
-                .map(entry -> {
-                    final int index = (int) Math.round((entry.getValue() - request.getMinValue()) / distance * 100);
-                    final Territory territory = configuration.getNameToTerritoryMap().get(entry.getKey());
-                    return new ColorizationTask(territory, scheme.get(Math.max(Math.min(index, 100), 0)));
-                })
-                .collect(Collectors.toCollection(LinkedList::new));
-
-        tasks.addAll(createDefaultTasks(configuration, request, tasks));
-        colorizationService.perform(image, tasks);
-        return image;
+    public void createMapToFile(Request request, File file) throws IOException {
+        ImageIO.write(createMap(request), PNG, file);
     }
 
-    private Queue<ColorizationTask> createDefaultTasks(Configuration configuration, Request request,
-                                                       Queue<ColorizationTask> tasks) {
-        final Set<Territory> usedTerritories = tasks.stream()
-                .map(ColorizationTask::getTerritory)
-                .collect(Collectors.toSet());
-        return configuration.getNameToTerritoryMap().values().stream()
-                .distinct()
-                .filter(Predicate.not(usedTerritories::contains))
-                .map(territory -> new ColorizationTask(territory, request.getDefaultColor().getRgbColor()))
-                .collect(Collectors.toCollection(LinkedList::new));
-    }
+    private BufferedImage handleRequest(Request request) throws IOException {
+        if (request instanceof ScaleRequest) {
+            return requestService.handleRequest((ScaleRequest) request);
+        } else if (request instanceof StraightRequest) {
+            return requestService.handleRequest((StraightRequest) request);
+        }
 
-    private static BufferedImage deepCopy(BufferedImage original) {
-        final BufferedImage result = new BufferedImage(original.getWidth(), original.getHeight(), TYPE_3BYTE_BGR);
-        result.getGraphics().drawImage(original, 0, 0, null);
-        return result;
+        throw new UnsupportedOperationException("Unknown request type.");
     }
 }

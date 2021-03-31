@@ -4,15 +4,11 @@ import model.request.ScaleRequestBuilder;
 import model.request.StraightRequest;
 import model.request.StraightRequestBuilder;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 public class Main {
-
     public static final String COUNTRIES = "countries";
 
     public static void main(String[] args) throws IOException {
@@ -30,8 +26,7 @@ public class Main {
                 .appendAll(Color.RED, "Russia", "Belarus", "Kazakhstan", "Kyrgyzstan", "Armenia")
                 .appendAll(Color.BLUE, eu)
                 .build();
-        final BufferedImage image = geoMapper.handleRequest(request);
-        ImageIO.write(image, "png", new File("straight.png"));
+        geoMapper.createMapToFile(request, new File("straight.png"));
     }
 
     public static void createScale(GeoMapper geoMapper) throws IOException {
@@ -44,7 +39,6 @@ public class Main {
                 .append("Azerbaijan", 4.3)
                 .useColor(Color.GREEN)
                 .build();
-        final BufferedImage image = geoMapper.handleRequest(request);
-        ImageIO.write(image, "png", new File("scale.png"));
+        geoMapper.createMapToFile(request, new File("scale.png"));
     }
 }

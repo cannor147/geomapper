@@ -82,4 +82,8 @@ public class ScaleRequestBuilder {
         minValue = Optional.ofNullable(minValue).orElseGet(() -> territoryToValueMap.values().stream().mapToDouble(x -> x).min().orElse(0.0));
         return new ScaleRequest(configuration, territoryToValueMap, maxColor, minColor, defaultColor, maxValue, minValue);
     }
+
+    public Optional<ScaleRequest> buildOptional() {
+        return Optional.of(build());
+    }
 }

@@ -21,6 +21,10 @@ public class PaintUtils {
 
     public static void fillArea(BufferedImage image, Coordinates coordinates, RGBColor rgbColor) {
         final RGBColor originalColor = getRGBColor(image, coordinates);
+        if (originalColor.equals(rgbColor)) {
+            return;
+        }
+
         final Set<Coordinates> area = new HashSet<>();
         final Queue<Coordinates> queue = new LinkedList<>();
         queue.add(coordinates);
