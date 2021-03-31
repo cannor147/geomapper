@@ -1154,5 +1154,216 @@
       "x": 1076,
       "y": 401
     }
+  },
+  {
+    "name": "Papua New Guinea",
+    "synonyms": [
+      "Independent State of Papua New Guinea"
+    ],
+    "coordinates": [
+      {
+        "x": 1155,
+        "y": 390
+      },
+      {
+        "x": 1188,
+        "y": 377
+      },
+      {
+        "x": 1183,
+        "y": 387
+      },
+      {
+        "x": 1198,
+        "y": 392
+      }
+    ]
+  },
+  {
+    "name": "Solomon Islands",
+    "synonyms": [],
+    "coordinates": [
+      {
+        "x": 1205,
+        "y": 395
+      },
+      {
+        "x": 1207,
+        "y": 400
+      },
+      {
+        "x": 1213,
+        "y": 400
+      },
+      {
+        "x": 1216,
+        "y": 406
+      },
+      {
+        "x": 1220,
+        "y": 404
+      },
+      {
+        "x": 1221,
+        "y": 410
+      }
+    ]
+  },
+  {
+    "name": "Vanuatu",
+    "synonyms": [
+      "Republic of Vanuatu"
+    ],
+    "coordinates": [
+      {
+        "x": 1244,
+        "y": 433
+      },
+      {
+        "x": 1247,
+        "y": 430
+      },
+      {
+        "x": 1248,
+        "y": 434
+      },
+      {
+        "x": 1245,
+        "y": 437
+      },
+      {
+        "x": 1246,
+        "y": 440
+      }
+    ]
+  },
+  {
+    "name": "Palau",
+    "synonyms": [
+      "Republic of Palau"
+    ],
+    "coordinates": {
+      "x": 1114,
+      "y": 327
+    }
+  },
+  {
+    "name": "Micronesia",
+    "synonyms": [
+      "Federated States of Micronesia",
+      "FSM"
+    ],
+    "coordinates": {
+      "x": 1211,
+      "y": 328
+    }
+  },
+  {
+    "name": "Marshall Islands",
+    "synonyms": [
+      "Republic of Marshall Islands"
+    ],
+    "coordinates": {
+      "x": 1270,
+      "y": 328
+    }
+  },
+  {
+    "name": "Nauru",
+    "synonyms": [
+      "Republic Nauru",
+      "Pleasant Island"
+    ],
+    "coordinates": {
+      "x": 1251,
+      "y": 363
+    }
+  },
+  {
+    "name": "Kiribati",
+    "synonyms": [
+      "Republic of Kiribati"
+    ],
+    "coordinates": {
+      "x": 1280,
+      "y": 356
+    }
+  },
+  {
+    "name": "Tuvalu",
+    "synonyms": [
+      "Ellice Islands"
+    ],
+    "coordinates": {
+      "x": 1298,
+      "y": 406
+    }
+  },
+  {
+    "name": "Samoa",
+    "synonyms": [
+      "Independent State of Samoa",
+      "Western Samoa"
+    ],
+    "coordinates": {
+      "x": 1330,
+      "y": 425
+    }
+  },
+  {
+    "name": "Tonga",
+    "synonyms": [
+      "Kingdom of Tonga"
+    ],
+    "coordinates": {
+      "x": 1311,
+      "y": 454
+    }
+  },
+  {
+    "name": "Fiji",
+    "synonyms": [
+      "Republic of Fiji"
+    ],
+    "coordinates": [
+      {
+        "x": 1286,
+        "y": 442
+      },
+      {
+        "x": 1292,
+        "y": 438
+      }
+    ]
+  },
+  {
+    "name": "New Zealand",
+    "synonyms": [],
+    "coordinates": [
+      {
+        "x": 1238,
+        "y": 540
+      },
+      {
+        "x": 1200,
+        "y": 560
+      }
+    ]
+  },
+  {
+    "name": "Australia",
+    "synonyms": [
+      "Commonwealth of Australia"
+    ],
+    "coordinates": [
+      {
+        "x": 1100,
+        "y": 475
+      },
+      {
+        "x": 1117,
+        "y": 553
+      }
+    ]
   }
 ]
