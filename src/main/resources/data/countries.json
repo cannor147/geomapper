@@ -1365,5 +1365,570 @@
         "y": 553
       }
     ]
+  },
+  {
+    "name": "Egypt",
+    "synonyms": [
+      "Arab Republic of Egypt"
+    ],
+    "coordinates": {
+      "x": 675,
+      "y": 240
+    }
+  },
+  {
+    "name": "Libya",
+    "synonyms": [
+      "State of Libya"
+    ],
+    "coordinates": {
+      "x": 630,
+      "y": 240
+    }
+  },
+  {
+    "name": "Tunisia",
+    "synonyms": [
+      "Republic of Tunisia"
+    ],
+    "coordinates": {
+      "x": 595,
+      "y": 210
+    }
+  },
+  {
+    "name": "Algeria",
+    "synonyms": [
+      "People's Democratic Republic of Algeria"
+    ],
+    "coordinates": {
+      "x": 570,
+      "y": 235
+    }
+  },
+  {
+    "name": "Morocco",
+    "synonyms": [
+      "Kingdom of Morocco"
+    ],
+    "coordinates": {
+      "x": 535,
+      "y": 215
+    }
+  },
+  {
+    "name": "Mauritania",
+    "synonyms": [
+      "Islamic Republic of Mauritania"
+    ],
+    "coordinates": {
+      "x": 515,
+      "y": 275
+    }
+  },
+  {
+    "name": "Mali",
+    "synonyms": [
+      "Republic of Mali"
+    ],
+    "coordinates": {
+      "x": 540,
+      "y": 285
+    }
+  },
+  {
+    "name": "Senegal",
+    "synonyms": [
+      "Republic of Senegal"
+    ],
+    "coordinates": {
+      "x": 500,
+      "y": 295
+    }
+  },
+  {
+    "name": "Gambia",
+    "synonyms": [
+      "Republic of Gambia"
+    ],
+    "coordinates": {
+      "x": 493,
+      "y": 298
+    }
+  },
+  {
+    "name": "Cape Verde",
+    "synonyms": [
+      "Cabo Verde",
+      "Republic of Cabo Verde"
+    ],
+    "coordinates": {
+      "x": 465,
+      "y": 286
+    }
+  },
+  {
+    "name": "Guinea-Bissau",
+    "synonyms": [
+      "Republic of Guinea-Bissau"
+    ],
+    "coordinates": {
+      "x": 495,
+      "y": 306
+    }
+  },
+  {
+    "name": "Guinea",
+    "synonyms": [
+      "Republic of Guinea",
+      "French Guinea",
+      "Guinea-Conakry"
+    ],
+    "coordinates": {
+      "x": 508,
+      "y": 312
+    }
+  },
+  {
+    "name": "Sierra Leone",
+    "synonyms": [
+      "Republic of Sierra Leone",
+      "Salone"
+    ],
+    "coordinates": {
+      "x": 506,
+      "y": 322
+    }
+  },
+  {
+    "name": "Liberia",
+    "synonyms": [
+      "Republic of Liberia"
+    ],
+    "coordinates": {
+      "x": 512,
+      "y": 332
+    }
+  },
+  {
+    "name": "Ivory Coast",
+    "synonyms": [
+      "Côte d'Ivoire",
+      "Cote d'Ivoire",
+      "Cote dIvoire",
+      "Republic of Côte d'Ivoire",
+      "Republic of Cote d'Ivoire",
+      "Republic of Cote dIvoire"
+    ],
+    "coordinates": {
+      "x": 532,
+      "y": 327
+    }
+  },
+  {
+    "name": "Burkina Faso",
+    "synonyms": [],
+    "coordinates": {
+      "x": 550,
+      "y": 305
+    }
+  },
+  {
+    "name": "Ghana",
+    "synonyms": [
+      "Republic of Ghana",
+      "Gold Coast"
+    ],
+    "coordinates": {
+      "x": 550,
+      "y": 325
+    }
+  },
+  {
+    "name": "Togo",
+    "synonyms": [
+      "Togolese Republic"
+    ],
+    "coordinates": {
+      "x": 560,
+      "y": 325
+    }
+  },
+  {
+    "name": "Benin",
+    "synonyms": [
+      "Republic of Benin"
+    ],
+    "coordinates": {
+      "x": 565,
+      "y": 320
+    }
+  },
+  {
+    "name": "Nigeria",
+    "synonyms": [
+      "Federal Republic of Nigeria"
+    ],
+    "coordinates": {
+      "x": 590,
+      "y": 320
+    }
+  },
+  {
+    "name": "Niger",
+    "synonyms": [
+      "Republic of Niger"
+    ],
+    "coordinates": {
+      "x": 595,
+      "y": 285
+    }
+  },
+  {
+    "name": "Chad",
+    "synonyms": [
+      "Republic of Chad"
+    ],
+    "coordinates": {
+      "x": 630,
+      "y": 295
+    }
+  },
+  {
+    "name": "Sudan",
+    "synonyms": [
+      "Republic of the Sudan",
+      "North Sudan"
+    ],
+    "coordinates": {
+      "x": 680,
+      "y": 290
+    }
+  },
+  {
+    "name": "Eritrea",
+    "synonyms": [
+      "State of Eritrea"
+    ],
+    "coordinates": {
+      "x": 720,
+      "y": 295
+    }
+  },
+  {
+    "name": "Djibouti",
+    "synonyms": [
+      "Republic of Djibouti"
+    ],
+    "coordinates": {
+      "x": 732,
+      "y": 308
+    }
+  },
+  {
+    "name": "Somalia",
+    "synonyms": [
+      "Federal Republic of Somalia"
+    ],
+    "coordinates": {
+      "x": 750,
+      "y": 340
+    }
+  },
+  {
+    "name": "Ethiopia",
+    "synonyms": [
+      "Federal Democratic Republic of Ethiopia"
+    ],
+    "coordinates": {
+      "x": 720,
+      "y": 325
+    }
+  },
+  {
+    "name": "South Sudan",
+    "synonyms": [
+      "Republic of South Sudan"
+    ],
+    "coordinates": {
+      "x": 680,
+      "y": 330
+    }
+  },
+  {
+    "name": "Central African Republic",
+    "synonyms": [
+      "CAR"
+    ],
+    "coordinates": {
+      "x": 640,
+      "y": 330
+    }
+  },
+  {
+    "name": "Cameroon",
+    "synonyms": [
+      "Republic of Cameroon"
+    ],
+    "coordinates": {
+      "x": 605,
+      "y": 340
+    }
+  },
+  {
+    "name": "São Tomé and Príncipe",
+    "synonyms": [
+      "Sao Tome and Principe",
+      "Saint Thomas and Prince",
+      "Democratic Republic of São Tomé and Príncipe",
+      "Democratic Republic of Sao Tome and Principe",
+      "Democratic Republic of Saint Thomas and Prince",
+      "São Tomé",
+      "Sao Tome",
+      "Saint Thomas"
+    ],
+    "coordinates": {
+      "x": 587,
+      "y": 356
+    }
+  },
+  {
+    "name": "Equatorial Guinea",
+    "synonyms": [
+      "Republic of Equatorial Guinea"
+    ],
+    "coordinates": {
+      "x": 600,
+      "y": 353
+    }
+  },
+  {
+    "name": "Gabon",
+    "synonyms": [
+      "Gabonese Republic"
+    ],
+    "coordinates": {
+      "x": 605,
+      "y": 365
+    }
+  },
+  {
+    "name": "Republic of Congo",
+    "synonyms": [
+      "Congo Republic",
+      "Congo-Brazzaville"
+    ],
+    "coordinates": {
+      "x": 620,
+      "y": 365
+    }
+  },
+  {
+    "name": "Democratic Republic of Congo",
+    "synonyms": [
+      "DRC",
+      "DROC",
+      "DR Congo",
+      "Congo-Kinshasa",
+      "Zaire"
+    ],
+    "coordinates": {
+      "x": 650,
+      "y": 375
+    }
+  },
+  {
+    "name": "Burundi",
+    "synonyms": [
+      "Republic of Burundi"
+    ],
+    "coordinates": {
+      "x": 680,
+      "y": 375
+    }
+  },
+  {
+    "name": "Rwanda",
+    "synonyms": [
+      "Republic of Rwanda"
+    ],
+    "coordinates": {
+      "x": 680,
+      "y": 370
+    }
+  },
+  {
+    "name": "Uganda",
+    "synonyms": [
+      "Republic of Uganda"
+    ],
+    "coordinates": {
+      "x": 690,
+      "y": 355
+    }
+  },
+  {
+    "name": "Kenya",
+    "synonyms": [
+      "Republic of Kenya"
+    ],
+    "coordinates": {
+      "x": 715,
+      "y": 360
+    }
+  },
+  {
+    "name": "Tanzania",
+    "synonyms": [
+      "Republic of Tanzania"
+    ],
+    "coordinates": {
+      "x": 700,
+      "y": 390
+    }
+  },
+  {
+    "name": "Malawi",
+    "synonyms": [
+      "Republic of Malawi"
+    ],
+    "coordinates": {
+      "x": 695,
+      "y": 420
+    }
+  },
+  {
+    "name": "Zambia",
+    "synonyms": [
+      "Republic of Zambia"
+    ],
+    "coordinates": {
+      "x": 670,
+      "y": 425
+    }
+  },
+  {
+    "name": "Angola",
+    "synonyms": [
+      "Republic of Angola"
+    ],
+    "coordinates": {
+      "x": 630,
+      "y": 415
+    }
+  },
+  {
+    "name": "Namibia",
+    "synonyms": [
+      "Republic of Namibia"
+    ],
+    "coordinates": {
+      "x": 625,
+      "y": 460
+    }
+  },
+  {
+    "name": "Botswana",
+    "synonyms": [
+      "Republic of Botswana"
+    ],
+    "coordinates": {
+      "x": 655,
+      "y": 460
+    }
+  },
+  {
+    "name": "Zimbabwe",
+    "synonyms": [
+      "Republic of Zimbabwe"
+    ],
+    "coordinates": {
+      "x": 680,
+      "y": 450
+    }
+  },
+  {
+    "name": "Mozambique",
+    "synonyms": [
+      "Republic of Mozambique"
+    ],
+    "coordinates": {
+      "x": 700,
+      "y": 440
+    }
+  },
+  {
+    "name": "Eswatini",
+    "synonyms": [
+      "Kingdom of Eswatini",
+      "Swaziland",
+      "Kingdom of Swaziland"
+    ],
+    "coordinates": {
+      "x": 683,
+      "y": 481
+    }
+  },
+  {
+    "name": "South Africa",
+    "synonyms": [
+      "Republic of South Africa",
+      "RSA"
+    ],
+    "coordinates": {
+      "x": 660,
+      "y": 490
+    }
+  },
+  {
+    "name": "Lesotho",
+    "synonyms": [
+      "Kingdom of Lesotho"
+    ],
+    "coordinates": {
+      "x": 670,
+      "y": 495
+    }
+  },
+  {
+    "name": "Madagascar",
+    "synonyms": [
+      "Republic of Madagascar",
+      "Malagasy Republic"
+    ],
+    "coordinates": {
+      "x": 745,
+      "y": 450
+    }
+  },
+  {
+    "name": "Mauritius",
+    "synonyms": [
+      "Republic of Mauritius"
+    ],
+    "coordinates": {
+      "x": 792,
+      "y": 453
+    }
+  },
+  {
+    "name": "Seychelles",
+    "synonyms": [
+      "Republic of Seychelles"
+    ],
+    "coordinates": {
+      "x": 789,
+      "y": 385
+    }
+  },
+  {
+    "name": "Comoros",
+    "synonyms": [
+      "Union of Comoros"
+    ],
+    "coordinates": {
+      "x": 736,
+      "y": 419
+    }
   }
 ]
