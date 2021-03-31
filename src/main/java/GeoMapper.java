@@ -3,6 +3,7 @@ import configuration.Configurer;
 import model.Color;
 import model.ColorizationTask;
 import model.Territory;
+import model.request.Request;
 import model.request.ScaleRequest;
 import model.request.StraightRequest;
 import model.rgb.RGBColor;
@@ -11,10 +12,9 @@ import service.ColorizationService;
 import util.RGBUtils;
 
 import java.awt.image.BufferedImage;
-import java.awt.image.ColorModel;
-import java.awt.image.WritableRaster;
 import java.io.IOException;
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import static java.awt.image.BufferedImage.TYPE_3BYTE_BGR;
@@ -36,8 +36,10 @@ public class GeoMapper {
                 .flatMap(entry -> entry.getValue().stream()
                         .map(territory -> configuration.getNameToTerritoryMap().get(territory))
                         .filter(Objects::nonNull)
-                        .map(territory -> new ColorizationTask(territory, entry.getKey().getNormal())))
+                        .map(territory -> new ColorizationTask(territory, entry.getKey().getRgbColor())))
                 .collect(Collectors.toCollection(LinkedList::new));
+
+        tasks.addAll(createDefaultTasks(configuration, request, tasks));
         colorizationService.perform(image, tasks);
         return image;
     }
@@ -47,8 +49,9 @@ public class GeoMapper {
         final BufferedImage image = deepCopy(configuration.getMap());
 
         final double distance = request.getMaxValue() - request.getMinValue();
-        final Color color = request.getColor();
-        final List<RGBColor> scheme = RGBUtils.generateScheme(color.getPale(), color.getNormal());
+        final Color minColor = request.getMinColor();
+        final Color maxColor = request.getMaxColor();
+        final List<RGBColor> scheme = RGBUtils.generateScheme(minColor.getRgbColor(), maxColor.getRgbColor());
         final Queue<ColorizationTask> tasks = request.getTerritoryToValueMap().entrySet().stream()
                 .filter(entry -> configuration.getNameToTerritoryMap().containsKey(entry.getKey()))
                 .map(entry -> {
@@ -57,8 +60,22 @@ public class GeoMapper {
                     return new ColorizationTask(territory, scheme.get(Math.max(Math.min(index, 100), 0)));
                 })
                 .collect(Collectors.toCollection(LinkedList::new));
+
+        tasks.addAll(createDefaultTasks(configuration, request, tasks));
         colorizationService.perform(image, tasks);
         return image;
+    }
+
+    private Queue<ColorizationTask> createDefaultTasks(Configuration configuration, Request request,
+                                                       Queue<ColorizationTask> tasks) {
+        final Set<Territory> usedTerritories = tasks.stream()
+                .map(ColorizationTask::getTerritory)
+                .collect(Collectors.toSet());
+        return configuration.getNameToTerritoryMap().values().stream()
+                .distinct()
+                .filter(Predicate.not(usedTerritories::contains))
+                .map(territory -> new ColorizationTask(territory, request.getDefaultColor().getRgbColor()))
+                .collect(Collectors.toCollection(LinkedList::new));
     }
 
     private static BufferedImage deepCopy(BufferedImage original) {

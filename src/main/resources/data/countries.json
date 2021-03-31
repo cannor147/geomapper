@@ -276,8 +276,8 @@
     "name": "Iceland",
     "synonyms": [],
     "coordinates": {
-      "x": 535,
-      "y": 120
+      "x": 505,
+      "y": 75
     }
   },
   {
@@ -349,8 +349,8 @@
       "Republic of Albania"
     ],
     "coordinates": {
-      "x": 620,
-      "y": 170
+      "x": 635,
+      "y": 175
     }
   },
   {
@@ -912,7 +912,7 @@
     ],
     "coordinates": {
       "x": 890,
-      "y": 237
+      "y": 327
     }
   },
   {

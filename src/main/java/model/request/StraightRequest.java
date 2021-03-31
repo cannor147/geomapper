@@ -1,18 +1,15 @@
 package model.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import model.Color;
 
 import java.util.List;
 import java.util.Map;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class StraightRequest {
-    private String configuration;
-    private Map<Color, List<String>> colorToTerritoriesMap;
-    private Color defaultColor;
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
+public class StraightRequest implements Request {
+    private final String configuration;
+    private final Map<Color, List<String>> colorToTerritoriesMap;
+    private final Color defaultColor;
 }

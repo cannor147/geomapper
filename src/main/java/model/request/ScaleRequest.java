@@ -1,27 +1,20 @@
 package model.request;
 
-import lombok.AllArgsConstructor;
+import lombok.AccessLevel;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import model.Color;
 
 import java.util.Map;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class ScaleRequest {
-    private String configuration;
-    private Map<String, Double> territoryToValueMap;
-    private Color color;
-    private Color defaultColor;
-    private double minValue;
-    private double maxValue;
-
-    @SuppressWarnings("OptionalGetWithoutIsPresent")
-    public ScaleRequest(String configuration, Map<String, Double> territoryToValueMap, Color color, Color defaultColor) {
-        this(configuration, territoryToValueMap, color, defaultColor,
-                territoryToValueMap.values().stream().mapToDouble(x -> x).min().getAsDouble(),
-                territoryToValueMap.values().stream().mapToDouble(x -> x).max().getAsDouble());
-    }
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
+public class ScaleRequest implements Request {
+    private final String configuration;
+    private final Map<String, Double> territoryToValueMap;
+    private final Color maxColor;
+    private final Color minColor;
+    private final Color defaultColor;
+    private final double maxValue;
+    private final double minValue;
 }
