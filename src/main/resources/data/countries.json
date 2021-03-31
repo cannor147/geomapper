@@ -1,9 +1,7 @@
 [
   {
     "name": "Russia",
-    "synonyms": [
-      "Russian Federation"
-    ],
+    "synonyms": "Russian Federation",
     "coordinates": [
       {
         "x": 700,
@@ -37,9 +35,7 @@
   },
   {
     "name": "Belarus",
-    "synonyms": [
-      "Republic of Belarus"
-    ],
+    "synonyms": "Republic of Belarus",
     "coordinates": {
       "x": 660,
       "y": 120
@@ -51,6 +47,115 @@
     "coordinates": {
       "x": 675,
       "y": 140
+    }
+  },
+  {
+    "name": "Kazakhstan",
+    "synonyms": "Republic of Kazakhstan",
+    "coordinates": {
+      "x": 800,
+      "y": 150
+    }
+  },
+  {
+    "name": "Kyrgyzstan",
+    "synonyms": [
+      "Kyrgyz Republic",
+      "Kyrghizia"
+    ],
+    "coordinates": {
+      "x": 845,
+      "y": 175
+    }
+  },
+  {
+    "name": "Tajikistan",
+    "synonyms": "Republic of Tajikistan",
+    "coordinates": {
+      "x": 830,
+      "y": 185
+    }
+  },
+  {
+    "name": "Uzbekistan",
+    "synonyms": "Republic of Uzbekistan",
+    "coordinates": {
+      "x": 800,
+      "y": 175
+    }
+  },
+  {
+    "name": "Turkmenistan",
+    "synonyms": "Turkmenia",
+    "coordinates": {
+      "x": 785,
+      "y": 180
+    }
+  },
+  {
+    "name": "Azerbaijan",
+    "synonyms": "Republic of Azerbaijan",
+    "coordinates": {
+      "x": 745,
+      "y": 180
+    }
+  },
+  {
+    "name": "Armenia",
+    "synonyms": "Republic of Armenia",
+    "coordinates": {
+      "x": 730,
+      "y": 180
+    }
+  },
+  {
+    "name": "Georgia",
+    "synonyms": [],
+    "coordinates": {
+      "x": 720,
+      "y": 170
+    }
+  },
+  {
+    "name": "Moldova",
+    "synonyms": "Republic of Moldova",
+    "coordinates": {
+      "x": 666,
+      "y": 150
+    }
+  },
+  {
+    "name": "Estonia",
+    "synonyms": "Republic of Estonia",
+    "coordinates": [
+      {
+        "x": 650,
+        "y": 100
+      },
+      {
+        "x": 630,
+        "y": 98
+      },
+      {
+        "x": 640,
+        "y": 100
+      }
+    ]
+  },
+  {
+    "name": "Latvia",
+    "synonyms": "Republic of Latvia",
+    "coordinates": {
+      "x": 650,
+      "y": 105
+    }
+  },
+  {
+    "name": "Lithuania",
+    "synonyms": "Republic of Lithuania",
+    "coordinates": {
+      "x": 645,
+      "y": 115
     }
   }
 ]
