@@ -55,7 +55,7 @@ public class ScaleRequestBuilder {
     }
 
     public ScaleRequestBuilder useColor(Color maxColor) {
-        return useColor(maxColor, maxColor.getDefaultOpposite());
+        return useColor(maxColor, Optional.ofNullable(maxColor.getDefaultOpposite()).orElse(maxColor));
     }
 
     public ScaleRequestBuilder reverseColors() {

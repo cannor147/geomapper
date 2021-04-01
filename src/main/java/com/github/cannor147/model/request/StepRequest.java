@@ -24,7 +24,7 @@ public class StepRequest implements Request {
     public Queue<ColorizationTask> toTasks(Configuration configuration) {
         final List<Double> separators = new ArrayList<>(valueSeparators);
         final List<RGBColor> scheme = RGBUtils.generateScheme(minColor.getRgbColor(),
-                maxColor.getRgbColor(), valueSeparators.size() + 1);
+                maxColor.getRgbColor(), valueSeparators.size());
         return territoryToValueMap.entrySet().stream()
                 .map(e -> configuration.find(e.getKey())
                         .map(t -> new ColorizationTask(t, scheme.get(findIndex(separators, e.getValue()))))
