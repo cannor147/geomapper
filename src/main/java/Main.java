@@ -3,18 +3,21 @@ import model.request.ScaleRequest;
 import model.request.ScaleRequestBuilder;
 import model.request.StraightRequest;
 import model.request.StraightRequestBuilder;
+import resources.ResourceReader;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 
 public class Main {
     public static final String COUNTRIES = "countries";
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, URISyntaxException {
+        final ResourceReader resourceReader = new ResourceReader();
         final GeoMapper geoMapper = new GeoMapper();
         createStraight(geoMapper);
-        createScale(geoMapper);
+        createScale(resourceReader, geoMapper);
     }
 
     public static void createStraight(GeoMapper geoMapper) throws IOException {
@@ -29,9 +32,9 @@ public class Main {
         geoMapper.createMapToFile(request, new File("straight.png"));
     }
 
-    public static void createScale(GeoMapper geoMapper) throws IOException {
+    public static void createScale(ResourceReader resourceReader, GeoMapper geoMapper) throws IOException, URISyntaxException {
         final ScaleRequest request = new ScaleRequestBuilder(COUNTRIES)
-                .fromCsv(new File("C:\\Users\\cannor147\\Downloads\\Kek.csv"), 1, 2)
+                .fromCsv(resourceReader.getResource("example/gdp.csv"), 1, 2)
                 .useColor(Color.GREEN, Color.RED)
                 .addLogarithmization(10)
                 .build();

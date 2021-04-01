@@ -5,7 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Objects;
 
@@ -28,5 +30,9 @@ public class ResourceReader {
         final URL resource = classLoader.getResource(filePath);
         Objects.requireNonNull(resource);
         return ImageIO.read(resource);
+    }
+
+    public File getResource(String filePath) throws URISyntaxException {
+        return new File(classLoader.getResource(filePath).toURI());
     }
 }
