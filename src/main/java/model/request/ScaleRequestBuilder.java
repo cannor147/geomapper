@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @SuppressWarnings({"unused", "UnusedReturnValue"})
@@ -22,6 +23,7 @@ public class ScaleRequestBuilder {
     private Color defaultColor = Color.SILVER;
     private Double maxValue;
     private Double minValue;
+    private Function<Double, Double> transformer = x -> x;
 
     public <N extends Number> ScaleRequestBuilder append(String territory, N value) {
         territoryToValueMap.put(territory, value.doubleValue());
@@ -81,6 +83,11 @@ public class ScaleRequestBuilder {
         return this;
     }
 
+    public <N extends Number> ScaleRequestBuilder addLogarithmization(N base) {
+        this.transformer = x -> Math.log(x) / Math.log(base.doubleValue());
+        return this;
+    }
+
     public ScaleRequestBuilder fromCsv(File file, int nameColumn, int valueColumn) throws IOException {
         return ReadUtils.readCsv(file, nameColumn, valueColumn).stream()
                 .map(pair -> Pair.of(pair.getLeft(), ReadUtils.safeParseNumber(pair.getRight())))
@@ -89,9 +96,15 @@ public class ScaleRequestBuilder {
     }
 
     public ScaleRequest build() {
-        maxValue = Optional.ofNullable(maxValue).orElseGet(() -> territoryToValueMap.values().stream().mapToDouble(x -> x).max().orElse(100.0));
-        minValue = Optional.ofNullable(minValue).orElseGet(() -> territoryToValueMap.values().stream().mapToDouble(x -> x).min().orElse(0.0));
-        return new ScaleRequest(configuration, territoryToValueMap, maxColor, minColor, defaultColor, maxValue, minValue);
+        final Map<String, Double> data = territoryToValueMap.entrySet().stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, e -> transformer.apply(e.getValue())));
+        final Double maxValue = Optional.ofNullable(this.maxValue)
+                .map(transformer)
+                .orElseGet(() -> data.values().stream().mapToDouble(x -> x).max().orElse(100.0));
+        final Double minValue = Optional.ofNullable(this.maxValue)
+                .map(transformer)
+                .orElseGet(() -> data.values().stream().mapToDouble(x -> x).min().orElse(0.0));
+        return new ScaleRequest(configuration, data, maxColor, minColor, defaultColor, maxValue, minValue);
     }
 
     public Optional<ScaleRequest> buildOptional() {

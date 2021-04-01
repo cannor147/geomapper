@@ -32,7 +32,8 @@ public class Main {
     public static void createScale(GeoMapper geoMapper) throws IOException {
         final ScaleRequest request = new ScaleRequestBuilder(COUNTRIES)
                 .fromCsv(new File("C:\\Users\\cannor147\\Downloads\\Kek.csv"), 1, 2)
-                .useColor(Color.GREEN)
+                .useColor(Color.GREEN, Color.RED)
+                .addLogarithmization(10)
                 .build();
         geoMapper.createMapToFile(request, new File("scale.png"));
     }
