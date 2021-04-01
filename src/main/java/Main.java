@@ -35,7 +35,7 @@ public class Main {
     public static void createScale(ResourceReader resourceReader, GeoMapper geoMapper) throws IOException, URISyntaxException {
         final ScaleRequest request = new ScaleRequestBuilder(COUNTRIES)
                 .fromCsv(resourceReader.getResource("example/gdp.csv"), 1, 2)
-                .useColor(Color.GREEN, Color.RED)
+                .useColor(Color.BLUE, Color.RED)
                 .addLogarithmization(10)
                 .build();
         geoMapper.createMapToFile(request, new File("scale.png"));
