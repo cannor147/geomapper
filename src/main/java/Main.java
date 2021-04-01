@@ -1,8 +1,5 @@
 import model.Color;
-import model.request.ScaleRequest;
-import model.request.ScaleRequestBuilder;
-import model.request.StraightRequest;
-import model.request.StraightRequestBuilder;
+import model.request.*;
 import resources.ResourceReader;
 
 import java.io.File;
@@ -18,6 +15,7 @@ public class Main {
         final GeoMapper geoMapper = new GeoMapper();
         createStraight(geoMapper);
         createScale(resourceReader, geoMapper);
+        createStep(resourceReader, geoMapper);
     }
 
     public static void createStraight(GeoMapper geoMapper) throws IOException {
@@ -35,9 +33,18 @@ public class Main {
     public static void createScale(ResourceReader resourceReader, GeoMapper geoMapper) throws IOException, URISyntaxException {
         final ScaleRequest request = new ScaleRequestBuilder(COUNTRIES)
                 .fromCsv(resourceReader.getResource("example/gdp.csv"), 1, 2)
-                .useColor(Color.BLUE, Color.RED)
+                .useColor(Color.GREEN)
                 .addLogarithmization(10)
                 .build();
         geoMapper.createMapToFile(request, new File("scale.png"));
+    }
+
+    public static void createStep(ResourceReader resourceReader, GeoMapper geoMapper) throws IOException, URISyntaxException {
+        final StepRequest request = new StepRequestBuilder(COUNTRIES)
+                .fromCsv(resourceReader.getResource("example/hdr.csv"), 2, 3)
+                .useColor(Color.BLUE, Color.RED)
+                .withSeparators(0.8, 0.7, 0.55)
+                .build();
+        geoMapper.createMapToFile(request, new File("step.png"));
     }
 }
