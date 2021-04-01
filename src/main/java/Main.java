@@ -31,12 +31,7 @@ public class Main {
 
     public static void createScale(GeoMapper geoMapper) throws IOException {
         final ScaleRequest request = new ScaleRequestBuilder(COUNTRIES)
-                .append("Russia", 144.4)
-                .append("Ukraine", 44.39)
-                .append("Belarus", 9.467)
-                .append("Kazakhstan", 20.0)
-                .append("Uzbekistan", 39.0)
-                .append("Azerbaijan", 4.3)
+                .fromCsv(new File("C:\\Users\\cannor147\\Downloads\\Kek.csv"), 1, 2)
                 .useColor(Color.GREEN)
                 .build();
         geoMapper.createMapToFile(request, new File("scale.png"));

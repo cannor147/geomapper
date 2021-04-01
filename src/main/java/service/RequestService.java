@@ -19,6 +19,8 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import static java.awt.image.BufferedImage.TYPE_3BYTE_BGR;
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.joining;
 
 @RequiredArgsConstructor
 public class RequestService {
@@ -36,7 +38,7 @@ public class RequestService {
 
         final Queue<ColorizationTask> tasks = request.getColorToTerritoriesMap().entrySet().stream()
                 .flatMap(entry -> entry.getValue().stream()
-                        .map(territory -> configuration.getNameToTerritoryMap().get(territory))
+                        .map(territory -> find(configuration, territory).orElse(null))
                         .filter(Objects::nonNull)
                         .map(territory -> new ColorizationTask(territory, entry.getKey().getRgbColor())))
                 .collect(Collectors.toCollection(LinkedList::new));
@@ -50,17 +52,17 @@ public class RequestService {
         final Configuration configuration = configurer.findConfiguration(request.getConfiguration());
         final BufferedImage image = deepCopy(configuration.getMap());
 
-        final double distance = request.getMaxValue() - request.getMinValue();
+        final double minValue = request.getMinValue();
+        final double maxValue = request.getMaxValue();
         final Color minColor = request.getMinColor();
         final Color maxColor = request.getMaxColor();
+
         final List<RGBColor> scheme = RGBUtils.generateScheme(minColor.getRgbColor(), maxColor.getRgbColor());
         final Queue<ColorizationTask> tasks = request.getTerritoryToValueMap().entrySet().stream()
-                .filter(entry -> configuration.getNameToTerritoryMap().containsKey(entry.getKey()))
-                .map(entry -> {
-                    final int index = (int) Math.round((entry.getValue() - request.getMinValue()) / distance * 100);
-                    final Territory territory = configuration.getNameToTerritoryMap().get(entry.getKey());
-                    return new ColorizationTask(territory, scheme.get(Math.max(Math.min(index, 100), 0)));
-                })
+                .map(e -> find(configuration, e.getKey())
+                        .map(t -> new ColorizationTask(t, scheme.get(toPercent(e.getValue(), minValue, maxValue))))
+                        .orElse(null))
+                .filter(Objects::nonNull)
                 .collect(Collectors.toCollection(LinkedList::new));
 
         tasks.addAll(createDefaultTasks(configuration, request, tasks));
@@ -80,9 +82,20 @@ public class RequestService {
                 .collect(Collectors.toCollection(LinkedList::new));
     }
 
+    private Optional<Territory> find(Configuration configuration, String territoryName) {
+        final Map<String, Territory> nameToTerritoryMap = configuration.getNameToTerritoryMap();
+        return Arrays.stream(territoryName.trim().toLowerCase().split("\\s+"))
+                .filter(Predicate.not("the"::equals))
+                .collect(collectingAndThen(joining(" "), name -> Optional.ofNullable(nameToTerritoryMap.get(name))));
+    }
+
     private static BufferedImage deepCopy(BufferedImage original) {
         final BufferedImage result = new BufferedImage(original.getWidth(), original.getHeight(), TYPE_3BYTE_BGR);
         result.getGraphics().drawImage(original, 0, 0, null);
         return result;
+    }
+
+    private static int toPercent(double x, double min, double max) {
+        return Math.max(Math.min((int) Math.round((x - min) / (max - min) * 100), 100), 0);
     }
 }

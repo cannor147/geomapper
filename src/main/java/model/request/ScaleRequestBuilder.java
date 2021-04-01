@@ -3,10 +3,14 @@ package model.request;
 import lombok.RequiredArgsConstructor;
 import model.Color;
 import org.apache.commons.lang3.tuple.Pair;
+import util.ReadUtils;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @SuppressWarnings({"unused", "UnusedReturnValue"})
 @RequiredArgsConstructor
@@ -75,6 +79,13 @@ public class ScaleRequestBuilder {
         this.minValue = minValue.doubleValue();
         this.maxValue = maxValue.doubleValue();
         return this;
+    }
+
+    public ScaleRequestBuilder fromCsv(File file, int nameColumn, int valueColumn) throws IOException {
+        return ReadUtils.readCsv(file, nameColumn, valueColumn).stream()
+                .map(pair -> Pair.of(pair.getLeft(), ReadUtils.safeParseNumber(pair.getRight())))
+                .filter(p -> p.getRight() != null)
+                .collect(Collectors.collectingAndThen(Collectors.toList(), this::appendAll));
     }
 
     public ScaleRequest build() {

@@ -1251,6 +1251,7 @@
     "name": "Micronesia",
     "synonyms": [
       "Federated States of Micronesia",
+      "Micronesia, Federated States of",
       "FSM"
     ],
     "coordinates": {
@@ -1470,7 +1471,11 @@
   {
     "name": "Guinea-Bissau",
     "synonyms": [
-      "Republic of Guinea-Bissau"
+      "Guinea Bissau",
+      "Guinea—Bissau",
+      "Republic of Guinea Bissau",
+      "Republic of Guinea-Bissau",
+      "Republic of Guinea—Bissau"
     ],
     "coordinates": {
       "x": 495,
@@ -1716,7 +1721,8 @@
     "name": "Republic of Congo",
     "synonyms": [
       "Congo Republic",
-      "Congo-Brazzaville"
+      "Congo-Brazzaville",
+      "Congo, Republic of"
     ],
     "coordinates": {
       "x": 620,
@@ -1730,6 +1736,7 @@
       "DROC",
       "DR Congo",
       "Congo-Kinshasa",
+      "Congo, Democratic Republic of",
       "Zaire"
     ],
     "coordinates": {

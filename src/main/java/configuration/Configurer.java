@@ -35,6 +35,7 @@ public class Configurer {
         final Map<String, Territory> nameToTerritoryMap = Arrays.stream(territories)
                 .map(territory -> Pair.of(SynonymizedUtils.findNames(territory), territory))
                 .flatMap(pair -> pair.getKey().stream().map(name -> Pair.of(name, pair.getRight())))
+                .map(pair -> Pair.of(pair.getLeft().toLowerCase(), pair.getRight()))
                 .collect(Collectors.toMap(Pair::getKey, Pair::getValue));
         final BufferedImage map = resourceReader.readImage(configuration.getMapFilePath());
         return new Configuration(configuration.getName(), nameToTerritoryMap, map);
