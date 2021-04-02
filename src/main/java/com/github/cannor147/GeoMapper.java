@@ -1,8 +1,6 @@
 package com.github.cannor147;
 
-import com.github.cannor147.configuration.Configurer;
 import com.github.cannor147.model.request.Request;
-import com.github.cannor147.resources.ResourceReader;
 import com.github.cannor147.service.RequestService;
 
 import javax.imageio.ImageIO;
@@ -15,11 +13,11 @@ public class GeoMapper {
 
     private final RequestService requestService;
 
-    public GeoMapper() throws IOException {
-        this.requestService = new RequestService(new Configurer(new ResourceReader()));
+    public GeoMapper() {
+        this.requestService = new RequestService();
     }
 
-    public BufferedImage createMap(Request request) throws IOException {
+    public BufferedImage createMap(Request request) {
         return requestService.handleRequest(request);
     }
 

@@ -1,18 +1,21 @@
 package com.github.cannor147.model.request;
 
-import lombok.RequiredArgsConstructor;
+import com.github.cannor147.configuration.Configuration;
 import com.github.cannor147.model.Color;
+import com.github.cannor147.model.ColorizationTask;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 @SuppressWarnings({"unused", "UnusedReturnValue"})
-@RequiredArgsConstructor
-public class StraightRequestBuilder {
-    private final String configuration;
+public class StraightRequestBuilder extends RequestBuilder {
     private final Map<Color, List<String>> colorToTerritoriesMap = new HashMap<>();
     private Color defaultColor = Color.SILVER;
     private Color color = Color.BLUE;
+
+    public StraightRequestBuilder(Configuration configuration) {
+        super(configuration);
+    }
 
     public StraightRequestBuilder useColor(Color color) {
         this.color = color;
@@ -54,11 +57,14 @@ public class StraightRequestBuilder {
         return this;
     }
 
-    public StraightRequest build() {
-        return new StraightRequest(configuration, colorToTerritoriesMap, defaultColor);
-    }
-
-    public Optional<StraightRequest> buildOptional() {
-        return Optional.of(build());
+    @Override
+    public Request build() {
+        final Queue<ColorizationTask> tasks = colorToTerritoriesMap.entrySet().stream()
+                .flatMap(entry -> entry.getValue().stream()
+                        .map(territory -> configuration.find(territory).orElse(null))
+                        .filter(Objects::nonNull)
+                        .map(territory -> new ColorizationTask(territory, entry.getKey().getRgbColor())))
+                .collect(Collectors.toCollection(LinkedList::new));
+        return new Request(tasks, configuration, defaultColor);
     }
 }
