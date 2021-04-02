@@ -1,7 +1,7 @@
 package com.github.cannor147;
 
-import com.github.cannor147.model.request.Request;
-import com.github.cannor147.service.RequestService;
+import com.github.cannor147.request.Request;
+import com.github.cannor147.request.RequestService;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

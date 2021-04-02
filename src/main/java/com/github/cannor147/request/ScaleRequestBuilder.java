@@ -1,8 +1,7 @@
-package com.github.cannor147.model.request;
+package com.github.cannor147.request;
 
 import com.github.cannor147.configuration.Configuration;
 import com.github.cannor147.model.Color;
-import com.github.cannor147.model.ColorizationTask;
 import com.github.cannor147.painter.RGBColor;
 import com.github.cannor147.painter.Painter;
 import com.github.cannor147.util.ReadUtils;
@@ -92,7 +91,7 @@ public class ScaleRequestBuilder extends RequestBuilder {
 
     public ScaleRequestBuilder fromCsv(File file, int nameColumn, int valueColumn) throws IOException {
         return ReadUtils.readCsv(file, nameColumn, valueColumn).stream()
-                .map(pair -> Pair.of(pair.getLeft(), ReadUtils.safeParseNumber(pair.getRight())))
+                .map(pair -> Pair.of(pair.getLeft(), safeParseNumber(pair.getRight())))
                 .filter(p -> p.getRight() != null)
                 .collect(Collectors.collectingAndThen(Collectors.toList(), this::appendAll));
     }

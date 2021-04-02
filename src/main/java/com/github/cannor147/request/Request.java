@@ -1,8 +1,7 @@
-package com.github.cannor147.model.request;
+package com.github.cannor147.request;
 
 import com.github.cannor147.configuration.Configuration;
 import com.github.cannor147.model.Color;
-import com.github.cannor147.model.ColorizationTask;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

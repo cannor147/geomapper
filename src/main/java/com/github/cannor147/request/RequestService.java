@@ -1,33 +1,28 @@
-package com.github.cannor147.service;
+package com.github.cannor147.request;
 
 import com.github.cannor147.configuration.Configuration;
-import com.github.cannor147.configuration.Configurer;
-import com.github.cannor147.model.ColorizationTask;
 import com.github.cannor147.model.Territory;
-import com.github.cannor147.model.request.Request;
 import lombok.RequiredArgsConstructor;
 
 import java.awt.image.BufferedImage;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import static com.github.cannor147.painter.Painter.fillArea;
+
 @RequiredArgsConstructor
 public class RequestService {
-    private final ColorizationService colorizationService;
-
-    public RequestService() {
-        this.colorizationService = new ColorizationService();
-    }
 
     public BufferedImage handleRequest(Request request) {
         final Queue<ColorizationTask> tasks = request.getTasks();
         tasks.addAll(createDefaultTasks(request.getConfiguration(), request, tasks));
 
         final BufferedImage image = request.getConfiguration().copyMap();
-        colorizationService.perform(image, tasks);
+        perform(image, tasks);
         return image;
     }
 
@@ -41,5 +36,14 @@ public class RequestService {
                 .filter(Predicate.not(usedTerritories::contains))
                 .map(territory -> new ColorizationTask(territory, request.getDefaultColor().getRgbColor()))
                 .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+    private void perform(BufferedImage image, Queue<ColorizationTask> tasks) {
+        tasks.forEach(task -> perform(image, task));
+    }
+
+    private void perform(BufferedImage image, ColorizationTask task) {
+        Arrays.stream(task.getTerritory().getPoints())
+                .forEach(coordinate -> fillArea(image, coordinate, task.getRgbColor()));
     }
 }

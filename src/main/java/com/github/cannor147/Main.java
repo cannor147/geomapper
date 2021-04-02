@@ -3,7 +3,10 @@ package com.github.cannor147;
 import com.github.cannor147.configuration.Configuration;
 import com.github.cannor147.configuration.Configurer;
 import com.github.cannor147.model.Color;
-import com.github.cannor147.model.request.*;
+import com.github.cannor147.request.Request;
+import com.github.cannor147.request.ScaleRequestBuilder;
+import com.github.cannor147.request.StepRequestBuilder;
+import com.github.cannor147.request.StraightRequestBuilder;
 import com.github.cannor147.resources.ResourceReader;
 
 import java.io.File;

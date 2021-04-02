@@ -7,8 +7,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.NumberFormat;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -68,14 +66,6 @@ public class ReadUtils {
             return recordString;
         }
         return recordString.startsWith(QUOTE) ? recordString.substring(1, recordString.length() - 1) : recordString;
-    }
-
-    public static Number safeParseNumber(String number) {
-        try {
-            return NumberFormat.getNumberInstance().parse(number.replace(",", "").trim());
-        } catch (ParseException e) {
-            return null;
-        }
     }
 
     private static <T> T safeGet(List<T> list, int index) {

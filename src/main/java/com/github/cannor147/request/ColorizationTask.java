@@ -1,5 +1,6 @@
-package com.github.cannor147.model;
+package com.github.cannor147.request;
 
+import com.github.cannor147.model.Territory;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import com.github.cannor147.painter.RGBColor;
