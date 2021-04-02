@@ -1,10 +1,11 @@
 package com.github.cannor147.util;
 
-import lombok.experimental.UtilityClass;
-import com.github.cannor147.model.Coordinates;
 import com.github.cannor147.model.rgb.RGBColor;
+import lombok.experimental.UtilityClass;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.Queue;
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -12,39 +13,40 @@ import java.util.stream.Stream;
 
 @UtilityClass
 public class PaintUtils {
-    private static final Coordinates[] SHIFTS = new Coordinates[]{
-            new Coordinates(0, +1),
-            new Coordinates(0, -1),
-            new Coordinates(+1, 0),
-            new Coordinates(-1, 0),
+    private static final Point[] SHIFTS = new Point[]{
+            new Point(0, +1),
+            new Point(0, -1),
+            new Point(+1, 0),
+            new Point(-1, 0),
     };
 
-    public static void fillArea(BufferedImage image, Coordinates coordinates, RGBColor rgbColor) {
-        final RGBColor originalColor = getRGBColor(image, coordinates);
+    public static void fillArea(BufferedImage image, Point point, RGBColor rgbColor) {
+        final RGBColor originalColor = getRGBColor(image, point);
         if (originalColor.equals(rgbColor)) {
             return;
         }
 
-        final Set<Coordinates> area = new HashSet<>();
-        final Queue<Coordinates> queue = new LinkedList<>();
-        queue.add(coordinates);
-        area.add(coordinates);
+        final Set<Point> area = new HashSet<>();
+        final Queue<Point> queue = new LinkedList<>();
+        queue.add(point);
+        area.add(point);
 
         while (!queue.isEmpty()) {
-            final Coordinates currentCoordinates = queue.poll();
+            final Point currentPoint = queue.poll();
             Arrays.stream(SHIFTS)
-                    .map(shift -> CoordinatesUtils.sum(currentCoordinates, shift))
-                    .filter(c -> c.getX() >= 0 && c.getX() < image.getWidth())
-                    .filter(c -> c.getY() >= 0 && c.getY() < image.getHeight())
+                    .map(Point::new)
+                    .peek(p -> p.translate(currentPoint.x, currentPoint.y))
+                    .filter(p -> p.x >= 0 && p.x < image.getWidth())
+                    .filter(p -> p.y >= 0 && p.y < image.getHeight())
                     .filter(Predicate.not(area::contains))
-                    .filter(c -> originalColor.equals(getRGBColor(image, c)))
-                    .forEach(Stream.<Consumer<Coordinates>>of(queue::add, area::add).reduce(Consumer::andThen).get());
+                    .filter(p -> originalColor.equals(getRGBColor(image, p)))
+                    .forEach(Stream.<Consumer<Point>>of(queue::add, area::add).reduce(Consumer::andThen).get());
         }
 
-        area.forEach(c -> image.setRGB(c.getX(), c.getY(), rgbColor.toInt()));
+        area.forEach(c -> image.setRGB(c.x, c.y, rgbColor.toInt()));
     }
 
-    private static RGBColor getRGBColor(BufferedImage image, Coordinates coordinates) {
-        return RGBColor.fromInt(image.getRGB(coordinates.getX(), coordinates.getY()));
+    private static RGBColor getRGBColor(BufferedImage image, Point point) {
+        return RGBColor.fromInt(image.getRGB(point.x, point.y));
     }
 }

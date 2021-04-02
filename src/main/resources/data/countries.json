@@ -4,7 +4,7 @@
     "synonyms": [
       "Russian Federation"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 700,
         "y": 100
@@ -40,7 +40,7 @@
     "synonyms": [
       "Republic of Belarus"
     ],
-    "coordinates": {
+    "points": {
       "x": 660,
       "y": 120
     }
@@ -48,7 +48,7 @@
   {
     "name": "Ukraine",
     "synonyms": [],
-    "coordinates": {
+    "points": {
       "x": 675,
       "y": 140
     }
@@ -58,7 +58,7 @@
     "synonyms": [
       "Republic of Kazakhstan"
     ],
-    "coordinates": {
+    "points": {
       "x": 800,
       "y": 150
     }
@@ -69,7 +69,7 @@
       "Kyrgyz Republic",
       "Kyrghizia"
     ],
-    "coordinates": {
+    "points": {
       "x": 845,
       "y": 175
     }
@@ -79,7 +79,7 @@
     "synonyms": [
       "Republic of Tajikistan"
     ],
-    "coordinates": {
+    "points": {
       "x": 830,
       "y": 185
     }
@@ -89,7 +89,7 @@
     "synonyms": [
       "Republic of Uzbekistan"
     ],
-    "coordinates": {
+    "points": {
       "x": 800,
       "y": 175
     }
@@ -99,7 +99,7 @@
     "synonyms": [
       "Turkmenia"
     ],
-    "coordinates": {
+    "points": {
       "x": 785,
       "y": 180
     }
@@ -109,7 +109,7 @@
     "synonyms": [
       "Republic of Azerbaijan"
     ],
-    "coordinates": {
+    "points": {
       "x": 745,
       "y": 180
     }
@@ -119,7 +119,7 @@
     "synonyms": [
       "Republic of Armenia"
     ],
-    "coordinates": {
+    "points": {
       "x": 730,
       "y": 180
     }
@@ -127,7 +127,7 @@
   {
     "name": "Georgia",
     "synonyms": [],
-    "coordinates": {
+    "points": {
       "x": 720,
       "y": 170
     }
@@ -137,7 +137,7 @@
     "synonyms": [
       "Republic of Moldova"
     ],
-    "coordinates": {
+    "points": {
       "x": 666,
       "y": 150
     }
@@ -147,7 +147,7 @@
     "synonyms": [
       "Republic of Estonia"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 650,
         "y": 100
@@ -167,7 +167,7 @@
     "synonyms": [
       "Republic of Latvia"
     ],
-    "coordinates": {
+    "points": {
       "x": 650,
       "y": 105
     }
@@ -177,7 +177,7 @@
     "synonyms": [
       "Republic of Lithuania"
     ],
-    "coordinates": {
+    "points": {
       "x": 645,
       "y": 115
     }
@@ -187,7 +187,7 @@
     "synonyms": [
       "Republic of Finland"
     ],
-    "coordinates": {
+    "points": {
       "x": 650,
       "y": 75
     }
@@ -197,7 +197,7 @@
     "synonyms": [
       "Kingdom of Sweden"
     ],
-    "coordinates": {
+    "points": {
       "x": 615,
       "y": 85
     }
@@ -207,7 +207,7 @@
     "synonyms": [
       "Kingdom of Norway"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 595,
         "y": 90
@@ -223,7 +223,7 @@
     "synonyms": [
       "Kingdom of Denmark"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 595,
         "y": 110
@@ -251,7 +251,7 @@
       "Britain",
       "GB"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 555,
         "y": 125
@@ -267,7 +267,7 @@
     "synonyms": [
       "Republic of Ireland"
     ],
-    "coordinates": {
+    "points": {
       "x": 535,
       "y": 120
     }
@@ -275,7 +275,7 @@
   {
     "name": "Iceland",
     "synonyms": [],
-    "coordinates": {
+    "points": {
       "x": 505,
       "y": 75
     }
@@ -285,7 +285,7 @@
     "synonyms": [
       "Republic of Poland"
     ],
-    "coordinates": {
+    "points": {
       "x": 630,
       "y": 130
     }
@@ -295,7 +295,7 @@
     "synonyms": [
       "Slovak Republic"
     ],
-    "coordinates": {
+    "points": {
       "x": 630,
       "y": 140
     }
@@ -303,7 +303,7 @@
   {
     "name": "Hungary",
     "synonyms": [],
-    "coordinates": {
+    "points": {
       "x": 630,
       "y": 150
     }
@@ -311,7 +311,7 @@
   {
     "name": "Romania",
     "synonyms": [],
-    "coordinates": {
+    "points": {
       "x": 655,
       "y": 155
     }
@@ -321,7 +321,7 @@
     "synonyms": [
       "Republic of Bulgaria"
     ],
-    "coordinates": {
+    "points": {
       "x": 655,
       "y": 170
     }
@@ -332,7 +332,7 @@
       "Hellas",
       "Hellenic Republic"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 640,
         "y": 180
@@ -348,7 +348,7 @@
     "synonyms": [
       "Republic of Albania"
     ],
-    "coordinates": {
+    "points": {
       "x": 635,
       "y": 175
     }
@@ -363,7 +363,7 @@
       "FYR Macedonia",
       "FYROM"
     ],
-    "coordinates": {
+    "points": {
       "x": 641,
       "y": 172
     }
@@ -373,7 +373,7 @@
     "synonyms": [
       "Republic of Serbia"
     ],
-    "coordinates": {
+    "points": {
       "x": 635,
       "y": 160
     }
@@ -383,7 +383,7 @@
     "synonyms": [
       "Republic of Kosovo"
     ],
-    "coordinates": {
+    "points": {
       "x": 638,
       "y": 168
     }
@@ -391,7 +391,7 @@
   {
     "name": "Montenegro",
     "synonyms": [],
-    "coordinates": {
+    "points": {
       "x": 632,
       "y": 168
     }
@@ -405,7 +405,7 @@
       "Bosnia—Herzegovina",
       "Bosnia"
     ],
-    "coordinates": {
+    "points": {
       "x": 627,
       "y": 162
     }
@@ -415,7 +415,7 @@
     "synonyms": [
       "Republic of Croatia"
     ],
-    "coordinates": {
+    "points": {
       "x": 617,
       "y": 157
     }
@@ -425,7 +425,7 @@
     "synonyms": [
       "Republic of Slovenia"
     ],
-    "coordinates": {
+    "points": {
       "x": 613,
       "y": 153
     }
@@ -435,7 +435,7 @@
     "synonyms": [
       "Republic of Austria"
     ],
-    "coordinates": {
+    "points": {
       "x": 615,
       "y": 145
     }
@@ -445,7 +445,7 @@
     "synonyms": [
       "Czechia"
     ],
-    "coordinates": {
+    "points": {
       "x": 617,
       "y": 137
     }
@@ -455,7 +455,7 @@
     "synonyms": [
       "Federal Republic of Germany"
     ],
-    "coordinates": {
+    "points": {
       "x": 600,
       "y": 130
     }
@@ -466,7 +466,7 @@
       "Kingdom of Netherlands",
       "Holland"
     ],
-    "coordinates": {
+    "points": {
       "x": 581,
       "y": 126
     }
@@ -476,7 +476,7 @@
     "synonyms": [
       "Kingdom of Belgium"
     ],
-    "coordinates": {
+    "points": {
       "x": 577,
       "y": 133
     }
@@ -486,7 +486,7 @@
     "synonyms": [
       "Grand Duchy of Luxembourg"
     ],
-    "coordinates": {
+    "points": {
       "x": 582,
       "y": 137
     }
@@ -496,7 +496,7 @@
     "synonyms": [
       "French Republic"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 570,
         "y": 150
@@ -520,7 +520,7 @@
     "synonyms": [
       "Principality of Andorra"
     ],
-    "coordinates": {
+    "points": {
       "x": 563,
       "y": 168
     }
@@ -530,7 +530,7 @@
     "synonyms": [
       "Kingdom of Spain"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 550,
         "y": 170
@@ -546,7 +546,7 @@
     "synonyms": [
       "Portuguese Republic"
     ],
-    "coordinates": {
+    "points": {
       "x": 528,
       "y": 182
     }
@@ -556,7 +556,7 @@
     "synonyms": [
       "Swiss Confederation"
     ],
-    "coordinates": {
+    "points": {
       "x": 590,
       "y": 150
     }
@@ -566,7 +566,7 @@
     "synonyms": [
       "Principality of Liechtenstein"
     ],
-    "coordinates": {
+    "points": {
       "x": 598,
       "y": 148
     }
@@ -576,7 +576,7 @@
     "synonyms": [
       "Italian Republic"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 607,
         "y": 167
@@ -597,7 +597,7 @@
       "Most Serene Republic of San Marino",
       "Republic of San Marino"
     ],
-    "coordinates": {
+    "points": {
       "x": 603,
       "y": 161
     }
@@ -608,7 +608,7 @@
       "Vatican City State",
       "Vatican"
     ],
-    "coordinates": {
+    "points": {
       "x": 607,
       "y": 172
     }
@@ -618,7 +618,7 @@
     "synonyms": [
       "Principality of Monaco"
     ],
-    "coordinates": {
+    "points": {
       "x": 587,
       "y": 163
     }
@@ -629,7 +629,7 @@
       "Republic of Malta",
       "Melita"
     ],
-    "coordinates": {
+    "points": {
       "x": 613,
       "y": 200
     }
@@ -639,7 +639,7 @@
     "synonyms": [
       "Republic of Cyprus"
     ],
-    "coordinates": {
+    "points": {
       "x": 688,
       "y": 202
     }
@@ -647,7 +647,7 @@
   {
     "name": "Mongolia",
     "synonyms": [],
-    "coordinates": {
+    "points": {
       "x": 940,
       "y": 150
     }
@@ -658,7 +658,7 @@
       "People's Republic of China",
       "PRC"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 960,
         "y": 200
@@ -676,7 +676,7 @@
       "DPRK",
       "DPR Korea"
     ],
-    "coordinates": {
+    "points": {
       "x": 1045,
       "y": 180
     }
@@ -687,7 +687,7 @@
       "Republic of Korea",
       "ROK"
     ],
-    "coordinates": {
+    "points": {
       "x": 1058,
       "y": 198
     }
@@ -697,7 +697,7 @@
     "synonyms": [
       "State of Japan"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 1100,
         "y": 200
@@ -722,7 +722,7 @@
       "Republic of China",
       "ROC"
     ],
-    "coordinates": {
+    "points": {
       "x": 1048,
       "y": 255
     }
@@ -732,7 +732,7 @@
     "synonyms": [
       "Republic of Turkey"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 690,
         "y": 185
@@ -748,7 +748,7 @@
     "synonyms": [
       "Syrian Arab Republic"
     ],
-    "coordinates": {
+    "points": {
       "x": 705,
       "y": 205
     }
@@ -758,7 +758,7 @@
     "synonyms": [
       "Lebanese Republic"
     ],
-    "coordinates": {
+    "points": {
       "x": 699,
       "y": 208
     }
@@ -768,7 +768,7 @@
     "synonyms": [
       "State of Israel"
     ],
-    "coordinates": {
+    "points": {
       "x": 696,
       "y": 220
     }
@@ -778,7 +778,7 @@
     "synonyms": [
       "Hashemite Kingdom of Jordan"
     ],
-    "coordinates": {
+    "points": {
       "x": 705,
       "y": 220
     }
@@ -788,7 +788,7 @@
     "synonyms": [
       "Republic of Iraq"
     ],
-    "coordinates": {
+    "points": {
       "x": 730,
       "y": 210
     }
@@ -798,7 +798,7 @@
     "synonyms": [
       "State of Kuwait"
     ],
-    "coordinates": {
+    "points": {
       "x": 748,
       "y": 228
     }
@@ -808,7 +808,7 @@
     "synonyms": [
       "Kingdom of Saudi Arabia"
     ],
-    "coordinates": {
+    "points": {
       "x": 740,
       "y": 255
     }
@@ -818,7 +818,7 @@
     "synonyms": [
       "Republic of Yemen"
     ],
-    "coordinates": {
+    "points": {
       "x": 750,
       "y": 290
     }
@@ -828,7 +828,7 @@
     "synonyms": [
       "Sultanate of Oman"
     ],
-    "coordinates": {
+    "points": {
       "x": 788,
       "y": 268
     }
@@ -839,7 +839,7 @@
       "UAE",
       "Emirates"
     ],
-    "coordinates": {
+    "points": {
       "x": 777,
       "y": 255
     }
@@ -849,7 +849,7 @@
     "synonyms": [
       "State of Qatar"
     ],
-    "coordinates": {
+    "points": {
       "x": 764,
       "y": 247
     }
@@ -859,7 +859,7 @@
     "synonyms": [
       "Kingdom of Bahrain"
     ],
-    "coordinates": {
+    "points": {
       "x": 761,
       "y": 242
     }
@@ -870,7 +870,7 @@
       "Islamic Republic of Iran",
       "Persia"
     ],
-    "coordinates": {
+    "points": {
       "x": 770,
       "y": 215
     }
@@ -880,7 +880,7 @@
     "synonyms": [
       "Islamic Republic of Afghanistan"
     ],
-    "coordinates": {
+    "points": {
       "x": 815,
       "y": 210
     }
@@ -890,7 +890,7 @@
     "synonyms": [
       "Islamic Republic of Pakistan"
     ],
-    "coordinates": {
+    "points": {
       "x": 830,
       "y": 230
     }
@@ -900,7 +900,7 @@
     "synonyms": [
       "Republic of India"
     ],
-    "coordinates": {
+    "points": {
       "x": 875,
       "y": 260
     }
@@ -910,7 +910,7 @@
     "synonyms": [
       "Democratic Socialist Republic of Sri Lanka"
     ],
-    "coordinates": {
+    "points": {
       "x": 890,
       "y": 327
     }
@@ -920,7 +920,7 @@
     "synonyms": [
       "Republic of Maldives"
     ],
-    "coordinates": {
+    "points": {
       "x": 857,
       "y": 339
     }
@@ -930,7 +930,7 @@
     "synonyms": [
       "Federal Democratic Republic of Nepal"
     ],
-    "coordinates": {
+    "points": {
       "x": 895,
       "y": 235
     }
@@ -940,7 +940,7 @@
     "synonyms": [
       "Kingdom of Bhutan"
     ],
-    "coordinates": {
+    "points": {
       "x": 921,
       "y": 237
     }
@@ -950,7 +950,7 @@
     "synonyms": [
       "People's Republic of Bangladesh"
     ],
-    "coordinates": {
+    "points": {
       "x": 925,
       "y": 255
     }
@@ -961,7 +961,7 @@
       "Republic of Union of Myanmar",
       "Burma"
     ],
-    "coordinates": {
+    "points": {
       "x": 950,
       "y": 270
     }
@@ -971,7 +971,7 @@
     "synonyms": [
       "Lao People's Democratic Republic"
     ],
-    "coordinates": {
+    "points": {
       "x": 980,
       "y": 275
     }
@@ -982,7 +982,7 @@
       "Socialist Republic of Vietnam",
       "Viet Nam"
     ],
-    "coordinates": {
+    "points": {
       "x": 995,
       "y": 285
     }
@@ -993,7 +993,7 @@
       "Kingdom of Cambodia",
       "Kampuchea"
     ],
-    "coordinates": {
+    "points": {
       "x": 990,
       "y": 305
     }
@@ -1004,7 +1004,7 @@
       "Kingdom of Thailand",
       "Siam"
     ],
-    "coordinates": {
+    "points": {
       "x": 970,
       "y": 295
     }
@@ -1012,7 +1012,7 @@
   {
     "name": "Malaysia",
     "synonyms": [],
-    "coordinates": [
+    "points": [
       {
         "x": 980,
         "y": 343
@@ -1028,7 +1028,7 @@
     "synonyms": [
       "Republic of Indonesia"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 982,
         "y": 371
@@ -1080,7 +1080,7 @@
     "synonyms": [
       "Republic of the Philippines"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 1055,
         "y": 294
@@ -1124,7 +1124,7 @@
     "synonyms": [
       "Republic of Singapore"
     ],
-    "coordinates": {
+    "points": {
       "x": 988,
       "y": 354
     }
@@ -1134,7 +1134,7 @@
     "synonyms": [
       "Nation of Brunei, the Abode of Peace"
     ],
-    "coordinates": {
+    "points": {
       "x": 1033,
       "y": 341
     }
@@ -1150,7 +1150,7 @@
       "Democratic Republic of Timor—Leste",
       "Democratic Republic of East Timor"
     ],
-    "coordinates": {
+    "points": {
       "x": 1076,
       "y": 401
     }
@@ -1160,7 +1160,7 @@
     "synonyms": [
       "Independent State of Papua New Guinea"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 1155,
         "y": 390
@@ -1182,7 +1182,7 @@
   {
     "name": "Solomon Islands",
     "synonyms": [],
-    "coordinates": [
+    "points": [
       {
         "x": 1205,
         "y": 395
@@ -1214,7 +1214,7 @@
     "synonyms": [
       "Republic of Vanuatu"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 1244,
         "y": 433
@@ -1242,7 +1242,7 @@
     "synonyms": [
       "Republic of Palau"
     ],
-    "coordinates": {
+    "points": {
       "x": 1114,
       "y": 327
     }
@@ -1254,7 +1254,7 @@
       "Micronesia, Federated States of",
       "FSM"
     ],
-    "coordinates": {
+    "points": {
       "x": 1211,
       "y": 328
     }
@@ -1264,7 +1264,7 @@
     "synonyms": [
       "Republic of Marshall Islands"
     ],
-    "coordinates": {
+    "points": {
       "x": 1270,
       "y": 328
     }
@@ -1275,7 +1275,7 @@
       "Republic Nauru",
       "Pleasant Island"
     ],
-    "coordinates": {
+    "points": {
       "x": 1251,
       "y": 363
     }
@@ -1285,7 +1285,7 @@
     "synonyms": [
       "Republic of Kiribati"
     ],
-    "coordinates": {
+    "points": {
       "x": 1280,
       "y": 356
     }
@@ -1295,7 +1295,7 @@
     "synonyms": [
       "Ellice Islands"
     ],
-    "coordinates": {
+    "points": {
       "x": 1298,
       "y": 406
     }
@@ -1306,7 +1306,7 @@
       "Independent State of Samoa",
       "Western Samoa"
     ],
-    "coordinates": {
+    "points": {
       "x": 1330,
       "y": 425
     }
@@ -1316,7 +1316,7 @@
     "synonyms": [
       "Kingdom of Tonga"
     ],
-    "coordinates": {
+    "points": {
       "x": 1311,
       "y": 454
     }
@@ -1326,7 +1326,7 @@
     "synonyms": [
       "Republic of Fiji"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 1286,
         "y": 442
@@ -1340,7 +1340,7 @@
   {
     "name": "New Zealand",
     "synonyms": [],
-    "coordinates": [
+    "points": [
       {
         "x": 1238,
         "y": 540
@@ -1356,7 +1356,7 @@
     "synonyms": [
       "Commonwealth of Australia"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 1100,
         "y": 475
@@ -1372,7 +1372,7 @@
     "synonyms": [
       "Arab Republic of Egypt"
     ],
-    "coordinates": {
+    "points": {
       "x": 675,
       "y": 240
     }
@@ -1382,7 +1382,7 @@
     "synonyms": [
       "State of Libya"
     ],
-    "coordinates": {
+    "points": {
       "x": 630,
       "y": 240
     }
@@ -1392,7 +1392,7 @@
     "synonyms": [
       "Republic of Tunisia"
     ],
-    "coordinates": {
+    "points": {
       "x": 595,
       "y": 210
     }
@@ -1402,7 +1402,7 @@
     "synonyms": [
       "People's Democratic Republic of Algeria"
     ],
-    "coordinates": {
+    "points": {
       "x": 570,
       "y": 235
     }
@@ -1412,7 +1412,7 @@
     "synonyms": [
       "Kingdom of Morocco"
     ],
-    "coordinates": {
+    "points": {
       "x": 535,
       "y": 215
     }
@@ -1422,7 +1422,7 @@
     "synonyms": [
       "Islamic Republic of Mauritania"
     ],
-    "coordinates": {
+    "points": {
       "x": 515,
       "y": 275
     }
@@ -1432,7 +1432,7 @@
     "synonyms": [
       "Republic of Mali"
     ],
-    "coordinates": {
+    "points": {
       "x": 540,
       "y": 285
     }
@@ -1442,7 +1442,7 @@
     "synonyms": [
       "Republic of Senegal"
     ],
-    "coordinates": {
+    "points": {
       "x": 500,
       "y": 295
     }
@@ -1452,7 +1452,7 @@
     "synonyms": [
       "Republic of Gambia"
     ],
-    "coordinates": {
+    "points": {
       "x": 493,
       "y": 298
     }
@@ -1463,7 +1463,7 @@
       "Cabo Verde",
       "Republic of Cabo Verde"
     ],
-    "coordinates": {
+    "points": {
       "x": 465,
       "y": 286
     }
@@ -1477,7 +1477,7 @@
       "Republic of Guinea-Bissau",
       "Republic of Guinea—Bissau"
     ],
-    "coordinates": {
+    "points": {
       "x": 495,
       "y": 306
     }
@@ -1489,7 +1489,7 @@
       "French Guinea",
       "Guinea-Conakry"
     ],
-    "coordinates": {
+    "points": {
       "x": 508,
       "y": 312
     }
@@ -1500,7 +1500,7 @@
       "Republic of Sierra Leone",
       "Salone"
     ],
-    "coordinates": {
+    "points": {
       "x": 506,
       "y": 322
     }
@@ -1510,7 +1510,7 @@
     "synonyms": [
       "Republic of Liberia"
     ],
-    "coordinates": {
+    "points": {
       "x": 512,
       "y": 332
     }
@@ -1525,7 +1525,7 @@
       "Republic of Cote d'Ivoire",
       "Republic of Cote dIvoire"
     ],
-    "coordinates": {
+    "points": {
       "x": 532,
       "y": 327
     }
@@ -1533,7 +1533,7 @@
   {
     "name": "Burkina Faso",
     "synonyms": [],
-    "coordinates": {
+    "points": {
       "x": 550,
       "y": 305
     }
@@ -1544,7 +1544,7 @@
       "Republic of Ghana",
       "Gold Coast"
     ],
-    "coordinates": {
+    "points": {
       "x": 550,
       "y": 325
     }
@@ -1554,7 +1554,7 @@
     "synonyms": [
       "Togolese Republic"
     ],
-    "coordinates": {
+    "points": {
       "x": 560,
       "y": 325
     }
@@ -1564,7 +1564,7 @@
     "synonyms": [
       "Republic of Benin"
     ],
-    "coordinates": {
+    "points": {
       "x": 565,
       "y": 320
     }
@@ -1574,7 +1574,7 @@
     "synonyms": [
       "Federal Republic of Nigeria"
     ],
-    "coordinates": {
+    "points": {
       "x": 590,
       "y": 320
     }
@@ -1584,7 +1584,7 @@
     "synonyms": [
       "Republic of Niger"
     ],
-    "coordinates": {
+    "points": {
       "x": 595,
       "y": 285
     }
@@ -1594,7 +1594,7 @@
     "synonyms": [
       "Republic of Chad"
     ],
-    "coordinates": {
+    "points": {
       "x": 630,
       "y": 295
     }
@@ -1605,7 +1605,7 @@
       "Republic of the Sudan",
       "North Sudan"
     ],
-    "coordinates": {
+    "points": {
       "x": 680,
       "y": 290
     }
@@ -1615,7 +1615,7 @@
     "synonyms": [
       "State of Eritrea"
     ],
-    "coordinates": {
+    "points": {
       "x": 720,
       "y": 295
     }
@@ -1625,7 +1625,7 @@
     "synonyms": [
       "Republic of Djibouti"
     ],
-    "coordinates": {
+    "points": {
       "x": 732,
       "y": 308
     }
@@ -1635,7 +1635,7 @@
     "synonyms": [
       "Federal Republic of Somalia"
     ],
-    "coordinates": {
+    "points": {
       "x": 750,
       "y": 340
     }
@@ -1645,7 +1645,7 @@
     "synonyms": [
       "Federal Democratic Republic of Ethiopia"
     ],
-    "coordinates": {
+    "points": {
       "x": 720,
       "y": 325
     }
@@ -1655,7 +1655,7 @@
     "synonyms": [
       "Republic of South Sudan"
     ],
-    "coordinates": {
+    "points": {
       "x": 680,
       "y": 330
     }
@@ -1665,7 +1665,7 @@
     "synonyms": [
       "CAR"
     ],
-    "coordinates": {
+    "points": {
       "x": 640,
       "y": 330
     }
@@ -1675,7 +1675,7 @@
     "synonyms": [
       "Republic of Cameroon"
     ],
-    "coordinates": {
+    "points": {
       "x": 605,
       "y": 340
     }
@@ -1692,7 +1692,7 @@
       "Sao Tome",
       "Saint Thomas"
     ],
-    "coordinates": {
+    "points": {
       "x": 587,
       "y": 356
     }
@@ -1702,7 +1702,7 @@
     "synonyms": [
       "Republic of Equatorial Guinea"
     ],
-    "coordinates": {
+    "points": {
       "x": 600,
       "y": 353
     }
@@ -1712,7 +1712,7 @@
     "synonyms": [
       "Gabonese Republic"
     ],
-    "coordinates": {
+    "points": {
       "x": 605,
       "y": 365
     }
@@ -1724,7 +1724,7 @@
       "Congo-Brazzaville",
       "Congo, Republic of"
     ],
-    "coordinates": {
+    "points": {
       "x": 620,
       "y": 365
     }
@@ -1739,7 +1739,7 @@
       "Congo, Democratic Republic of",
       "Zaire"
     ],
-    "coordinates": {
+    "points": {
       "x": 650,
       "y": 375
     }
@@ -1749,7 +1749,7 @@
     "synonyms": [
       "Republic of Burundi"
     ],
-    "coordinates": {
+    "points": {
       "x": 680,
       "y": 375
     }
@@ -1759,7 +1759,7 @@
     "synonyms": [
       "Republic of Rwanda"
     ],
-    "coordinates": {
+    "points": {
       "x": 680,
       "y": 370
     }
@@ -1769,7 +1769,7 @@
     "synonyms": [
       "Republic of Uganda"
     ],
-    "coordinates": {
+    "points": {
       "x": 690,
       "y": 355
     }
@@ -1779,7 +1779,7 @@
     "synonyms": [
       "Republic of Kenya"
     ],
-    "coordinates": {
+    "points": {
       "x": 715,
       "y": 360
     }
@@ -1789,7 +1789,7 @@
     "synonyms": [
       "Republic of Tanzania"
     ],
-    "coordinates": {
+    "points": {
       "x": 700,
       "y": 390
     }
@@ -1799,7 +1799,7 @@
     "synonyms": [
       "Republic of Malawi"
     ],
-    "coordinates": {
+    "points": {
       "x": 695,
       "y": 420
     }
@@ -1809,7 +1809,7 @@
     "synonyms": [
       "Republic of Zambia"
     ],
-    "coordinates": {
+    "points": {
       "x": 670,
       "y": 425
     }
@@ -1819,7 +1819,7 @@
     "synonyms": [
       "Republic of Angola"
     ],
-    "coordinates": {
+    "points": {
       "x": 630,
       "y": 415
     }
@@ -1829,7 +1829,7 @@
     "synonyms": [
       "Republic of Namibia"
     ],
-    "coordinates": {
+    "points": {
       "x": 625,
       "y": 460
     }
@@ -1839,7 +1839,7 @@
     "synonyms": [
       "Republic of Botswana"
     ],
-    "coordinates": {
+    "points": {
       "x": 655,
       "y": 460
     }
@@ -1849,7 +1849,7 @@
     "synonyms": [
       "Republic of Zimbabwe"
     ],
-    "coordinates": {
+    "points": {
       "x": 680,
       "y": 450
     }
@@ -1859,7 +1859,7 @@
     "synonyms": [
       "Republic of Mozambique"
     ],
-    "coordinates": {
+    "points": {
       "x": 700,
       "y": 440
     }
@@ -1871,7 +1871,7 @@
       "Swaziland",
       "Kingdom of Swaziland"
     ],
-    "coordinates": {
+    "points": {
       "x": 683,
       "y": 481
     }
@@ -1882,7 +1882,7 @@
       "Republic of South Africa",
       "RSA"
     ],
-    "coordinates": {
+    "points": {
       "x": 660,
       "y": 490
     }
@@ -1892,7 +1892,7 @@
     "synonyms": [
       "Kingdom of Lesotho"
     ],
-    "coordinates": {
+    "points": {
       "x": 670,
       "y": 495
     }
@@ -1903,7 +1903,7 @@
       "Republic of Madagascar",
       "Malagasy Republic"
     ],
-    "coordinates": {
+    "points": {
       "x": 745,
       "y": 450
     }
@@ -1913,7 +1913,7 @@
     "synonyms": [
       "Republic of Mauritius"
     ],
-    "coordinates": {
+    "points": {
       "x": 792,
       "y": 453
     }
@@ -1923,7 +1923,7 @@
     "synonyms": [
       "Republic of Seychelles"
     ],
-    "coordinates": {
+    "points": {
       "x": 789,
       "y": 385
     }
@@ -1933,7 +1933,7 @@
     "synonyms": [
       "Union of Comoros"
     ],
-    "coordinates": {
+    "points": {
       "x": 736,
       "y": 419
     }
@@ -1943,7 +1943,7 @@
     "synonyms": [
       " Republic of Chile"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 277,
         "y": 520
@@ -1959,7 +1959,7 @@
     "synonyms": [
       "Argentine Republic"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 300,
         "y": 525
@@ -1975,7 +1975,7 @@
     "synonyms": [
       "Oriental Republic of Uruguay"
     ],
-    "coordinates": {
+    "points": {
       "x": 335,
       "y": 510
     }
@@ -1985,7 +1985,7 @@
     "synonyms": [
       "Federative Republic of Brazil"
     ],
-    "coordinates": {
+    "points": {
       "x": 350,
       "y": 400
     }
@@ -1995,7 +1995,7 @@
     "synonyms": [
       "Republic of Paraguay"
     ],
-    "coordinates": {
+    "points": {
       "x": 320,
       "y": 470
     }
@@ -2005,7 +2005,7 @@
     "synonyms": [
       "Plurinational State of Bolivia"
     ],
-    "coordinates": {
+    "points": {
       "x": 290,
       "y": 440
     }
@@ -2015,7 +2015,7 @@
     "synonyms": [
       "Republic of Peru"
     ],
-    "coordinates": {
+    "points": {
       "x": 245,
       "y": 410
     }
@@ -2025,7 +2025,7 @@
     "synonyms": [
       "Republic of Ecuador"
     ],
-    "coordinates": {
+    "points": {
       "x": 230,
       "y": 370
     }
@@ -2035,7 +2035,7 @@
     "synonyms": [
       "Republic of Colombia"
     ],
-    "coordinates": {
+    "points": {
       "x": 250,
       "y": 350
     }
@@ -2045,7 +2045,7 @@
     "synonyms": [
       "Bolivarian Republic of Venezuela"
     ],
-    "coordinates": {
+    "points": {
       "x": 285,
       "y": 330
     }
@@ -2055,7 +2055,7 @@
     "synonyms": [
       "Co‑operative Republic of Guyana"
     ],
-    "coordinates": {
+    "points": {
       "x": 310,
       "y": 340
     }
@@ -2067,7 +2067,7 @@
       "Republic of Suriname",
       "Republic of Surinam"
     ],
-    "coordinates": {
+    "points": {
       "x": 322,
       "y": 343
     }
@@ -2078,7 +2078,7 @@
       "Republic of Trinidad and Tobago",
       "Trinidad"
     ],
-    "coordinates": {
+    "points": {
       "x": 300,
       "y": 315
     }
@@ -2086,7 +2086,7 @@
   {
     "name": "Grenada",
     "synonyms": [],
-    "coordinates": {
+    "points": {
       "x": 300,
       "y": 308
     }
@@ -2096,7 +2096,7 @@
     "synonyms": [
       "Saint Vincent"
     ],
-    "coordinates": {
+    "points": {
       "x": 304,
       "y": 304
     }
@@ -2104,7 +2104,7 @@
   {
     "name": "Barbados",
     "synonyms": [],
-    "coordinates": {
+    "points": {
       "x": 314,
       "y": 301
     }
@@ -2115,7 +2115,7 @@
       "Iyonola",
       "Hewanorra"
     ],
-    "coordinates": {
+    "points": {
       "x": 305,
       "y": 298
     }
@@ -2125,7 +2125,7 @@
     "synonyms": [
       "Commonwealth of Dominica"
     ],
-    "coordinates": {
+    "points": {
       "x": 306,
       "y": 291
     }
@@ -2135,7 +2135,7 @@
     "synonyms": [
       "Antigua"
     ],
-    "coordinates": {
+    "points": {
       "x": 306,
       "y": 282
     }
@@ -2149,7 +2149,7 @@
       "Saint Kitts",
       "Saint Christopher"
     ],
-    "coordinates": {
+    "points": {
       "x": 300,
       "y": 282
     }
@@ -2157,7 +2157,7 @@
   {
     "name": "Dominican Republic",
     "synonyms": [],
-    "coordinates": {
+    "points": {
       "x": 265,
       "y": 275
     }
@@ -2169,7 +2169,7 @@
       "Republic of Haiti",
       "Republic of Hayti"
     ],
-    "coordinates": {
+    "points": {
       "x": 260,
       "y": 275
     }
@@ -2177,7 +2177,7 @@
   {
     "name": "Jamaica",
     "synonyms": [],
-    "coordinates": {
+    "points": {
       "x": 237,
       "y": 278
     }
@@ -2187,7 +2187,7 @@
     "synonyms": [
       "Republic of Cuba"
     ],
-    "coordinates": {
+    "points": {
       "x": 235,
       "y": 262
     }
@@ -2197,7 +2197,7 @@
     "synonyms": [
       "Commonwealth of Bahamas"
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 239,
         "y": 239
@@ -2237,7 +2237,7 @@
     "synonyms": [
       "Republic of Panama"
     ],
-    "coordinates": {
+    "points": {
       "x": 225,
       "y": 320
     }
@@ -2247,7 +2247,7 @@
     "synonyms": [
       "Republic of Costa Rica"
     ],
-    "coordinates": {
+    "points": {
       "x": 208,
       "y": 316
     }
@@ -2257,7 +2257,7 @@
     "synonyms": [
       "Republic of Nicaragua"
     ],
-    "coordinates": {
+    "points": {
       "x": 205,
       "y": 305
     }
@@ -2267,7 +2267,7 @@
     "synonyms": [
       "Republic of Honduras"
     ],
-    "coordinates": {
+    "points": {
       "x": 200,
       "y": 293
     }
@@ -2277,7 +2277,7 @@
     "synonyms": [
       "Republic of El Salvador"
     ],
-    "coordinates": {
+    "points": {
       "x": 188,
       "y": 298
     }
@@ -2287,7 +2287,7 @@
     "synonyms": [
       "Republic of Guatemala"
     ],
-    "coordinates": {
+    "points": {
       "x": 185,
       "y": 290
     }
@@ -2295,7 +2295,7 @@
   {
     "name": "Belize",
     "synonyms": [],
-    "coordinates": {
+    "points": {
       "x": 192,
       "y": 282
     }
@@ -2305,7 +2305,7 @@
     "synonyms": [
       "United Mexican States"
     ],
-    "coordinates": {
+    "points": {
       "x": 140,
       "y": 260
     }
@@ -2319,7 +2319,7 @@
       "US",
       "U.S."
     ],
-    "coordinates": [
+    "points": [
       {
         "x": 170,
         "y": 190
@@ -2345,7 +2345,7 @@
   {
     "name": "Canada",
     "synonyms": [],
-    "coordinates": [
+    "points": [
       {
         "x": 200,
         "y": 100

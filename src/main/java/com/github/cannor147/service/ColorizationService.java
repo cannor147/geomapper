@@ -14,7 +14,7 @@ public class ColorizationService {
     }
 
     public void perform(BufferedImage image, ColorizationTask task) {
-        Arrays.stream(task.getTerritory().getCoordinates())
+        Arrays.stream(task.getTerritory().getPoints())
                 .forEach(coordinate -> fillArea(image, coordinate, task.getRgbColor()));
     }
 }
