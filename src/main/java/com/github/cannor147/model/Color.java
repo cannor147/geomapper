@@ -40,4 +40,12 @@ public enum Color {
 
     private final RGBColor rgbColor;
     private final Color defaultOpposite;
+
+    public static Color parseColor(String text) {
+        try {
+            return Color.valueOf(text.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            return Color.GREY;
+        }
+    }
 }

@@ -1,8 +1,11 @@
 package com.github.cannor147.request;
 
-import com.github.cannor147.model.GeoMap;
 import com.github.cannor147.model.Color;
+import com.github.cannor147.model.GeoMap;
+import com.github.cannor147.util.CsvUtils;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -54,6 +57,10 @@ public class StraightRequestBuilder extends RequestBuilder {
     public StraightRequestBuilder useDefaultColor(Color defaultColor) {
         this.defaultColor = defaultColor;
         return this;
+    }
+
+    public StraightRequestBuilder fromCsv(File file, int nameColumn) throws IOException {
+        return appendAll(CsvUtils.readCsv(file, nameColumn));
     }
 
     @Override

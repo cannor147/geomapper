@@ -11,7 +11,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Objects;
 
-public class ResourceReader {
+class ResourceReader {
     private final ObjectMapper objectMapper;
     private final ClassLoader classLoader;
 
