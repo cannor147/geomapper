@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.github.cannor147.model.named.Synonymized;
+import com.github.cannor147.namer.Synonymized;
 
 @Data
 @NoArgsConstructor
