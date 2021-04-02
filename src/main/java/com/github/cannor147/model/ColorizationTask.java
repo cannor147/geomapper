@@ -2,7 +2,7 @@ package com.github.cannor147.model;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import com.github.cannor147.model.rgb.RGBColor;
+import com.github.cannor147.painter.RGBColor;
 
 @Data
 @RequiredArgsConstructor

@@ -3,8 +3,8 @@ package com.github.cannor147.model.request;
 import com.github.cannor147.configuration.Configuration;
 import com.github.cannor147.model.Color;
 import com.github.cannor147.model.ColorizationTask;
-import com.github.cannor147.model.rgb.RGBColor;
-import com.github.cannor147.util.RGBUtils;
+import com.github.cannor147.painter.RGBColor;
+import com.github.cannor147.painter.Painter;
 import com.github.cannor147.util.ReadUtils;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -95,7 +95,7 @@ public class StepRequestBuilder extends RequestBuilder {
     @Override
     public Request build() {
         final List<Double> separators = new ArrayList<>(valueSeparators);
-        final List<RGBColor> scheme = RGBUtils.generateScheme(minColor.getRgbColor(),
+        final List<RGBColor> scheme = Painter.generateScheme(minColor.getRgbColor(),
                 maxColor.getRgbColor(), valueSeparators.size());
         final Queue<ColorizationTask> tasks = territoryToValueMap.entrySet().stream()
                 .map(e -> configuration.find(e.getKey())

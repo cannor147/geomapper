@@ -3,8 +3,8 @@ package com.github.cannor147.model.request;
 import com.github.cannor147.configuration.Configuration;
 import com.github.cannor147.model.Color;
 import com.github.cannor147.model.ColorizationTask;
-import com.github.cannor147.model.rgb.RGBColor;
-import com.github.cannor147.util.RGBUtils;
+import com.github.cannor147.painter.RGBColor;
+import com.github.cannor147.painter.Painter;
 import com.github.cannor147.util.ReadUtils;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -107,7 +107,7 @@ public class ScaleRequestBuilder extends RequestBuilder {
         final Double minValue = Optional.ofNullable(this.maxValue)
                 .map(transformer)
                 .orElseGet(() -> data.values().stream().mapToDouble(x -> x).min().orElse(0.0));
-        final List<RGBColor> scheme = RGBUtils.generateScheme(minColor.getRgbColor(), maxColor.getRgbColor());
+        final List<RGBColor> scheme = Painter.generateScheme(minColor.getRgbColor(), maxColor.getRgbColor());
         final Queue<ColorizationTask> tasks = data.entrySet().stream()
                 .map(e -> configuration.find(e.getKey())
                         .map(t -> new ColorizationTask(t, scheme.get(toPercent(e.getValue(), minValue, maxValue))))

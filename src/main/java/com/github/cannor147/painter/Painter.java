@@ -1,18 +1,20 @@
-package com.github.cannor147.util;
+package com.github.cannor147.painter;
 
-import com.github.cannor147.model.rgb.RGBColor;
 import lombok.experimental.UtilityClass;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.List;
 import java.util.Queue;
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 @UtilityClass
-public class PaintUtils {
+public class Painter {
     private static final Point[] SHIFTS = new Point[]{
             new Point(0, +1),
             new Point(0, -1),
@@ -43,10 +45,28 @@ public class PaintUtils {
                     .forEach(Stream.<Consumer<Point>>of(queue::add, area::add).reduce(Consumer::andThen).get());
         }
 
-        area.forEach(c -> image.setRGB(c.x, c.y, rgbColor.toInt()));
+        area.forEach(c -> fillPoint(image, c, rgbColor));
+    }
+
+    public static void fillPoint(BufferedImage image, Point point, RGBColor rgbColor) {
+        image.setRGB(point.x, point.y, rgbColor.toInt());
     }
 
     private static RGBColor getRGBColor(BufferedImage image, Point point) {
         return RGBColor.fromInt(image.getRGB(point.x, point.y));
+    }
+
+    public static List<RGBColor> generateScheme(RGB from, RGB to) {
+        return generateScheme(from, to, 100);
+    }
+
+    public static List<RGBColor> generateScheme(RGB from, RGB to, int count) {
+        final RGBDistance distance = RGBDistance.between(to, from);
+        return IntStream.range(0, count + 1)
+                .mapToDouble(x -> (double) x / count)
+                .mapToObj(distance::multiply)
+                .map(from::add)
+                .map(RGB::asColor)
+                .collect(Collectors.toList());
     }
 }

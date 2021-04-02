@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.util.Arrays;
 import java.util.Queue;
 
-import static com.github.cannor147.util.PaintUtils.fillArea;
+import static com.github.cannor147.painter.Painter.fillArea;
 
 public class ColorizationService {
     public void perform(BufferedImage image, Queue<ColorizationTask> tasks) {

@@ -1,4 +1,4 @@
-package com.github.cannor147.model.rgb;
+package com.github.cannor147.painter;
 
 public interface RGB {
     int getRed();
