@@ -11,9 +11,9 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.collectingAndThen;
 
@@ -25,6 +25,7 @@ public class GeoMapper {
     private final ResourceReader resourceReader;
     private final Map<String, GeoMapDto> nameToGeoMapMap;
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void main(String[] args) throws IOException {
         final GeoMapper geoMapper = new GeoMapper();
         final String mode = extractArg(args, 0, true);
@@ -34,30 +35,34 @@ public class GeoMapper {
             case "straight" -> {
                 StraightRequestBuilder straightRequestBuilder = new StraightRequestBuilder(geoMap);
                 int index = 2;
+                File csvFile = null;
                 while (index < args.length) {
                     final String command = extractArg(args, index, false);
                     switch (command) {
-                        case "-import" -> {
-                            final String pathname = extractArg(args, index + 1, true);
-                            final int nameColumn = Integer.parseInt(extractArg(args, index + 2, true));
-                            straightRequestBuilder = straightRequestBuilder.fromCsv(new File(pathname), nameColumn);
-                            index += 3;
-                        }
-                        case "-color" -> {
-                            final Color color = Color.parseColor(extractArg(args, index + 1, true));
-                            straightRequestBuilder = straightRequestBuilder.useColor(color);
+                        case "-importFrom" -> {
+                            csvFile = new File(extractArg(args, index + 1, true));
                             index += 2;
+                        }
+                        case "-column" -> {
+                            if (csvFile == null) {
+                                throw new IllegalStateException("File is not set yet.");
+                            }
+                            final Color color = Color.parseColor(extractArg(args, index + 1, true));
+                            final int column = Integer.parseInt(extractArg(args, index + 2, true));
+                            straightRequestBuilder.useColor(color);
+                            straightRequestBuilder.fromCsv(csvFile, column);
+                            index += 3;
                         }
                         case "-defaultColor" -> {
                             final Color defaultColor = Color.parseColor(extractArg(args, index + 1, true));
-                            straightRequestBuilder = straightRequestBuilder.useDefaultColor(defaultColor);
+                            straightRequestBuilder.useDefaultColor(defaultColor);
                             index += 2;
                         }
                         case "-save" -> {
                             fileName = extractArg(args, index + 1, true);
                             index += 2;
                         }
-                        default -> throw new IllegalArgumentException("Unknown command + '" + command + "'.");
+                        default -> throw new IllegalArgumentException("Unknown command '" + command + "'.");
                     }
                 }
                 yield straightRequestBuilder;
@@ -69,48 +74,48 @@ public class GeoMapper {
                     final String command = extractArg(args, index, false);
                     switch (command) {
                         case "-import" -> {
-                            final String pathname = extractArg(args, index + 1, true);
+                            final File csvFile = new File(extractArg(args, index + 1, true));
                             final int nameColumn = Integer.parseInt(extractArg(args, index + 2, true));
                             final int valueColumn = Integer.parseInt(extractArg(args, index + 3, true));
-                            scaleRequestBuilder = scaleRequestBuilder.fromCsv(new File(pathname), nameColumn, valueColumn);
+                            scaleRequestBuilder.fromCsv(csvFile, nameColumn, valueColumn);
                             index += 4;
                         }
                         case "-color" -> {
                             final Color color = Color.parseColor(extractArg(args, index + 1, true));
-                            scaleRequestBuilder = scaleRequestBuilder.useColor(color);
+                            scaleRequestBuilder.useColor(color);
                             index += 2;
                         }
                         case "-colors" -> {
                             final Color minColor = Color.parseColor(extractArg(args, index + 1, true));
                             final Color maxColor = Color.parseColor(extractArg(args, index + 2, true));
-                            scaleRequestBuilder = scaleRequestBuilder.useColor(minColor, maxColor);
+                            scaleRequestBuilder.useColor(minColor, maxColor);
                             index += 3;
                         }
                         case "-defaultColor" -> {
                             final Color defaultColor = Color.parseColor(extractArg(args, index + 1, true));
-                            scaleRequestBuilder = scaleRequestBuilder.useDefaultColor(defaultColor);
+                            scaleRequestBuilder.useDefaultColor(defaultColor);
                             index += 2;
                         }
                         case "-min" -> {
                             final double min = Double.parseDouble(extractArg(args, index + 1, true));
-                            scaleRequestBuilder = scaleRequestBuilder.customizeMinimum(min);
+                            scaleRequestBuilder.customizeMinimum(min);
                             index += 2;
                         }
                         case "-max" -> {
                             final double max = Double.parseDouble(extractArg(args, index + 1, true));
-                            scaleRequestBuilder = scaleRequestBuilder.customizeMaximum(max);
+                            scaleRequestBuilder.customizeMaximum(max);
                             index += 2;
                         }
                         case "-logarithmization" -> {
                             final double base = Double.parseDouble(extractArg(args, index + 1, true));
-                            scaleRequestBuilder = scaleRequestBuilder.addLogarithmization(base);
+                            scaleRequestBuilder.addLogarithmization(base);
                             index += 2;
                         }
                         case "-save" -> {
                             fileName = extractArg(args, index + 1, true);
                             index += 2;
                         }
-                        default -> throw new IllegalArgumentException("Unknown command + '" + command + "'.");
+                        default -> throw new IllegalArgumentException("Unknown command '" + command + "'.");
                     }
                 }
                 yield scaleRequestBuilder;
@@ -122,26 +127,26 @@ public class GeoMapper {
                     final String command = extractArg(args, index, false);
                     switch (command) {
                         case "-import" -> {
-                            final String pathname = extractArg(args, index + 1, true);
+                            final File csvFile = new File(extractArg(args, index + 1, true));
                             final int nameColumn = Integer.parseInt(extractArg(args, index + 2, true));
                             final int valueColumn = Integer.parseInt(extractArg(args, index + 3, true));
-                            stepRequestBuilder = stepRequestBuilder.fromCsv(new File(pathname), nameColumn, valueColumn);
+                            stepRequestBuilder.fromCsv(csvFile, nameColumn, valueColumn);
                             index += 4;
                         }
                         case "-color" -> {
                             final Color color = Color.parseColor(extractArg(args, index + 1, true));
-                            stepRequestBuilder = stepRequestBuilder.useColor(color);
+                            stepRequestBuilder.useColor(color);
                             index += 2;
                         }
                         case "-colors" -> {
                             final Color minColor = Color.parseColor(extractArg(args, index + 1, true));
                             final Color maxColor = Color.parseColor(extractArg(args, index + 2, true));
-                            stepRequestBuilder = stepRequestBuilder.useColor(minColor, maxColor);
+                            stepRequestBuilder.useColor(minColor, maxColor);
                             index += 3;
                         }
                         case "-defaultColor" -> {
                             final Color defaultColor = Color.parseColor(extractArg(args, index + 1, true));
-                            stepRequestBuilder = stepRequestBuilder.useDefaultColor(defaultColor);
+                            stepRequestBuilder.useDefaultColor(defaultColor);
                             index += 2;
                         }
                         case "-separator" -> {
@@ -149,16 +154,18 @@ public class GeoMapper {
                             index += 2;
                         }
                         case "-separators" -> {
-                            stepRequestBuilder = Arrays.asList(args).subList(index + 1, args.length - 1).stream()
+                            final int count = Integer.parseInt(extractArg(args, index + 1, true));
+                            IntStream.range(index + 2, index + 2 + count)
+                                    .mapToObj(i -> extractArg(args, i, true))
                                     .map(Double::parseDouble)
                                     .collect(collectingAndThen(Collectors.toList(), stepRequestBuilder::withSeparators));
-                            index = args.length;
+                            index += count + 2;
                         }
                         case "-save" -> {
                             fileName = extractArg(args, index + 1, true);
                             index += 2;
                         }
-                        default -> throw new IllegalArgumentException("Unknown command + '" + command + "'.");
+                        default -> throw new IllegalArgumentException("Unknown command '" + command + "'.");
                     }
                 }
                 yield stepRequestBuilder;

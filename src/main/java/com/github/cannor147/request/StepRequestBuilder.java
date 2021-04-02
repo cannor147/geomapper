@@ -94,8 +94,11 @@ public class StepRequestBuilder extends RequestBuilder {
     @Override
     public Request build() {
         final List<Double> separators = new ArrayList<>(valueSeparators);
+        if (separators.isEmpty()) {
+            separators.add(territoryToValueMap.values().stream().mapToDouble(x -> x).average().orElse(50.0));
+        }
         final List<RGBColor> scheme = Painter.generateScheme(minColor.getRgbColor(),
-                maxColor.getRgbColor(), valueSeparators.size());
+                maxColor.getRgbColor(), separators.size());
         final Queue<ColorizationTask> tasks = territoryToValueMap.entrySet().stream()
                 .map(e -> geoMap.find(e.getKey())
                         .map(t -> new ColorizationTask(t, scheme.get(findIndex(separators, e.getValue()))))
