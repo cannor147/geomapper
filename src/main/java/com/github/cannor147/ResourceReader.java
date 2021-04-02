@@ -1,4 +1,4 @@
-package com.github.cannor147.resources;
+package com.github.cannor147;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

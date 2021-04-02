@@ -15,7 +15,7 @@ import static java.util.Arrays.stream;
 
 @SuppressWarnings("unused")
 @UtilityClass
-public class ReadUtils {
+public class CsvUtils {
     private static final char COMMA_DELIMITER = ',';
     private static final String QUOTE = "\"";
 

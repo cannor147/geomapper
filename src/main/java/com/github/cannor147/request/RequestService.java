@@ -1,6 +1,6 @@
 package com.github.cannor147.request;
 
-import com.github.cannor147.configuration.Configuration;
+import com.github.cannor147.model.GeoMap;
 import com.github.cannor147.model.Territory;
 import lombok.RequiredArgsConstructor;
 
@@ -19,19 +19,19 @@ public class RequestService {
 
     public BufferedImage handleRequest(Request request) {
         final Queue<ColorizationTask> tasks = request.getTasks();
-        tasks.addAll(createDefaultTasks(request.getConfiguration(), request, tasks));
+        tasks.addAll(createDefaultTasks(request.getGeoMap(), request, tasks));
 
-        final BufferedImage image = request.getConfiguration().copyMap();
+        final BufferedImage image = request.getGeoMap().copyMap();
         perform(image, tasks);
         return image;
     }
 
-    private Queue<ColorizationTask> createDefaultTasks(Configuration configuration, Request request,
+    private Queue<ColorizationTask> createDefaultTasks(GeoMap geoMap, Request request,
                                                        Queue<ColorizationTask> tasks) {
         final Set<Territory> usedTerritories = tasks.stream()
                 .map(ColorizationTask::getTerritory)
                 .collect(Collectors.toSet());
-        return configuration.getNameToTerritoryMap().values().stream()
+        return geoMap.getNameToTerritoryMap().values().stream()
                 .distinct()
                 .filter(Predicate.not(usedTerritories::contains))
                 .map(territory -> new ColorizationTask(territory, request.getDefaultColor().getRgbColor()))

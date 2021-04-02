@@ -1,10 +1,10 @@
 package com.github.cannor147.request;
 
-import com.github.cannor147.configuration.Configuration;
+import com.github.cannor147.model.GeoMap;
 import com.github.cannor147.model.Color;
 import com.github.cannor147.painter.RGBColor;
 import com.github.cannor147.painter.Painter;
-import com.github.cannor147.util.ReadUtils;
+import com.github.cannor147.util.CsvUtils;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.io.File;
@@ -22,8 +22,8 @@ public class ScaleRequestBuilder extends RequestBuilder {
     private Double minValue;
     private Function<Double, Double> transformer = x -> x;
 
-    public ScaleRequestBuilder(Configuration configuration) {
-        super(configuration);
+    public ScaleRequestBuilder(GeoMap geoMap) {
+        super(geoMap);
     }
 
     public <N extends Number> ScaleRequestBuilder append(String territory, N value) {
@@ -90,7 +90,7 @@ public class ScaleRequestBuilder extends RequestBuilder {
     }
 
     public ScaleRequestBuilder fromCsv(File file, int nameColumn, int valueColumn) throws IOException {
-        return ReadUtils.readCsv(file, nameColumn, valueColumn).stream()
+        return CsvUtils.readCsv(file, nameColumn, valueColumn).stream()
                 .map(pair -> Pair.of(pair.getLeft(), safeParseNumber(pair.getRight())))
                 .filter(p -> p.getRight() != null)
                 .collect(Collectors.collectingAndThen(Collectors.toList(), this::appendAll));
@@ -108,12 +108,12 @@ public class ScaleRequestBuilder extends RequestBuilder {
                 .orElseGet(() -> data.values().stream().mapToDouble(x -> x).min().orElse(0.0));
         final List<RGBColor> scheme = Painter.generateScheme(minColor.getRgbColor(), maxColor.getRgbColor());
         final Queue<ColorizationTask> tasks = data.entrySet().stream()
-                .map(e -> configuration.find(e.getKey())
+                .map(e -> geoMap.find(e.getKey())
                         .map(t -> new ColorizationTask(t, scheme.get(toPercent(e.getValue(), minValue, maxValue))))
                         .orElse(null))
                 .filter(Objects::nonNull)
                 .collect(Collectors.toCollection(LinkedList::new));
-        return new Request(tasks, configuration, defaultColor);
+        return new Request(tasks, geoMap, defaultColor);
     }
 
     private static int toPercent(double x, double min, double max) {

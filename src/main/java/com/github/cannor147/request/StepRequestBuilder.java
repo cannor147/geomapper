@@ -1,10 +1,10 @@
 package com.github.cannor147.request;
 
-import com.github.cannor147.configuration.Configuration;
+import com.github.cannor147.model.GeoMap;
 import com.github.cannor147.model.Color;
 import com.github.cannor147.painter.RGBColor;
 import com.github.cannor147.painter.Painter;
-import com.github.cannor147.util.ReadUtils;
+import com.github.cannor147.util.CsvUtils;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.io.File;
@@ -19,8 +19,8 @@ public class StepRequestBuilder extends RequestBuilder {
     private Color maxColor = Color.GREEN;
     private Color minColor = Color.RED;
 
-    public StepRequestBuilder(Configuration configuration) {
-        super(configuration);
+    public StepRequestBuilder(GeoMap geoMap) {
+        super(geoMap);
     }
 
     public <N extends Number> StepRequestBuilder append(String territory, N value) {
@@ -85,7 +85,7 @@ public class StepRequestBuilder extends RequestBuilder {
     }
 
     public StepRequestBuilder fromCsv(File file, int nameColumn, int valueColumn) throws IOException {
-        return ReadUtils.readCsv(file, nameColumn, valueColumn).stream()
+        return CsvUtils.readCsv(file, nameColumn, valueColumn).stream()
                 .map(pair -> Pair.of(pair.getLeft(), safeParseNumber(pair.getRight())))
                 .filter(p -> p.getRight() != null)
                 .collect(Collectors.collectingAndThen(Collectors.toList(), this::appendAll));
@@ -97,12 +97,12 @@ public class StepRequestBuilder extends RequestBuilder {
         final List<RGBColor> scheme = Painter.generateScheme(minColor.getRgbColor(),
                 maxColor.getRgbColor(), valueSeparators.size());
         final Queue<ColorizationTask> tasks = territoryToValueMap.entrySet().stream()
-                .map(e -> configuration.find(e.getKey())
+                .map(e -> geoMap.find(e.getKey())
                         .map(t -> new ColorizationTask(t, scheme.get(findIndex(separators, e.getValue()))))
                         .orElse(null))
                 .filter(Objects::nonNull)
                 .collect(Collectors.toCollection(LinkedList::new));
-        return new Request(tasks, configuration, defaultColor);
+        return new Request(tasks, geoMap, defaultColor);
     }
 
     public static <T extends Comparable<T>> int findIndex(List<T> elements, T element) {

@@ -1,4 +1,4 @@
-package com.github.cannor147.configuration;
+package com.github.cannor147.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -9,7 +9,7 @@ import com.github.cannor147.namer.Synonymized;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ConfigurationDto implements Synonymized {
+public class GeoMapDto implements Synonymized {
     private String name;
     private String[] synonyms;
     @JsonProperty("data")

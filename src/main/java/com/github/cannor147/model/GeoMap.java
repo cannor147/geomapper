@@ -1,4 +1,4 @@
-package com.github.cannor147.configuration;
+package com.github.cannor147.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +18,7 @@ import static java.util.stream.Collectors.joining;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Configuration {
+public class GeoMap {
     private String name;
     private Map<String, Territory> nameToTerritoryMap;
     private BufferedImage map;

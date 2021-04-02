@@ -1,6 +1,6 @@
 package com.github.cannor147.request;
 
-import com.github.cannor147.configuration.Configuration;
+import com.github.cannor147.model.GeoMap;
 import com.github.cannor147.model.Color;
 
 import java.util.*;
@@ -12,8 +12,8 @@ public class StraightRequestBuilder extends RequestBuilder {
     private Color defaultColor = Color.SILVER;
     private Color color = Color.BLUE;
 
-    public StraightRequestBuilder(Configuration configuration) {
-        super(configuration);
+    public StraightRequestBuilder(GeoMap geoMap) {
+        super(geoMap);
     }
 
     public StraightRequestBuilder useColor(Color color) {
@@ -60,10 +60,10 @@ public class StraightRequestBuilder extends RequestBuilder {
     public Request build() {
         final Queue<ColorizationTask> tasks = colorToTerritoriesMap.entrySet().stream()
                 .flatMap(entry -> entry.getValue().stream()
-                        .map(territory -> configuration.find(territory).orElse(null))
+                        .map(territory -> geoMap.find(territory).orElse(null))
                         .filter(Objects::nonNull)
                         .map(territory -> new ColorizationTask(territory, entry.getKey().getRgbColor())))
                 .collect(Collectors.toCollection(LinkedList::new));
-        return new Request(tasks, configuration, defaultColor);
+        return new Request(tasks, geoMap, defaultColor);
     }
 }
