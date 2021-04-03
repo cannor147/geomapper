@@ -2,13 +2,12 @@ package com.github.cannor147.request;
 
 import com.github.cannor147.model.GeoMap;
 import com.github.cannor147.model.Territory;
+import com.github.cannor147.painter.Painter;
+import com.github.cannor147.painter.RGBColor;
 import lombok.RequiredArgsConstructor;
 
 import java.awt.image.BufferedImage;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -16,6 +15,7 @@ import static com.github.cannor147.painter.Painter.fillArea;
 
 @RequiredArgsConstructor
 public class RequestService {
+    public static final RGBColor WHITE_COLOR = RGBColor.of(255, 255, 255);
 
     public BufferedImage handleRequest(Request request) {
         final Queue<ColorizationTask> tasks = request.getTasks();
@@ -23,6 +23,10 @@ public class RequestService {
 
         final BufferedImage image = request.getGeoMap().copyMap();
         perform(image, tasks);
+        Optional.ofNullable(request.getGeoMap().getBackground())
+                .map(background -> Painter.findArea(background, WHITE_COLOR))
+                .orElseGet(Collections::emptySet)
+                .forEach(point -> Painter.fillPoint(image, point, WHITE_COLOR));
         return image;
     }
 

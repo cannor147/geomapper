@@ -200,7 +200,7 @@ public class GeoMapper {
     }
 
     public GeoMap findGeoMap(String geoMapName) throws IOException {
-        if (!nameToGeoMapMap.containsKey(geoMapName.toLowerCase())) {
+        if (!nameToGeoMapMap.containsKey(Namer.normalize(geoMapName))) {
             throw new IllegalArgumentException("No such geo map.");
         }
 
@@ -208,6 +208,8 @@ public class GeoMapper {
         final Territory[] territories = resourceReader.readJson(dto.getDataFilePath(), Territory[].class);
         final Map<String, Territory> nameToTerritoryMap = Namer.createMap(territories);
         final BufferedImage map = resourceReader.readImage(dto.getMapFilePath());
-        return new GeoMap(dto.getName(), nameToTerritoryMap, map);
+        final BufferedImage background = dto.getBackgroundFilePath() != null
+                ? resourceReader.readImage(dto.getBackgroundFilePath()) : null;
+        return new GeoMap(dto.getName(), nameToTerritoryMap, map, background);
     }
 }

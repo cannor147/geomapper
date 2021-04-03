@@ -1,9 +1,9 @@
 package com.github.cannor147.model;
 
+import com.github.cannor147.namer.Namer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.github.cannor147.model.Territory;
 
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
@@ -22,9 +22,10 @@ public class GeoMap {
     private String name;
     private Map<String, Territory> nameToTerritoryMap;
     private BufferedImage map;
+    private BufferedImage background;
 
     public Optional<Territory> find(String territoryName) {
-        return Arrays.stream(territoryName.trim().toLowerCase().split("\\s+"))
+        return Arrays.stream(Namer.normalize(territoryName).split("\\s+"))
                 .filter(Predicate.not("the"::equals))
                 .collect(collectingAndThen(joining(" "), name -> Optional.ofNullable(nameToTerritoryMap.get(name))));
     }

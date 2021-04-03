@@ -24,8 +24,11 @@ public class Namer {
     public static <T extends Synonymized> Map<String, T> createMap(Iterable<T> items) {
         return StreamSupport.stream(items.spliterator(), false)
                 .map(item -> Pair.of(findNames(item), item))
-                .flatMap(pair -> pair.getKey().stream().map(name -> Pair.of(name, pair.getRight())))
-                .map(pair -> Pair.of(pair.getLeft().toLowerCase(), pair.getRight()))
+                .flatMap(pair -> pair.getKey().stream().map(name -> Pair.of(normalize(name), pair.getRight())))
                 .collect(Collectors.toMap(Pair::getKey, Pair::getValue));
+    }
+
+    public static String normalize(String name) {
+        return name.toLowerCase().replace('–', '-').replace('—', '-').trim();
     }
 }

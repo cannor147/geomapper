@@ -22,6 +22,14 @@ public class Painter {
             new Point(-1, 0),
     };
 
+    public static Set<Point> findArea(BufferedImage image, RGBColor rgbColor) {
+        return IntStream.range(0, image.getWidth())
+                .boxed()
+                .flatMap(i -> IntStream.range(0, image.getHeight()).mapToObj(j -> new Point(i, j)))
+                .filter(point -> rgbColor.equals(getRGBColor(image, point)))
+                .collect(Collectors.toSet());
+    }
+
     public static void fillArea(BufferedImage image, Point point, RGBColor rgbColor) {
         final RGBColor originalColor = getRGBColor(image, point);
         if (originalColor.equals(rgbColor)) {

@@ -16,4 +16,6 @@ public class GeoMapDto implements Synonymized {
     private String dataFilePath;
     @JsonProperty("map")
     private String mapFilePath;
+    @JsonProperty("background")
+    private String backgroundFilePath;
 }
