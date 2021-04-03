@@ -1,0 +1,1052 @@
+[
+  {
+    "name": "Moscow",
+    "synonyms": [
+      "Москва",
+      "г. Москва",
+      "Federal city of Moscow"
+    ],
+    "points": {
+      "x": 285,
+      "y": 670
+    }
+  },
+  {
+    "name": "Saint Petersburg",
+    "synonyms": [
+      "Санкт-Петербург",
+      "г. Санкт-Петербург",
+      "Federal city of Saint Petersburg",
+      "Ленинград",
+      "Leningrad",
+      "Петербург",
+      "Petersburg"
+    ],
+    "points": {
+      "x": 290,
+      "y": 520
+    }
+  },
+  {
+    "name": "Sevastopol",
+    "synonyms": [
+      "Севастополь",
+      "г. Севастополь",
+      "Federal city of Sevastopol"
+    ],
+    "points": {
+      "x": 25,
+      "y": 835
+    }
+  },
+  {
+    "name": "Amur Oblast",
+    "synonyms": [
+      "Амурская область",
+      "Амурская обл."
+    ],
+    "points": {
+      "x": 1560,
+      "y": 860
+    }
+  },
+  {
+    "name": "Arkhangelsk Oblast",
+    "synonyms": [
+      "Архангельская область",
+      "Архангельская обл.",
+      "Архангельская область без НАО",
+      "Архангельская обл. без НАО",
+      "Архангельская область (без НАО)",
+      "Архангельская обл. (без НАО)"
+    ],
+    "points": {
+      "x": 460,
+      "y": 550
+    }
+  },
+  {
+    "name": "Astrakhan Oblast",
+    "synonyms": [
+      "Астраханская область",
+      "Астраханская обл."
+    ],
+    "points": {
+      "x": 270,
+      "y": 950
+    }
+  },
+  {
+    "name": "Belgorod Oblast",
+    "synonyms": [
+      "Белгородская область",
+      "Белгородская обл."
+    ],
+    "points": {
+      "x": 195,
+      "y": 770
+    }
+  },
+  {
+    "name": "Bryansk Oblast",
+    "synonyms": [
+      "Брянская область",
+      "Брянская обл.",
+      "Bryanshchina",
+      "Bryanschina",
+      "Брянщина"
+    ],
+    "points": {
+      "x": 190,
+      "y": 685
+    }
+  },
+  {
+    "name": "Chelyabinsk Oblast",
+    "synonyms": [
+      "Челябинская область",
+      "Челябинская обл."
+    ],
+    "points": {
+      "x": 555,
+      "y": 890
+    }
+  },
+  {
+    "name": "Irkutsk Oblast",
+    "synonyms": [
+      "Иркутская область",
+      "Иркутская обл."
+    ],
+    "points": {
+      "x": 1200,
+      "y": 900
+    }
+  },
+  {
+    "name": "Ivanovo Oblast",
+    "synonyms": [
+      "Ивановская область",
+      "Ивановская обл."
+    ],
+    "points": {
+      "x": 355,
+      "y": 685
+    }
+  },
+  {
+    "name": "Kaliningrad Oblast",
+    "synonyms": [
+      "Калининградская область",
+      "Калининградская обл.",
+      "Kaliningrad Region",
+      "Kaliningrad"
+    ],
+    "points": {
+      "x": 110,
+      "y": 510
+    }
+  },
+  {
+    "name": "Kaluga Oblast",
+    "synonyms": [
+      "Калужская область",
+      "Калужская обл."
+    ],
+    "points": {
+      "x": 235,
+      "y": 675
+    }
+  },
+  {
+    "name": "Kemerovo Oblast",
+    "synonyms": [
+      "Кемеровская область",
+      "Кемеровская обл.",
+      "Кузбасс",
+      "Кемеровская область - Кузбасс",
+      "Kuzbass",
+      "Kemerovo Oblast - Kuzbass"
+    ],
+    "points": {
+      "x": 950,
+      "y": 975
+    }
+  },
+  {
+    "name": "Kirov Oblast",
+    "synonyms": [
+      "Кировская область",
+      "Кировская обл."
+    ],
+    "points": {
+      "x": 470,
+      "y": 725
+    }
+  },
+  {
+    "name": "Kostroma Oblast",
+    "synonyms": [
+      "Костромская область",
+      "Костромская обл."
+    ],
+    "points": {
+      "x": 395,
+      "y": 675
+    }
+  },
+  {
+    "name": "Kurgan Oblast",
+    "synonyms": [
+      "Курганская область",
+      "Курганская обл."
+    ],
+    "points": {
+      "x": 620,
+      "y": 890
+    }
+  },
+  {
+    "name": "Kursk Oblast",
+    "synonyms": [
+      "Курская область",
+      "Курская обл."
+    ],
+    "points": {
+      "x": 190,
+      "y": 730
+    }
+  },
+  {
+    "name": "Leningrad Oblast",
+    "synonyms": [
+      "Ленинградская область",
+      "Ленинградская обл.",
+      "ЛО"
+    ],
+    "points": {
+      "x": 305,
+      "y": 540
+    }
+  },
+  {
+    "name": "Lipetsk Oblast",
+    "synonyms": [
+      "Липецкая область",
+      "Липецкая обл."
+    ],
+    "points": {
+      "x": 245,
+      "y": 750
+    }
+  },
+  {
+    "name": "Magadan Oblast",
+    "synonyms": [
+      "Магаданская область",
+      "Магаданская обл."
+    ],
+    "points": {
+      "x": 1680,
+      "y": 450
+    }
+  },
+  {
+    "name": "Moscow Oblast",
+    "synonyms": [
+      "Московская область",
+      "Московская обл.",
+      "Podmoskovye",
+      "Подмосковье"
+    ],
+    "points": {
+      "x": 285,
+      "y": 685
+    }
+  },
+  {
+    "name": "Murmansk Oblast",
+    "synonyms": [
+      "Мурманская область",
+      "Мурманская обл."
+    ],
+    "points": {
+      "x": 490,
+      "y": 425
+    }
+  },
+  {
+    "name": "Nizhny Novgorod Oblast",
+    "synonyms": [
+      "Нижегородская область",
+      "Нижегородская обл."
+    ],
+    "points": {
+      "x": 370,
+      "y": 730
+    }
+  },
+  {
+    "name": "Novgorod Oblast",
+    "synonyms": [
+      "Новгородская область",
+      "Новгородская обл."
+    ],
+    "points": {
+      "x": 275,
+      "y": 570
+    }
+  },
+  {
+    "name": "Novosibirsk Oblast",
+    "synonyms": [
+      "Новосибирская область",
+      "Новосибирская обл."
+    ],
+    "points": {
+      "x": 845,
+      "y": 950
+    }
+  },
+  {
+    "name": "Omsk Oblast",
+    "synonyms": [
+      "Омская область",
+      "Омская обл."
+    ],
+    "points": {
+      "x": 750,
+      "y": 910
+    }
+  },
+  {
+    "name": "Orenburg Oblast",
+    "synonyms": [
+      "Оренбургская область",
+      "Оренбургская обл."
+    ],
+    "points": {
+      "x": 450,
+      "y": 920
+    }
+  },
+  {
+    "name": "Oryol Oblast",
+    "synonyms": [
+      "Орловская область",
+      "Орловская обл."
+    ],
+    "points": {
+      "x": 220,
+      "y": 715
+    }
+  },
+  {
+    "name": "Penza Oblast",
+    "synonyms": [
+      "Пензенская область",
+      "Пензенская обл."
+    ],
+    "points": {
+      "x": 325,
+      "y": 795
+    }
+  },
+  {
+    "name": "Pskov Oblast",
+    "synonyms": [
+      "Псковская область",
+      "Псковская обл."
+    ],
+    "points": {
+      "x": 225,
+      "y": 560
+    }
+  },
+  {
+    "name": "Rostov Oblast",
+    "synonyms": [
+      "Ростовская область",
+      "Ростовская обл."
+    ],
+    "points": {
+      "x": 185,
+      "y": 875
+    }
+  },
+  {
+    "name": "Ryazan Oblast",
+    "synonyms": [
+      "Рязанская область",
+      "Рязанская обл."
+    ],
+    "points": {
+      "x": 290,
+      "y": 730
+    }
+  },
+  {
+    "name": "Sakhalin Oblast",
+    "synonyms": [
+      "Сахалинская область",
+      "Сахалинская обл."
+    ],
+    "points": {
+      "x": 1875,
+      "y": 725
+    }
+  },
+  {
+    "name": "Samara Oblast",
+    "synonyms": [
+      "Самарская область",
+      "Самарская обл."
+    ],
+    "points": {
+      "x": 400,
+      "y": 845
+    }
+  },
+  {
+    "name": "Saratov Oblast",
+    "synonyms": [
+      "Саратовская область",
+      "Саратовская обл."
+    ],
+    "points": {
+      "x": 325,
+      "y": 850
+    }
+  },
+  {
+    "name": "Smolensk Oblast",
+    "synonyms": [
+      "Смоленская область",
+      "Смоленская обл.",
+      "Smolenschina",
+      "Smolenshchina",
+      "Смоленщина"
+    ],
+    "points": {
+      "x": 220,
+      "y": 640
+    }
+  },
+  {
+    "name": "Sverdlovsk Oblast",
+    "synonyms": [
+      "Свердловская область",
+      "Свердловская обл."
+    ],
+    "points": {
+      "x": 610,
+      "y": 800
+    }
+  },
+  {
+    "name": "Tambov Oblast",
+    "synonyms": [
+      "Тамбовская область",
+      "Тамбовская обл."
+    ],
+    "points": {
+      "x": 275,
+      "y": 770
+    }
+  },
+  {
+    "name": "Tomsk Oblast",
+    "synonyms": [
+      "Томская область",
+      "Томская обл."
+    ],
+    "points": {
+      "x": 875,
+      "y": 875
+    }
+  },
+  {
+    "name": "Tver Oblast",
+    "synonyms": [
+      "Тверская область",
+      "Тверская обл."
+    ],
+    "points": {
+      "x": 275,
+      "y": 615
+    }
+  },
+  {
+    "name": "Tula Oblast",
+    "synonyms": [
+      "Тульская область",
+      "Тульская обл."
+    ],
+    "points": {
+      "x": 250,
+      "y": 710
+    }
+  },
+  {
+    "name": "Tyumen Oblast",
+    "synonyms": [
+      "Тюменская область",
+      "Тюменская обл.",
+      "Тюменская область без ЯНАО и ХМАО",
+      "Тюменская обл. без ЯНАО и ХМАО",
+      "Тюменская область (без ЯНАО и ХМАО)",
+      "Тюменская обл. (без ЯНАО и ХМАО)",
+      "Тюменская область без ХМАО и ЯНАО",
+      "Тюменская обл. без ХМАО и ЯНАО",
+      "Тюменская область (без ХМАО и ЯНАО)",
+      "Тюменская обл. (без ХМАО и ЯНАО)"
+    ],
+    "points": {
+      "x": 695,
+      "y": 860
+    }
+  },
+  {
+    "name": "Ulyanovsk Oblast",
+    "synonyms": [
+      "Ульяновская область",
+      "Ульяновская обл."
+    ],
+    "points": {
+      "x": 375,
+      "y": 805
+    }
+  },
+  {
+    "name": "Vladimir Oblast",
+    "synonyms": [
+      "Владимирская область",
+      "Владимирская обл."
+    ],
+    "points": {
+      "x": 325,
+      "y": 695
+    }
+  },
+  {
+    "name": "Volgograd Oblast",
+    "synonyms": [
+      "Волгоградская область",
+      "Волгоградская обл."
+    ],
+    "points": {
+      "x": 260,
+      "y": 865
+    }
+  },
+  {
+    "name": "Vologda Oblast",
+    "synonyms": [
+      "Вологодская область",
+      "Вологодская обл."
+    ],
+    "points": {
+      "x": 390,
+      "y": 625
+    }
+  },
+  {
+    "name": "Voronezh Oblast",
+    "synonyms": [
+      "Воронежская область",
+      "Воронежская обл."
+    ],
+    "points": {
+      "x": 230,
+      "y": 795
+    }
+  },
+  {
+    "name": "Yaroslavl Oblast",
+    "synonyms": [
+      "Ярославская область",
+      "Ярославская обл."
+    ],
+    "points": {
+      "x": 340,
+      "y": 645
+    }
+  },
+  {
+    "name": "Altai Krai",
+    "synonyms": [
+      "Алтайский край"
+    ],
+    "points": {
+      "x": 875,
+      "y": 1030
+    }
+  },
+  {
+    "name": "Kamchatka Krai",
+    "synonyms": [
+      "Камчатский край"
+    ],
+    "points": {
+      "x": 1860,
+      "y": 410
+    }
+  },
+  {
+    "name": "Khabarovsk Krai",
+    "synonyms": [
+      "Хабаровский край"
+    ],
+    "points": {
+      "x": 1650,
+      "y": 760
+    }
+  },
+  {
+    "name": "Krasnodar Krai",
+    "synonyms": [
+      "Краснодарский край",
+      "Kuban",
+      "Кубань"
+    ],
+    "points": {
+      "x": 125,
+      "y": 895
+    }
+  },
+  {
+    "name": "Krasnoyarsk Krai",
+    "synonyms": [
+      "Красноярский край"
+    ],
+    "points": {
+      "x": 1055,
+      "y": 695
+    }
+  },
+  {
+    "name": "Perm Krai",
+    "synonyms": [
+      "Пермский край",
+      "Perm Oblast",
+      "Пермская область",
+      "Пермская обл."
+    ],
+    "points": {
+      "x": 545,
+      "y": 760
+    }
+  },
+  {
+    "name": "Primorsky Krai",
+    "synonyms": [
+      "Приморский край",
+      "Primorye",
+      "Приморье",
+      "Maritime Territory"
+    ],
+    "points": {
+      "x": 1780,
+      "y": 990
+    }
+  },
+  {
+    "name": "Stavropol Krai",
+    "synonyms": [
+      "Ставропольский край"
+    ],
+    "points": {
+      "x": 175,
+      "y": 955
+    }
+  },
+  {
+    "name": "Zabaykalsky Krai",
+    "synonyms": [
+      "Забайкальский край"
+    ],
+    "points": {
+      "x": 1415,
+      "y": 960
+    }
+  },
+  {
+    "name": "Adygea",
+    "synonyms": [
+      "Адыгея",
+      "Republic of Adygea",
+      "Республика Адыгея",
+      "Adyghe Republic"
+    ],
+    "points": {
+      "x": 120,
+      "y": 920
+    }
+  },
+  {
+    "name": "Altai Republic",
+    "synonyms": [
+      "Алтайская республика",
+      "Republic of Altai",
+      "Республика Алтай",
+      "Gorno-Altai Republic",
+      "Горно-Алтайская республика",
+      "Republic of Gorno-Altai",
+      "Республика Горный Алтай",
+      "Gorno-Altai",
+      "Горный Алтай"
+    ],
+    "points": {
+      "x": 950,
+      "y": 1085
+    }
+  },
+  {
+    "name": "Bashkortostan",
+    "synonyms": [
+      "Башкортостан",
+      "Republic of Bashkortostan",
+      "Республика Башкортостан",
+      "Bashkiria",
+      "Башкирия",
+      "Republic of Bashkiria",
+      "Республика Башкирия"
+    ],
+    "points": {
+      "x": 500,
+      "y": 875
+    }
+  },
+  {
+    "name": "Buryatia",
+    "synonyms": [
+      "Бурятия",
+      "Republic of Buryatia",
+      "Республика Бурятия"
+    ],
+    "points": {
+      "x": 1300,
+      "y": 980
+    }
+  },
+  {
+    "name": "Chechnya",
+    "synonyms": [
+      "Чечня",
+      "Chechen Republic",
+      "Чеченская республика"
+    ],
+    "points": {
+      "x": 185,
+      "y": 1015
+    }
+  },
+  {
+    "name": "Chuvashia",
+    "synonyms": [
+      "Чувашия",
+      "Chuvash Republic",
+      "Чувашская республика",
+      "Чувашская Республика - Чувашия"
+    ],
+    "points": {
+      "x": 390,
+      "y": 765
+    }
+  },
+  {
+    "name": "Crimea",
+    "synonyms": [
+      "Крым",
+      "Republic of Crimea",
+      "Республика Крым"
+    ],
+    "points": {
+      "x": 50,
+      "y": 830
+    }
+  },
+  {
+    "name": "Dagestan",
+    "synonyms": [
+      "Дагестан",
+      "Republic of Dagestan",
+      "Республика Дагестан"
+    ],
+    "points": {
+      "x": 195,
+      "y": 1040
+    }
+  },
+  {
+    "name": "Ingushetia",
+    "synonyms": [
+      "Ингушетия",
+      "Republic of Ingushetia",
+      "Республика Ингушетия"
+    ],
+    "points": {
+      "x": 170,
+      "y": 1010
+    }
+  },
+  {
+    "name": "Kabardino-Balkaria",
+    "synonyms": [
+      "Кабардино-Балкария",
+      "Republic of Kabardino-Balkaria",
+      "Республика Кабардино-Балкария",
+      "Kabardino-Balkar Republic",
+      "Kabardino-Balkarian Republic",
+      "Кабардино-Балкарская республика"
+    ],
+    "points": {
+      "x": 150,
+      "y": 985
+    }
+  },
+  {
+    "name": "Kalmykia",
+    "synonyms": [
+      "Калмыкия",
+      "Republic of Kalmykia",
+      "Республика Калмыкия"
+    ],
+    "points": {
+      "x": 230,
+      "y": 950
+    }
+  },
+  {
+    "name": "Karachay-Cherkessia",
+    "synonyms": [
+      "Карачаево-Черкесия",
+      "Republic of Karachay-Cherkessia",
+      "Республика Карачаево-Черкесия",
+      "Karachay-Cherkess Republic",
+      "Карачаево-Черкесская республика"
+    ],
+    "points": {
+      "x": 130,
+      "y": 960
+    }
+  },
+  {
+    "name": "Karelia",
+    "synonyms": [
+      "Карелия",
+      "Republic of Karelia",
+      "Республика Карелия"
+    ],
+    "points": {
+      "x": 380,
+      "y": 500
+    }
+  },
+  {
+    "name": "Khakassia",
+    "synonyms": [
+      "Хакасия",
+      "Republic of Khakassia",
+      "Республика Хакасия"
+    ],
+    "points": {
+      "x": 1000,
+      "y": 1010
+    }
+  },
+  {
+    "name": "Komi",
+    "synonyms": [
+      "Коми",
+      "Republic of Komi",
+      "Республика Коми",
+      "Komi Republic"
+    ],
+    "points": {
+      "x": 580,
+      "y": 635
+    }
+  },
+  {
+    "name": "Mari El",
+    "synonyms": [
+      "Марий Эл",
+      "Republic of Mari El",
+      "Республика Марий Эл",
+      "Mari El Republic"
+    ],
+    "points": {
+      "x": 420,
+      "y": 750
+    }
+  },
+  {
+    "name": "Mordovia",
+    "synonyms": [
+      "Мордовия",
+      "Republic of Mordovia",
+      "Республика Мордовия"
+    ],
+    "points": {
+      "x": 340,
+      "y": 770
+    }
+  },
+  {
+    "name": "North Ossetia-Alania",
+    "synonyms": [
+      "North Ossetia - Alania",
+      "Северная Осетия - Алания",
+      "Republic of North Ossetia-Alania",
+      "Republic of North Ossetia - Alania",
+      "Республика Северная Осетия - Алания",
+      "North Ossetia",
+      "Северная Осетия"
+    ],
+    "points": {
+      "x": 155,
+      "y": 1005
+    }
+  },
+  {
+    "name": "Tatarstan",
+    "synonyms": [
+      "Татарстан",
+      "Republic of Tatarstan",
+      "Республика Татарстан"
+    ],
+    "points": {
+      "x": 435,
+      "y": 800
+    }
+  },
+  {
+    "name": "Tuva",
+    "synonyms": [
+      "Tyva",
+      "Тува",
+      "Тыва",
+      "Republic of Tuva",
+      "Republic of Tyva",
+      "Республика Тува",
+      "Республика Тыва",
+      "Tuva Republic",
+      "Tyva Republic",
+      "Тувинская республика",
+      "Тывинская республика"
+    ],
+    "points": {
+      "x": 1065,
+      "y": 1065
+    }
+  },
+  {
+    "name": "Udmurtia",
+    "synonyms": [
+      "Удмуртия",
+      "Republic of Udmurtia",
+      "Республика Удмуртия",
+      "Udmurt Republic",
+      "Удмуртская республика"
+    ],
+    "points": {
+      "x": 485,
+      "y": 775
+    }
+  },
+  {
+    "name": "Sakha",
+    "synonyms": [
+      "Саха",
+      "Yakutia",
+      "Yakutiya",
+      "Якутия",
+      "Republic of Sakha",
+      "Republic of Sakha (Yakutia)",
+      "Republic of Sakha (Yakutiya)",
+      "Republic of Sakha-Yakutia",
+      "Republic of Sakha-Yakutiya",
+      "Republic of Sakha - Yakutia",
+      "Republic of Sakha - Yakutiya",
+      "Республика Саха",
+      "Республика Саха (Якутия)",
+      "Республика Саха - Якутия",
+      "Sakha Republic"
+    ],
+    "points": {
+      "x": 1400,
+      "y": 600
+    }
+  },
+  {
+    "name": "Chukotka Autonomous Okrug",
+    "synonyms": [
+      "Чукотский автономный округ",
+      "Chukotka",
+      "Чукотка",
+      "CAO",
+      "ChAO",
+      "ЧАО"
+    ],
+    "points": {
+      "x": 1700,
+      "y": 150
+    }
+  },
+  {
+    "name": "Khanty-Mansi Autonomous Okrug",
+    "synonyms": [
+      "Khanty-Mansiysk Autonomous Okrug",
+      "Ханты-Мансийский автономный округ",
+      "Khanty-Mansi Autonomous Okrug-Yugra",
+      "Khanty-Mansi Autonomous Okrug - Yugra",
+      "Khanty-Mansiysk Autonomous Okrug-Yugra",
+      "Khanty-Mansiysk Autonomous Okrug - Yugra",
+      "Ханты-Мансийский автономный округ - Югра",
+      "KMAO",
+      "KhMAO",
+      "ХМАО"
+    ],
+    "points": {
+      "x": 760,
+      "y": 760
+    }
+  },
+  {
+    "name": "Nenets Autonomous Okrug",
+    "synonyms": [
+      "Ненецкий автономный округ",
+      "NAO",
+      "НАО"
+    ],
+    "points": {
+      "x": 640,
+      "y": 520
+    }
+  },
+  {
+    "name": "Yamalo-Nenets Autonomous Okrug",
+    "synonyms": [
+      "Ямало-Ненецкий автономный округ",
+      "YaNAO",
+      "ЯНАО"
+    ],
+    "points": {
+      "x": 830,
+      "y": 640
+    }
+  },
+  {
+    "name": "Jewish Autonomous Oblast",
+    "synonyms": [
+      "Еврейская автономная область",
+      "JAO",
+      "ЕАО"
+    ],
+    "points": {
+      "x": 1695,
+      "y": 925
+    }
+  }
+]

@@ -402,7 +402,6 @@
       "BiH",
       "B&H",
       "Bosnia-Herzegovina",
-      "Bosnia—Herzegovina",
       "Bosnia"
     ],
     "points": {
@@ -1144,10 +1143,8 @@
     "synonyms": [
       "Timor Leste",
       "Timor-Leste",
-      "Timor—Leste",
       "Democratic Republic of Timor Leste",
       "Democratic Republic of Timor-Leste",
-      "Democratic Republic of Timor—Leste",
       "Democratic Republic of East Timor"
     ],
     "points": {
@@ -1472,10 +1469,8 @@
     "name": "Guinea-Bissau",
     "synonyms": [
       "Guinea Bissau",
-      "Guinea—Bissau",
       "Republic of Guinea Bissau",
-      "Republic of Guinea-Bissau",
-      "Republic of Guinea—Bissau"
+      "Republic of Guinea-Bissau"
     ],
     "points": {
       "x": 495,

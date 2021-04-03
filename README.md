@@ -45,3 +45,16 @@ step countries
 -colors blue red
 -separators 3 0.8 0.7 0.55
 `
+
+## Custom maps
+You can use this tool not only for the map of countries. Below is an example of Russian subjects by population (except Crimea and Sevastopol). 
+
+![Russian map example](example/russia.png "Russian map")
+
+For the same result use this command:
+`
+scale russia
+-import "src/main/resources/example/rus-population.csv" 2 6
+-color lime
+-logarithmization 2
+`
