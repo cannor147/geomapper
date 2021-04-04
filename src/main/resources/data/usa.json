@@ -1,0 +1,611 @@
+[
+  {
+    "name": "Washington",
+    "synonyms": [
+      "State of Washington",
+      "Washington state"
+    ],
+    "points": {
+      "x": 190,
+      "y": 115
+    }
+  },
+  {
+    "name": "Oregon",
+    "synonyms": [
+      "State of Oregon",
+      "Oregon state"
+    ],
+    "points": {
+      "x": 150,
+      "y": 230
+    }
+  },
+  {
+    "name": "California",
+    "synonyms": [
+      "State of California",
+      "California state"
+    ],
+    "points": {
+      "x": 110,
+      "y": 460
+    }
+  },
+  {
+    "name": "Nevada",
+    "synonyms": [
+      "State of Nevada",
+      "Nevada state"
+    ],
+    "points": {
+      "x": 205,
+      "y": 405
+    }
+  },
+  {
+    "name": "Idaho",
+    "synonyms": [
+      "State of Idaho",
+      "Idaho state"
+    ],
+    "points": {
+      "x": 305,
+      "y": 260
+    }
+  },
+  {
+    "name": "Montana",
+    "synonyms": [
+      "State of Montana",
+      "Montana state"
+    ],
+    "points": {
+      "x": 440,
+      "y": 175
+    }
+  },
+  {
+    "name": "Wyoming",
+    "synonyms": [
+      "State of Wyoming",
+      "Wyoming state"
+    ],
+    "points": {
+      "x": 475,
+      "y": 320
+    }
+  },
+  {
+    "name": "Colorado",
+    "synonyms": [
+      "State of Colorado",
+      "Colorado state"
+    ],
+    "points": {
+      "x": 515,
+      "y": 470
+    }
+  },
+  {
+    "name": "Utah",
+    "synonyms": [
+      "State of Utah",
+      "Utah state"
+    ],
+    "points": {
+      "x": 350,
+      "y": 440
+    }
+  },
+  {
+    "name": "Arizona",
+    "synonyms": [
+      "State of Arizona",
+      "Arizona state"
+    ],
+    "points": {
+      "x": 320,
+      "y": 615
+    }
+  },
+  {
+    "name": "New Mexico",
+    "synonyms": [
+      "State of New Mexico",
+      "New Mexico state"
+    ],
+    "points": {
+      "x": 480,
+      "y": 630
+    }
+  },
+  {
+    "name": "Texas",
+    "synonyms": [
+      "State of Texas",
+      "Texas state"
+    ],
+    "points": {
+      "x": 690,
+      "y": 765
+    }
+  },
+  {
+    "name": "Oklahoma",
+    "synonyms": [
+      "State of Oklahoma",
+      "Oklahoma state"
+    ],
+    "points": {
+      "x": 735,
+      "y": 615
+    }
+  },
+  {
+    "name": "Kansas",
+    "synonyms": [
+      "State of Kansas",
+      "Kansas state"
+    ],
+    "points": {
+      "x": 705,
+      "y": 500
+    }
+  },
+  {
+    "name": "Nebraska",
+    "synonyms": [
+      "State of Nebraska",
+      "Nebraska state"
+    ],
+    "points": {
+      "x": 675,
+      "y": 395
+    }
+  },
+  {
+    "name": "North Dakota",
+    "synonyms": [
+      "State of North Dakota",
+      "North Dakota state"
+    ],
+    "points": {
+      "x": 665,
+      "y": 285
+    }
+  },
+  {
+    "name": "South Dakota",
+    "synonyms": [
+      "State of South Dakota",
+      "South Dakota state"
+    ],
+    "points": {
+      "x": 665,
+      "y": 185
+    }
+  },
+  {
+    "name": "Minnesota",
+    "synonyms": [
+      "State of Minnesota",
+      "Minnesota state"
+    ],
+    "points": {
+      "x": 810,
+      "y": 230
+    }
+  },
+  {
+    "name": "Iowa",
+    "synonyms": [
+      "State of Iowa",
+      "Iowa state"
+    ],
+    "points": {
+      "x": 840,
+      "y": 375
+    }
+  },
+  {
+    "name": "Missouri",
+    "synonyms": [
+      "State of Missouri",
+      "Missouri state"
+    ],
+    "points": {
+      "x": 875,
+      "y": 510
+    }
+  },
+  {
+    "name": "Arkansas",
+    "synonyms": [
+      "State of Arkansas",
+      "Arkansas state"
+    ],
+    "points": {
+      "x": 870,
+      "y": 635
+    }
+  },
+  {
+    "name": "Louisiana",
+    "synonyms": [
+      "State of Louisiana",
+      "Louisiana state"
+    ],
+    "points": {
+      "x": 890,
+      "y": 765
+    }
+  },
+  {
+    "name": "Mississippi",
+    "synonyms": [
+      "State of Mississippi",
+      "Mississippi state"
+    ],
+    "points": {
+      "x": 960,
+      "y": 700
+    }
+  },
+  {
+    "name": "Alabama",
+    "synonyms": [
+      "State of Alabama",
+      "Alabama state"
+    ],
+    "points": {
+      "x": 1050,
+      "y": 700
+    }
+  },
+  {
+    "name": "Florida",
+    "synonyms": [
+      "State of Florida",
+      "Florida state"
+    ],
+    "points": {
+      "x": 1215,
+      "y": 830
+    }
+  },
+  {
+    "name": "Georgia",
+    "synonyms": [
+      "State of Georgia",
+      "Georgia state"
+    ],
+    "points": {
+      "x": 1159,
+      "y": 690
+    }
+  },
+  {
+    "name": "South Carolina",
+    "synonyms": [
+      "State of South Carolina",
+      "South Carolina state"
+    ],
+    "points": {
+      "x": 1215,
+      "y": 635
+    }
+  },
+  {
+    "name": "North Carolina",
+    "synonyms": [
+      "State of North Carolina",
+      "North Carolina state"
+    ],
+    "points": {
+      "x": 1245,
+      "y": 570
+    }
+  },
+  {
+    "name": "Tennessee",
+    "synonyms": [
+      "State of Tennessee",
+      "Tennessee state"
+    ],
+    "points": {
+      "x": 1050,
+      "y": 585
+    }
+  },
+  {
+    "name": "Kentucky",
+    "synonyms": [
+      "State of Kentucky",
+      "Commonwealth of Kentucky",
+      "Kentucky state"
+    ],
+    "points": {
+      "x": 1065,
+      "y": 525
+    }
+  },
+  {
+    "name": "Illinois",
+    "synonyms": [
+      "State of Illinois",
+      "Illinois state"
+    ],
+    "points": {
+      "x": 955,
+      "y": 440
+    }
+  },
+  {
+    "name": "Wisconsin",
+    "synonyms": [
+      "State of Wisconsin",
+      "Wisconsin state"
+    ],
+    "points": {
+      "x": 925,
+      "y": 280
+    }
+  },
+  {
+    "name": "Michigan",
+    "synonyms": [
+      "State of Michigan",
+      "Michigan state"
+    ],
+    "points": [
+      {
+        "x": 985,
+        "y": 215
+      },
+      {
+        "x": 1070,
+        "y": 315
+      }
+    ]
+  },
+  {
+    "name": "Indiana",
+    "synonyms": [
+      "State of Indiana",
+      "Indiana state"
+    ],
+    "points": {
+      "x": 1040,
+      "y": 440
+    }
+  },
+  {
+    "name": "Ohio",
+    "synonyms": [
+      "State of Ohio",
+      "Ohio state"
+    ],
+    "points": {
+      "x": 1130,
+      "y": 415
+    }
+  },
+  {
+    "name": "West Virginia",
+    "synonyms": [
+      "State of West Virginia",
+      "West Virginia state"
+    ],
+    "points": {
+      "x": 1190,
+      "y": 470
+    }
+  },
+  {
+    "name": "Virginia",
+    "synonyms": [
+      "State of Virginia",
+      "Commonwealth of Virginia",
+      "Virginia state"
+    ],
+    "points": [
+      {
+        "x": 1260,
+        "y": 490
+      },
+      {
+        "x": 1335,
+        "y": 480
+      }
+    ]
+  },
+  {
+    "name": "Washington, D.C.",
+    "synonyms": [
+      "Washington, DC",
+      "Washington D.C.",
+      "Washington DC",
+      "District of Columbia",
+      "D.C.",
+      "DC"
+    ],
+    "points": {
+      "x": 1295,
+      "y": 435
+    }
+  },
+  {
+    "name": "Maryland",
+    "synonyms": [
+      "State of Maryland",
+      "Maryland state"
+    ],
+    "points": {
+      "x": 1300,
+      "y": 430
+    }
+  },
+  {
+    "name": "Delaware",
+    "synonyms": [
+      "State of Delaware",
+      "Delaware state"
+    ],
+    "points": {
+      "x": 1335,
+      "y": 425
+    }
+  },
+  {
+    "name": "New Jersey",
+    "synonyms": [
+      "State of New Jersey",
+      "New Jersey state"
+    ],
+    "points": {
+      "x": 1350,
+      "y": 380
+    }
+  },
+  {
+    "name": "Pennsylvania",
+    "synonyms": [
+      "State of Pennsylvania",
+      "Commonwealth of Pennsylvania",
+      "Pennsylvania state"
+    ],
+    "points": {
+      "x": 1265,
+      "y": 370
+    }
+  },
+  {
+    "name": "New York",
+    "synonyms": [
+      "State of New York",
+      "New York state"
+    ],
+    "points": {
+      "x": 1330,
+      "y": 300
+    }
+  },
+  {
+    "name": "Connecticut",
+    "synonyms": [
+      "State of Connecticut",
+      "Connecticut state"
+    ],
+    "points": {
+      "x": 1385,
+      "y": 315
+    }
+  },
+  {
+    "name": "Rhode Island",
+    "synonyms": [
+      "State of Rhode Island",
+      "Rhode Island state",
+      "Rhode Island and Providence Plantations",
+      "State of Rhode Island and Providence Plantations"
+    ],
+    "points": {
+      "x": 1415,
+      "y": 305
+    }
+  },
+  {
+    "name": "Massachusetts",
+    "synonyms": [
+      "State of Massachusetts",
+      "Commonwealth of Massachusetts",
+      "Massachusetts state"
+    ],
+    "points": {
+      "x": 1400,
+      "y": 285
+    }
+  },
+  {
+    "name": "Vermont",
+    "synonyms": [
+      "State of Vermont",
+      "Vermont state"
+    ],
+    "points": {
+      "x": 1365,
+      "y": 235
+    }
+  },
+  {
+    "name": "New Hampshire",
+    "synonyms": [
+      "State of New Hampshire",
+      "New Hampshire state"
+    ],
+    "points": {
+      "x": 1395,
+      "y": 240
+    }
+  },
+  {
+    "name": "Maine",
+    "synonyms": [
+      "State of Maine",
+      "Maine state"
+    ],
+    "points": {
+      "x": 1440,
+      "y": 160
+    }
+  },
+  {
+    "name": "Alaska",
+    "synonyms": [
+      "State of Alaska",
+      "Alaska state"
+    ],
+    "points": {
+      "x": 205,
+      "y": 840
+    }
+  },
+  {
+    "name": "Hawaii",
+    "synonyms": [
+      "State of Hawaii",
+      "Hawaii state"
+    ],
+    "points": [
+      {
+        "x": 378,
+        "y": 863
+      },
+      {
+        "x": 400,
+        "y": 860
+      },
+      {
+        "x": 450,
+        "y": 880
+      },
+      {
+        "x": 485,
+        "y": 890
+      },
+      {
+        "x": 485,
+        "y": 900
+      },
+      {
+        "x": 505,
+        "y": 905
+      },
+      {
+        "x": 535,
+        "y": 945
+      }
+    ]
+  }
+]

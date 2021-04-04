@@ -10,10 +10,21 @@
   {
     "name": "Russia",
     "synonyms": [
-      "Russia Federation"
+      "Russian Federation"
     ],
     "data": "data/russia.json",
     "map": "maps/russia.png",
     "background": "backgrounds/russia.png"
+  },
+  {
+    "name": "USA",
+    "synonyms": [
+      "United States",
+      "United States of America",
+      "US",
+      "U.S."
+    ],
+    "data": "data/usa.json",
+    "map": "maps/usa.png"
   }
 ]
