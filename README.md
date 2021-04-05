@@ -58,3 +58,16 @@ scale russia
 -color lime
 -logarithmization 2
 `
+
+And here is one more example of USA states ranked by proportion of African American population
+
+![USA map example](example/usa.png "USA map")
+
+For the same result use this command:
+`
+scale usa
+-import "src/main/resources/example/usa-african-american.csv" 2 0
+-colors brown pale_yellow
+-min 0
+-max 100
+`

@@ -23,7 +23,8 @@ public abstract class RequestBuilder {
 
     public static Number safeParseNumber(String number) {
         try {
-            return NumberFormat.getNumberInstance().parse(number.replace(",", "").trim());
+            final String text = number.replace(",", "").replace("%", "").trim();
+            return NumberFormat.getNumberInstance().parse(text);
         } catch (ParseException e) {
             return null;
         }

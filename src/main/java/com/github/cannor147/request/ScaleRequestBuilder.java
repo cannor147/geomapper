@@ -103,7 +103,7 @@ public class ScaleRequestBuilder extends RequestBuilder {
         final Double maxValue = Optional.ofNullable(this.maxValue)
                 .map(transformer)
                 .orElseGet(() -> data.values().stream().mapToDouble(x -> x).max().orElse(100.0));
-        final Double minValue = Optional.ofNullable(this.maxValue)
+        final Double minValue = Optional.ofNullable(this.minValue)
                 .map(transformer)
                 .orElseGet(() -> data.values().stream().mapToDouble(x -> x).min().orElse(0.0));
         final List<RGBColor> scheme = Painter.generateScheme(minColor.getRgbColor(), maxColor.getRgbColor());
