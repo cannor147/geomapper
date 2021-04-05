@@ -25,7 +25,10 @@ public class GeoMap {
     private BufferedImage background;
 
     public Optional<Territory> find(String territoryName) {
-        return Arrays.stream(Namer.normalize(territoryName).split("\\s+"))
+        return Optional.ofNullable(territoryName)
+                .map(Namer::normalize)
+                .stream()
+                .flatMap(x -> Arrays.stream(x.split("\\s+")))
                 .filter(Predicate.not("the"::equals))
                 .collect(collectingAndThen(joining(" "), name -> Optional.ofNullable(nameToTerritoryMap.get(name))));
     }

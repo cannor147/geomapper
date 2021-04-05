@@ -12,6 +12,7 @@ import java.util.Optional;
 public abstract class RequestBuilder {
     protected final GeoMap geoMap;
     protected Color defaultColor = Color.SILVER;
+    protected UnofficialStateBehavior unofficialStateBehavior = UnofficialStateBehavior.INCLUDE_UNMENTIONED;
 
     public abstract Request build();
 

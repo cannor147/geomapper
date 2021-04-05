@@ -113,7 +113,7 @@ public class ScaleRequestBuilder extends RequestBuilder {
                         .orElse(null))
                 .filter(Objects::nonNull)
                 .collect(Collectors.toCollection(LinkedList::new));
-        return new Request(tasks, geoMap, defaultColor);
+        return new Request(tasks, geoMap, defaultColor, unofficialStateBehavior);
     }
 
     private static int toPercent(double x, double min, double max) {

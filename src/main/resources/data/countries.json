@@ -109,10 +109,16 @@
     "synonyms": [
       "Republic of Azerbaijan"
     ],
-    "points": {
-      "x": 745,
-      "y": 180
-    }
+    "points": [
+      {
+        "x": 745,
+        "y": 180
+      },
+      {
+        "x": 731,
+        "y": 185
+      }
+    ]
   },
   {
     "name": "Armenia",
@@ -386,7 +392,34 @@
     "points": {
       "x": 638,
       "y": 168
-    }
+    },
+    "officialOwner": "Serbia",
+    "officialOwnerBorder": [
+      {
+        "x": 636,
+        "y": 166
+      },
+      {
+        "x": 637,
+        "y": 165
+      },
+      {
+        "x": 638,
+        "y": 165
+      },
+      {
+        "x": 639,
+        "y": 166
+      },
+      {
+        "x": 640,
+        "y": 167
+      },
+      {
+        "x": 641,
+        "y": 168
+      }
+    ]
   },
   {
     "name": "Montenegro",
@@ -640,7 +673,7 @@
     ],
     "points": {
       "x": 688,
-      "y": 202
+      "y": 203
     }
   },
   {
@@ -724,7 +757,8 @@
     "points": {
       "x": 1048,
       "y": 255
-    }
+    },
+    "officialOwner": "China"
   },
   {
     "name": "Turkey",
@@ -2396,6 +2430,371 @@
       {
         "x": 370,
         "y": 20
+      }
+    ]
+  },
+  {
+    "name": "Transnistria",
+    "synonyms": [
+      "Pridnestrovian Moldavian Republic",
+      "PMR"
+    ],
+    "points": {
+      "x": 668,
+      "y": 148
+    },
+    "officialOwner": "Moldova",
+    "officialOwnerBorder": [
+      {
+        "x": 666,
+        "y": 146
+      },
+      {
+        "x": 666,
+        "y": 147
+      },
+      {
+        "x": 666,
+        "y": 148
+      },
+      {
+        "x": 667,
+        "y": 149
+      },
+      {
+        "x": 667,
+        "y": 150
+      },
+      {
+        "x": 668,
+        "y": 151
+      }
+    ]
+  },
+  {
+    "name": "Northern Cyprus",
+    "synonyms": [
+      "Turkish Republic of Northern Cyprus",
+      "TRNC"
+    ],
+    "points": {
+      "x": 690,
+      "y": 201
+    },
+    "officialOwner": "Cyprus",
+    "officialOwnerBorder": [
+      {
+        "x": 687,
+        "y": 202
+      },
+      {
+        "x": 688,
+        "y": 202
+      },
+      {
+        "x": 689,
+        "y": 202
+      },
+      {
+        "x": 690,
+        "y": 203
+      }
+    ]
+  },
+  {
+    "name": "Artsakh",
+    "synonyms": [
+      "Republic of Artsakh",
+      "Nagorno-Karabakh",
+      "Nagorno-Karabakh Republic"
+    ],
+    "points": {
+      "x": 738,
+      "y": 180
+    },
+    "officialOwner": "Azerbaijan",
+    "officialOwnerBorder": [
+      {
+        "x": 737,
+        "y": 179
+      },
+      {
+        "x": 737,
+        "y": 178
+      },
+      {
+        "x": 738,
+        "y": 177
+      },
+      {
+        "x": 739,
+        "y": 178
+      },
+      {
+        "x": 739,
+        "y": 179
+      },
+      {
+        "x": 740,
+        "y": 180
+      },
+      {
+        "x": 739,
+        "y": 181
+      },
+      {
+        "x": 738,
+        "y": 181
+      }
+    ]
+  },
+  {
+    "name": "Somaliland",
+    "synonyms": [
+      "Republic of Somaliland"
+    ],
+    "points": {
+      "x": 745,
+      "y": 318
+    },
+    "officialOwner": "Somalia",
+    "officialOwnerBorder": [
+      {
+        "x": 757,
+        "y": 312
+      },
+      {
+        "x": 757,
+        "y": 313
+      },
+      {
+        "x": 757,
+        "y": 314
+      },
+      {
+        "x": 757,
+        "y": 315
+      },
+      {
+        "x": 757,
+        "y": 316
+      },
+      {
+        "x": 756,
+        "y": 317
+      },
+      {
+        "x": 756,
+        "y": 318
+      },
+      {
+        "x": 755,
+        "y": 319
+      },
+      {
+        "x": 755,
+        "y": 320
+      },
+      {
+        "x": 754,
+        "y": 321
+      },
+      {
+        "x": 754,
+        "y": 322
+      },
+      {
+        "x": 753,
+        "y": 323
+      }
+    ]
+  },
+  {
+    "name": "Abkhazia",
+    "synonyms": [
+      "Republic of Abkhazia"
+    ],
+    "points": {
+      "x": 715,
+      "y": 165
+    },
+    "officialOwner": "Georgia",
+    "officialOwnerBorder": [
+      {
+        "x": 717,
+        "y": 167
+      }
+    ]
+  },
+  {
+    "name": "South Ossetia",
+    "synonyms": [
+      "Republic of South Ossetia",
+      "Republic of South Ossetia - the State of Alania",
+      "Tskhinvali Region",
+      "State of Alania"
+    ],
+    "points": {
+      "x": 726,
+      "y": 170
+    },
+    "officialOwner": "Georgia",
+    "officialOwnerBorder": [
+      {
+        "x": 724,
+        "y": 168
+      },
+      {
+        "x": 725,
+        "y": 169
+      },
+      {
+        "x": 725,
+        "y": 170
+      },
+      {
+        "x": 726,
+        "y": 171
+      },
+      {
+        "x": 727,
+        "y": 171
+      },
+      {
+        "x": 728,
+        "y": 170
+      },
+      {
+        "x": 728,
+        "y": 169
+      }
+    ]
+  },
+  {
+    "name": "Palestine",
+    "synonyms": [
+      "State of Palestine"
+    ],
+    "points": {
+      "x": 699,
+      "y": 220
+    },
+    "officialOwner": "Israel",
+    "officialOwnerBorder": [
+      {
+        "x": 698,
+        "y": 216
+      },
+      {
+        "x": 698,
+        "y": 217
+      },
+      {
+        "x": 698,
+        "y": 218
+      },
+      {
+        "x": 697,
+        "y": 219
+      },
+      {
+        "x": 697,
+        "y": 220
+      },
+      {
+        "x": 697,
+        "y": 221
+      },
+      {
+        "x": 697,
+        "y": 222
+      },
+      {
+        "x": 697,
+        "y": 223
+      }
+    ]
+  },
+  {
+    "name": "Sahrawi Arab Democratic Republic",
+    "synonyms": [
+      "Saharawi",
+      "SADR",
+      "Western Sahara"
+    ],
+    "points": {
+      "x": 500,
+      "y": 250
+    },
+    "officialOwner": "Morocco",
+    "officialOwnerBorder": [
+      {
+        "x": 505,
+        "y": 236
+      },
+      {
+        "x": 506,
+        "y": 236
+      },
+      {
+        "x": 507,
+        "y": 236
+      },
+      {
+        "x": 508,
+        "y": 236
+      },
+      {
+        "x": 509,
+        "y": 236
+      },
+      {
+        "x": 510,
+        "y": 236
+      },
+      {
+        "x": 511,
+        "y": 236
+      },
+      {
+        "x": 512,
+        "y": 236
+      },
+      {
+        "x": 513,
+        "y": 236
+      },
+      {
+        "x": 514,
+        "y": 236
+      },
+      {
+        "x": 515,
+        "y": 236
+      },
+      {
+        "x": 516,
+        "y": 236
+      },
+      {
+        "x": 517,
+        "y": 236
+      },
+      {
+        "x": 518,
+        "y": 236
+      },
+      {
+        "x": 519,
+        "y": 236
+      },
+      {
+        "x": 520,
+        "y": 236
+      },
+      {
+        "x": 521,
+        "y": 236
       }
     ]
   }

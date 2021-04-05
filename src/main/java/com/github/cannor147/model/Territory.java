@@ -14,4 +14,6 @@ public class Territory implements Synonymized {
     private String name;
     private String[] synonyms;
     private Point[] points;
+    private String officialOwner;
+    private Point[] officialOwnerBorder;
 }

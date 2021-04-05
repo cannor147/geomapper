@@ -14,4 +14,5 @@ public class Request {
     private final Queue<ColorizationTask> tasks;
     private final GeoMap geoMap;
     private final Color defaultColor;
+    private final UnofficialStateBehavior unofficialStateBehavior;
 }

@@ -71,6 +71,6 @@ public class StraightRequestBuilder extends RequestBuilder {
                         .filter(Objects::nonNull)
                         .map(territory -> new ColorizationTask(territory, entry.getKey().getRgbColor())))
                 .collect(Collectors.toCollection(LinkedList::new));
-        return new Request(tasks, geoMap, defaultColor);
+        return new Request(tasks, geoMap, defaultColor, unofficialStateBehavior);
     }
 }

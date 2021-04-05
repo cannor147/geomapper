@@ -105,7 +105,7 @@ public class StepRequestBuilder extends RequestBuilder {
                         .orElse(null))
                 .filter(Objects::nonNull)
                 .collect(Collectors.toCollection(LinkedList::new));
-        return new Request(tasks, geoMap, defaultColor);
+        return new Request(tasks, geoMap, defaultColor, unofficialStateBehavior);
     }
 
     public static <T extends Comparable<T>> int findIndex(List<T> elements, T element) {
