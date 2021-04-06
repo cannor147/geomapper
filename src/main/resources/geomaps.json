@@ -4,7 +4,10 @@
     "synonyms": [
       "world"
     ],
-    "data": "data/countries.json",
+    "data": [
+      "data/countries.json",
+      "data/countries_x.json"
+    ],
     "map": "maps/countries.png"
   },
   {

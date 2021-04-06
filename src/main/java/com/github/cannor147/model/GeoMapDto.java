@@ -13,7 +13,7 @@ public class GeoMapDto implements Synonymized {
     private String name;
     private String[] synonyms;
     @JsonProperty("data")
-    private String dataFilePath;
+    private String[] dataFilePaths;
     @JsonProperty("map")
     private String mapFilePath;
     @JsonProperty("background")

@@ -11,11 +11,14 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.toList;
 
 public class GeoMapper {
     private static final String GEO_MAPS = "geomaps.json";
@@ -205,8 +208,11 @@ public class GeoMapper {
         }
 
         final GeoMapDto dto = nameToGeoMapMap.get(geoMapName.toLowerCase());
-        final Territory[] territories = resourceReader.readJson(dto.getDataFilePath(), Territory[].class);
-        final Map<String, Territory> nameToTerritoryMap = Namer.createMap(territories);
+        final Map<String, Territory> nameToTerritoryMap = Arrays.stream(dto.getDataFilePaths())
+                .map(path -> resourceReader.safeReadJson(path, Territory[].class))
+                .filter(Objects::nonNull)
+                .flatMap(Arrays::stream)
+                .collect(Collectors.collectingAndThen(toList(), Namer::createMap));
         final BufferedImage map = resourceReader.readImage(dto.getMapFilePath());
         final BufferedImage background = dto.getBackgroundFilePath() != null
                 ? resourceReader.readImage(dto.getBackgroundFilePath()) : null;
