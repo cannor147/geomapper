@@ -4,6 +4,7 @@ import com.github.cannor147.model.Color;
 import com.github.cannor147.model.Territory;
 import com.github.cannor147.painter.Painter;
 import com.github.cannor147.painter.RGBColor;
+import com.github.cannor147.request.colorization.ColorizationTask;
 import lombok.RequiredArgsConstructor;
 
 import java.awt.image.BufferedImage;

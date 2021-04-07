@@ -9,15 +9,16 @@ Use it for colorization of country sets in some colors. Below is an example of 7
 
 For the same result use this command:
 `
-straight countries
--importFrom "src/main/resources/example/groups.csv"
--column blue 0
--column red 1
--column orange 2
--column yellow 3
--column green 4
--column fuchsia 5
--column teal 6
+countries
+-use straight
+-from "src/main/resources/example/groups.csv"
+-list 0 blue
+-list 1 red
+-list 2 orange
+-list 3 yellow
+-list 4 green
+-list 5 fuchsia
+-list 6 teal
 `
 
 ## Scale mode
@@ -27,10 +28,9 @@ Use it for colorization of countries based on value (gdp, hdi, population, etc.)
 
 For the same result use this command:
 `
-scale countries
--import "src/main/resources/example/gdp.csv" 1 2
--color green
--logarithmization 10
+countries
+-use scale -color green -logarithmization 10
+-fromValues "src/main/resources/example/gdp.csv" 1 2
 `
 
 ## Step mode
@@ -40,10 +40,9 @@ Use it for colorization of countries based on value (gdp, hdi, population, etc.)
 
 For the same result use this command:
 `
-step countries
--import "src/main/resources/example/hdi.csv" 2 3
--colors blue red
--separators 3 0.8 0.7 0.55
+countries
+-use step -colors blue red -separators 3 0.8 0.7 0.55
+-fromValues "src/main/resources/example/hdi.csv" 2 3
 `
 
 ## Custom maps
@@ -53,10 +52,9 @@ You can use this tool not only for the map of countries. Below is an example of 
 
 For the same result use this command:
 `
-scale russia
--import "src/main/resources/example/rus-population.csv" 2 6
--color lime
--logarithmization 2
+russia
+-use scale -color lime -logarithmization 2
+-fromValues "src/main/resources/example/rus-population.csv" 2 6
 `
 
 And here is one more example of USA states ranked by proportion of African American population
@@ -65,9 +63,7 @@ And here is one more example of USA states ranked by proportion of African Ameri
 
 For the same result use this command:
 `
-scale usa
--import "src/main/resources/example/usa-african-american.csv" 2 0
--colors brown pale_yellow
--min 0
--max 100
+usa
+-use scale -colors brown pale_yellow -min 0 -max 100
+-fromValues "src/main/resources/example/usa-african-american.csv" 2 0
 `

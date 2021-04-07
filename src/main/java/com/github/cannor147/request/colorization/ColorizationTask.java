@@ -1,4 +1,4 @@
-package com.github.cannor147.request;
+package com.github.cannor147.request.colorization;
 
 import com.github.cannor147.model.Territory;
 import lombok.Data;
