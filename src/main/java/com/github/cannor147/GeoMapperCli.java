@@ -19,27 +19,22 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+@SuppressWarnings("AccessStaticViaInstance")
 public class GeoMapperCli {
-    @SuppressWarnings("AccessStaticViaInstance")
-    public static void main(String[] args) throws IOException {
-        final GeoMapper geoMapper = new GeoMapper();
-        if (args.length == 0) {
-            throw new IllegalArgumentException("Can't run geo mapper without geo map name.");
-        }
-        final GeoMap geoMap = geoMapper.findGeoMap(args[0]);
+    private static final Options OPTIONS;
+    private static final Set<String> SCHEME_OPTION_NAMES;
 
-        final OptionGroup saveOptions = new OptionGroup();
-        saveOptions.addOption(OptionBuilder.withArgName("file").hasArg().create("to"));
-        saveOptions.addOption(OptionBuilder.withArgName("file").hasArg().create("save"));
-
-        final Options options = new Options();
-        options.addOption(OptionBuilder.withArgName("file").hasArg().create("from"));
-        options.addOptionGroup(saveOptions);
-        options.addOption(OptionBuilder.hasArgs(2).create("list"));
-        options.addOption(OptionBuilder.hasArgs(3).create("fromList"));
-        options.addOption(OptionBuilder.hasArgs(2).create("values"));
-        options.addOption(OptionBuilder.hasArgs(3).create("fromValues"));
-        options.addOption(OptionBuilder.withArgName("schemeName").hasArg().create("use"));
+    static {
+        OPTIONS = new Options();
+        OPTIONS.addOption(OptionBuilder.withArgName("file").hasArg().create("from"));
+        OPTIONS.addOptionGroup(new OptionGroup()
+                .addOption(OptionBuilder.withArgName("file").hasArg().create("to"))
+                .addOption(OptionBuilder.withArgName("file").hasArg().create("save")));
+        OPTIONS.addOption(OptionBuilder.hasArgs(2).create("list"));
+        OPTIONS.addOption(OptionBuilder.hasArgs(3).create("fromList"));
+        OPTIONS.addOption(OptionBuilder.hasArgs(2).create("values"));
+        OPTIONS.addOption(OptionBuilder.hasArgs(3).create("fromValues"));
+        OPTIONS.addOption(OptionBuilder.withArgName("schemeName").hasArg().create("use"));
 
         final Options schemeOptions = new Options();
         schemeOptions.addOption(OptionBuilder.withArgName("color").hasArg().create("defaultColor"));
@@ -54,10 +49,18 @@ public class GeoMapperCli {
         schemeOptions.addOption(OptionBuilder.withArgName("value").hasArg().create("logarithmization"));
         schemeOptions.addOption(OptionBuilder.withArgName("value").hasArg().create("separator"));
         schemeOptions.addOption(OptionBuilder.withArgName("values").hasArgs().withValueSeparator(',').create("separators"));
-        final Set<String> schemeOptionNames = castIterable(schemeOptions.getOptions(), Option.class).stream()
-                .peek(options::addOption)
+        SCHEME_OPTION_NAMES = castIterable(schemeOptions.getOptions(), Option.class).stream()
+                .peek(OPTIONS::addOption)
                 .map(Option::getOpt)
                 .collect(Collectors.toSet());
+    }
+
+    public static void main(String[] args) throws IOException {
+        final GeoMapper geoMapper = new GeoMapper();
+        if (args.length == 0) {
+            throw new IllegalArgumentException("Can't run geo mapper without geo map name.");
+        }
+        final GeoMap geoMap = geoMapper.findGeoMap(args[0]);
 
         final List<Option> orderedOptions = new ArrayList<>();
         try {
@@ -68,10 +71,10 @@ public class GeoMapperCli {
                     orderedOptions.add(opt);
                 }
             };
-            parser.parse(options, Arrays.copyOfRange(args, 1, args.length));
+            parser.parse(OPTIONS, Arrays.copyOfRange(args, 1, args.length));
         } catch (ParseException e) {
             System.out.println(e.getMessage());
-            new HelpFormatter().printHelp("utility-name", options);
+            new HelpFormatter().printHelp("utility-name", OPTIONS);
             return;
         }
 
@@ -114,7 +117,7 @@ public class GeoMapperCli {
                 case "separator" -> handleSeparator(option, previousSchemeOption, scheme);
                 case "separators" -> handleSeparators(option, previousSchemeOption, scheme);
             }
-            previousSchemeOption = schemeOptionNames.contains(option.getOpt()) || "use".equals(option.getOpt());
+            previousSchemeOption = SCHEME_OPTION_NAMES.contains(option.getOpt()) || "use".equals(option.getOpt());
         }
 
         final Request request = requestBuilder.build();
