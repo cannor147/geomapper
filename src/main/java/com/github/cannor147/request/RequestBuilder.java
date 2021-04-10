@@ -3,6 +3,7 @@ package com.github.cannor147.request;
 import com.github.cannor147.model.Color;
 import com.github.cannor147.model.GeoMap;
 import com.github.cannor147.model.Territory;
+import com.github.cannor147.painter.RGBColor;
 import com.github.cannor147.request.colorization.ColorizationParameter;
 import com.github.cannor147.request.colorization.ColorizationScheme;
 import com.github.cannor147.request.colorization.ColorizationTask;
@@ -12,29 +13,46 @@ import one.util.streamex.EntryStream;
 import one.util.streamex.StreamEx;
 import org.apache.commons.lang3.tuple.Pair;
 
+import java.awt.*;
+import java.util.List;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.*;
 
 @SuppressWarnings({"unused", "UnusedReturnValue"})
 @RequiredArgsConstructor
 public class RequestBuilder {
     private final GeoMap geoMap;
     private final Color defaultColor = Color.SILVER;
+    private final UnofficialStateBehavior unofficialStateBehavior = UnofficialStateBehavior.INCLUDE_UNMENTIONED;
     private final Map<Territory, ColorizationParameter> territoryToParameterMap = new HashMap<>();
     private final Map<Territory, ColorizationScheme> territoryToSchemeMap = new HashMap<>();
     private ColorizationScheme currentScheme = new StraightColorizationScheme();
-    private final UnofficialStateBehavior unofficialStateBehavior = UnofficialStateBehavior.INCLUDE_UNMENTIONED;
 
     public Request build() {
-        territoryToSchemeMap.values().stream().distinct()
+        territoryToSchemeMap.values().stream()
+                .distinct()
                 .forEach(colorizationScheme -> colorizationScheme.prepareForCalculation(territoryToParameterMap));
-        final Queue<ColorizationTask> colorizationTasks = EntryStream.of(territoryToParameterMap)
-                .mapToValue((t, p) -> territoryToSchemeMap.get(t).calculateColor(p))
-                .map(e -> new ColorizationTask(e.getKey(), e.getValue()))
-                .collect(Collectors.toCollection(LinkedList::new));
-        return new Request(colorizationTasks, geoMap, defaultColor, unofficialStateBehavior);
+        return StreamEx.of(geoMap.territories())
+                .mapToEntry(territoryToParameterMap::containsKey)
+                .flatMapKeyValue((territory, mentioned) -> {
+                    final Optional<Territory> owner = geoMap.findOwner(territory);
+                    final Optional<Territory> inclusionOwner = owner
+                            .filter(territoryToParameterMap::containsKey)
+                            .filter(x -> mentioned && unofficialStateBehavior.isIncludeMentioned())
+                            .or(() -> owner.filter(x -> !mentioned && unofficialStateBehavior.isIncludeUnmentioned()));
+                    if (inclusionOwner.isPresent()) {
+                        final RGBColor rgbColor = calculateColor(inclusionOwner.get());
+                        final ColorizationTask borderTask = toTask(territory.getOfficialOwnerBorder(), rgbColor, true);
+                        final ColorizationTask task = toTask(territory.getPoints(), rgbColor, false);
+                        return Stream.of(borderTask, task);
+                    }
+                    return Stream.of(toTask(territory.getPoints(), calculateColor(territory), false));
+                })
+                .collect(collectingAndThen(toCollection(LinkedList::new), tasks -> new Request(tasks, geoMap)));
     }
 
     public Optional<Request> buildOptional() {
@@ -104,5 +122,16 @@ public class RequestBuilder {
                     territoryToSchemeMap.put(territory, currentScheme);
                 }));
         return this;
+    }
+
+    private RGBColor calculateColor(Territory territory) {
+        final ColorizationScheme scheme = territoryToSchemeMap.getOrDefault(territory, currentScheme);
+        return scheme.calculateColor(territoryToParameterMap.getOrDefault(territory, ColorizationParameter.empty()));
+    }
+
+    private ColorizationTask toTask(Point[] points, RGBColor color, boolean onlyPixel) {
+        return StreamEx.ofNullable(points)
+                .flatMap(Arrays::stream)
+                .collect(collectingAndThen(toList(), pointList -> new ColorizationTask(pointList, color, onlyPixel)));
     }
 }

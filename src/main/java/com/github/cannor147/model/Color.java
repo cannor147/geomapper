@@ -7,6 +7,7 @@ import com.github.cannor147.painter.RGBColor;
 @Getter
 @RequiredArgsConstructor
 public enum Color {
+    WHITE(RGBColor.of(255, 255, 255), null),
     SILVER(RGBColor.of(192, 192, 192), null),
     GREY(RGBColor.of(121, 121, 121), SILVER),
     BLACK(RGBColor.of(0, 0, 0), GREY),

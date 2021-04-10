@@ -6,9 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.awt.image.BufferedImage;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Predicate;
 
 import static java.awt.image.BufferedImage.TYPE_3BYTE_BGR;
@@ -31,6 +29,14 @@ public class GeoMap {
                 .flatMap(x -> Arrays.stream(x.split("\\s+")))
                 .filter(Predicate.not("the"::equals))
                 .collect(collectingAndThen(joining(" "), name -> Optional.ofNullable(nameToTerritoryMap.get(name))));
+    }
+
+    public Optional<Territory> findOwner(Territory territory) {
+        return Optional.ofNullable(territory.getOfficialOwner()).flatMap(this::find);
+    }
+
+    public Set<Territory> territories() {
+        return new HashSet<>(nameToTerritoryMap.values());
     }
 
     public BufferedImage copyMap() {
