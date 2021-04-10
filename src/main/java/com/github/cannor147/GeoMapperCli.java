@@ -16,8 +16,11 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import static com.github.cannor147.request.UnofficialStateBehavior.*;
 
 @SuppressWarnings("AccessStaticViaInstance")
 public class GeoMapperCli {
@@ -34,6 +37,10 @@ public class GeoMapperCli {
         OPTIONS.addOption(OptionBuilder.hasArgs(3).create("fromList"));
         OPTIONS.addOption(OptionBuilder.hasArgs(2).create("values"));
         OPTIONS.addOption(OptionBuilder.hasArgs(3).create("fromValues"));
+        OPTIONS.addOptionGroup(new OptionGroup()
+                .addOption(OptionBuilder.create("includeAllUnrecognized"))
+                .addOption(OptionBuilder.create("includeUnmentionedUnrecognized"))
+                .addOption(OptionBuilder.create("excludeAllUnrecognized")));
         OPTIONS.addOption(OptionBuilder.withArgName("schemeName").hasArg().create("use"));
 
         final Options schemeOptions = new Options();
@@ -71,7 +78,11 @@ public class GeoMapperCli {
                     orderedOptions.add(opt);
                 }
             };
-            parser.parse(OPTIONS, Arrays.copyOfRange(args, 1, args.length));
+            final CommandLine commandLine = parser.parse(OPTIONS, Arrays.copyOfRange(args, 1, args.length));
+            Arrays.stream(commandLine.getOptions())
+                    .filter(Predicate.not(orderedOptions::contains))
+                    .forEach(orderedOptions::add);
+
         } catch (ParseException e) {
             System.out.println(e.getMessage());
             new HelpFormatter().printHelp("utility-name", OPTIONS);
@@ -116,6 +127,9 @@ public class GeoMapperCli {
                 case "logarithmization" -> handleLogarithmization(option, previousSchemeOption, scheme);
                 case "separator" -> handleSeparator(option, previousSchemeOption, scheme);
                 case "separators" -> handleSeparators(option, previousSchemeOption, scheme);
+                case "includeAllUnrecognized" -> requestBuilder.with(INCLUDE_ALL);
+                case "includeUnmentionedUnrecognized" -> requestBuilder.with(INCLUDE_UNMENTIONED);
+                case "excludeAllUnrecognized" -> requestBuilder.with(EXCLUDE_ALL);
             }
             previousSchemeOption = SCHEME_OPTION_NAMES.contains(option.getOpt()) || "use".equals(option.getOpt());
         }

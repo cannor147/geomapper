@@ -27,7 +27,7 @@ import static java.util.stream.Collectors.*;
 public class RequestBuilder {
     private final GeoMap geoMap;
     private final Color defaultColor = Color.SILVER;
-    private final UnofficialStateBehavior unofficialStateBehavior = UnofficialStateBehavior.INCLUDE_UNMENTIONED;
+    private UnofficialStateBehavior unofficialStateBehavior = UnofficialStateBehavior.INCLUDE_UNMENTIONED;
     private final Map<Territory, ColorizationParameter> territoryToParameterMap = new HashMap<>();
     private final Map<Territory, ColorizationScheme> territoryToSchemeMap = new HashMap<>();
     private ColorizationScheme currentScheme = new StraightColorizationScheme();
@@ -121,6 +121,11 @@ public class RequestBuilder {
                     territoryToParameterMap.put(territory, colorizationParameter);
                     territoryToSchemeMap.put(territory, currentScheme);
                 }));
+        return this;
+    }
+
+    public  <T> RequestBuilder with(UnofficialStateBehavior unofficialStateBehavior) {
+        this.unofficialStateBehavior = unofficialStateBehavior;
         return this;
     }
 
