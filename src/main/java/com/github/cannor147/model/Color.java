@@ -43,10 +43,6 @@ public enum Color {
     private final Color defaultOpposite;
 
     public static Color parseColor(String text) {
-        try {
-            return Color.valueOf(text.toUpperCase());
-        } catch (IllegalArgumentException e) {
-            return Color.GREY;
-        }
+        return Color.valueOf(text.toUpperCase());
     }
 }

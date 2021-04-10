@@ -1,19 +1,11 @@
 package com.github.cannor147;
 
-import com.github.cannor147.model.Color;
 import com.github.cannor147.model.GeoMap;
 import com.github.cannor147.model.GeoMapDto;
 import com.github.cannor147.model.Territory;
 import com.github.cannor147.namer.Namer;
 import com.github.cannor147.request.Request;
-import com.github.cannor147.request.RequestBuilder;
 import com.github.cannor147.request.RequestService;
-import com.github.cannor147.request.colorization.ScaleColorizationScheme;
-import com.github.cannor147.request.colorization.StepColorizationScheme;
-import com.github.cannor147.request.colorization.StraightColorizationScheme;
-import com.github.cannor147.util.CsvUtils;
-import one.util.streamex.StreamEx;
-import org.apache.commons.lang3.tuple.Pair;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -22,11 +14,9 @@ import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -37,201 +27,6 @@ public class GeoMapper {
     private final RequestService requestService;
     private final ResourceReader resourceReader;
     private final Map<String, GeoMapDto> nameToGeoMapMap;
-
-    public static void main(String[] args) throws IOException {
-        final GeoMapper geoMapper = new GeoMapper();
-        final GeoMap geoMap = geoMapper.findGeoMap(extractText(args, 0, true));
-        final RequestBuilder requestBuilder = new RequestBuilder(geoMap);
-
-        int index = 1;
-        File csvFile = null;
-        String fileName = "map.png";
-        while (index < args.length) {
-            final String command = extractText(args, index, false);
-            switch (command) {
-                case "-from" -> {
-                    csvFile = new File(extractText(args, index + 1, true));
-                    index += 2;
-                }
-                case "-fromValues" -> {
-                    csvFile = new File(extractText(args, index + 1, true));
-                    final int nameColumn = extractInt(args, index + 2, true);
-                    final int valueColumn = extractInt(args, index + 3, true);
-                    final List<Pair<String, String>> csvData = CsvUtils.readCsv(csvFile, nameColumn, valueColumn);
-                    final Map<String, Number> parsedData = StreamEx.of(csvData.iterator())
-                            .mapToEntry(Pair::getKey, Pair::getValue)
-                            .mapValues(GeoMapper::safeParseNumber)
-                            .toMap();
-                    requestBuilder.withValues(parsedData);
-                    index += 4;
-                }
-                case "-fromList" -> {
-                    csvFile = new File(extractText(args, index + 1, true));
-                    final int nameColumn = extractInt(args, index + 2, true);
-                    final Color color = extractColor(args, index + 3, true);
-                    requestBuilder.withColor(CsvUtils.readCsv(csvFile, nameColumn), color);
-                    index += 4;
-                }
-                case "-values" -> {
-                    Objects.requireNonNull(csvFile);
-                    final int nameColumn = extractInt(args, index + 1, true);
-                    final int valueColumn = extractInt(args, index + 2, true);
-                    final List<Pair<String, String>> csvData = CsvUtils.readCsv(csvFile, nameColumn, valueColumn);
-                    final Map<String, Number> parsedData = StreamEx.of(csvData.iterator())
-                            .mapToEntry(Pair::getKey, Pair::getValue)
-                            .mapValues(GeoMapper::safeParseNumber)
-                            .toMap();
-                    requestBuilder.withValues(parsedData);
-                    index += 3;
-                }
-                case "-list" -> {
-                    Objects.requireNonNull(csvFile);
-                    final int nameColumn = extractInt(args, index + 1, true);
-                    final Color color = extractColor(args, index + 2, true);
-                    requestBuilder.withColor(CsvUtils.readCsv(csvFile, nameColumn), color);
-                    index += 3;
-                }
-                case "-use" -> {
-                    final String schemeName = extractText(args, index + 1, true);
-                    index += 2;
-
-                    switch (schemeName) {
-                        case "straight" -> {
-                            final StraightColorizationScheme colorizationScheme = new StraightColorizationScheme();
-                            boolean end = false;
-                            while (!end && index < args.length) {
-                                final String schemeCommand = extractText(args, index, false);
-                                if ("-defaultColor".equals(schemeCommand)) {
-                                    final Color defaultColor = extractColor(args, index + 1, true);
-                                    colorizationScheme.registerDefaultColor(defaultColor);
-                                    index += 2;
-                                } else {
-                                    end = true;
-                                }
-                            }
-                            requestBuilder.changeScheme(colorizationScheme);
-                        }
-                        case "scale" -> {
-                            final ScaleColorizationScheme colorizationScheme = new ScaleColorizationScheme();
-                            boolean end = false;
-                            while (!end && index < args.length) {
-                                final String schemeCommand = extractText(args, index, false);
-                                switch (schemeCommand) {
-                                    case "-defaultColor" -> {
-                                        final Color defaultColor = extractColor(args, index + 1, true);
-                                        colorizationScheme.registerDefaultColor(defaultColor);
-                                        index += 2;
-                                    }
-                                    case "-color" -> {
-                                        final Color color = extractColor(args, index + 1, true);
-                                        colorizationScheme.registerColors(color, color.getDefaultOpposite());
-                                        index += 2;
-                                    }
-                                    case "-colors" -> {
-                                        final Color minColor = extractColor(args, index + 1, true);
-                                        final Color maxColor = extractColor(args, index + 2, true);
-                                        colorizationScheme.registerColors(minColor, maxColor);
-                                        index += 3;
-                                    }
-                                    case "-min" -> {
-                                        final double min = extractDouble(args, index + 1, true);
-                                        colorizationScheme.registerMinValue(min);
-                                        index += 2;
-                                    }
-                                    case "-max" -> {
-                                        final double max = extractDouble(args, index + 1, true);
-                                        colorizationScheme.registerMaxValue(max);
-                                        index += 2;
-                                    }
-                                    case "-logarithmization" -> {
-                                        final double base = extractDouble(args, index + 1, true);
-                                        colorizationScheme.registerLogarithmization(base);
-                                        index += 2;
-                                    }
-                                    default -> end = true;
-                                }
-                            }
-                            requestBuilder.changeScheme(colorizationScheme);
-                        }
-                        case "step" -> {
-                            final StepColorizationScheme colorizationScheme = new StepColorizationScheme();
-                            boolean end = false;
-                            while (!end && index < args.length) {
-                                final String schemeCommand = extractText(args, index, false);
-                                switch (schemeCommand) {
-                                    case "-defaultColor" -> {
-                                        final Color defaultColor = extractColor(args, index + 1, true);
-                                        colorizationScheme.registerDefaultColor(defaultColor);
-                                        index += 2;
-                                    }
-                                    case "-color" -> {
-                                        final Color color = extractColor(args, index + 1, true);
-                                        colorizationScheme.registerColors(color, color.getDefaultOpposite());
-                                        index += 2;
-                                    }
-                                    case "-colors" -> {
-                                        final Color maxColor = extractColor(args, index + 1, true);
-                                        final Color minColor = extractColor(args, index + 2, true);
-                                        colorizationScheme.registerColors(maxColor, minColor);
-                                        index += 3;
-                                    }
-                                    case "-separator" -> {
-                                        colorizationScheme.registerSeparator(extractDouble(args, index + 1, true));
-                                        index += 2;
-                                    }
-                                    case "-separators" -> {
-                                        final int count = extractInt(args, index + 1, true);
-                                        IntStream.range(index + 2, index + 2 + count)
-                                                .mapToObj(i -> extractDouble(args, i, true))
-                                                .collect(Collectors.toList())
-                                                .forEach(colorizationScheme::registerSeparator);
-                                        index += count + 2;
-                                    }
-                                    default -> end = true;
-                                }
-                            }
-                            requestBuilder.changeScheme(colorizationScheme);
-                        }
-                        default -> throw new IllegalArgumentException("Unknown colorization scheme '" + schemeName + "'.");
-                    }
-                }
-                case "-save" -> {
-                    fileName = extractText(args, index + 1, true);
-                    index += 2;
-                }
-                default -> throw new IllegalArgumentException("Unknown command '" + command + "'.");
-            }
-        }
-        geoMapper.createMapToFile(requestBuilder.build(), new File(fileName));
-    }
-
-    private static String extractText(String[] args, int index, boolean canThrow) {
-        final String result = args.length > index ? args[index] : null;
-        if (canThrow && result == null) {
-            throw new IllegalArgumentException("Required argument with index " + index + ".");
-        }
-        return result;
-    }
-    
-    private static Color extractColor(String[] args, int index, boolean canThrow) {
-        return Color.parseColor(extractText(args, index, canThrow));
-    }
-
-    private static int extractInt(String[] args, int index, boolean canThrow) {
-        try {
-            return Integer.parseInt(extractText(args, index, canThrow));
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Required integer argument with index " + index + ".");
-        }
-    }
-
-    private static double extractDouble(String[] args, int index, boolean canThrow) {
-        try {
-            return Double.parseDouble(extractText(args, index, canThrow));
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Required decimal argument with index " + index + ".");
-        }
-    }
 
     public GeoMapper() throws IOException {
         this.requestService = new RequestService();
