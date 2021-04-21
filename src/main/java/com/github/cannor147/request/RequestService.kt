@@ -14,13 +14,9 @@ class RequestService {
     fun handleRequest(request: Request): BufferedImage {
         val image = request.geoMap.copyMap()
         perform(image, request.tasks)
-        Optional.ofNullable(request.geoMap.background)
-            .map { background: BufferedImage? ->
-                findArea(
-                    background!!, Color.WHITE.rgbColor)
-            }
-            .orElseGet { emptySet() }
-            .forEach(Consumer { point: Point? -> fillPoint(image, point!!, Color.WHITE.rgbColor) })
+        request.geoMap.background
+            ?.let { background: BufferedImage? -> findArea(background!!, Color.WHITE.rgbColor) }
+            ?.forEach { point: Point -> fillPoint(image, point, Color.WHITE.rgbColor) }
         return image
     }
 

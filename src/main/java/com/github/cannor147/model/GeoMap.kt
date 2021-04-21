@@ -10,17 +10,16 @@ class GeoMap(
     val map: BufferedImage,
     val background: BufferedImage? = null,
 ) {
-    fun find(territoryName: String?): Optional<Territory> = territoryName
+    fun find(territoryName: String?): Territory? = territoryName
         ?.let(::normalize)
         ?.split("\\s+".toRegex())
         ?.asSequence()
         .orEmpty()
         .filterNot("the"::equals)
         .joinToString(" ")
-        .let { Optional.ofNullable(nameToTerritoryMap[it]) }
+        .let { nameToTerritoryMap[it] }
 
-    fun findOwner(territory: Territory): Optional<Territory> = Optional.ofNullable(territory.officialOwner)
-        .flatMap(this::find)
+    fun findOwner(territory: Territory): Territory? = territory.officialOwner.let(this::find)
 
     fun territories(): Set<Territory> = HashSet(nameToTerritoryMap.values)
 

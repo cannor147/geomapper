@@ -5,8 +5,6 @@ import com.github.cannor147.model.Territory
 import com.github.cannor147.painter.RGBColor
 import com.github.cannor147.painter.generateScheme
 import java.util.*
-import java.util.function.Predicate
-import kotlin.streams.asSequence
 
 class StepColorizationScheme : ColorizationScheme() {
     private val valueSeparatorSet: SortedSet<Double> = TreeSet()
@@ -33,28 +31,24 @@ class StepColorizationScheme : ColorizationScheme() {
     }
 
     override fun prepareForCalculation(territoryToParameterMap: Map<Territory, ColorizationParameter>) {
-        valueSeparators = Optional.of(valueSeparatorSet)
-            .filter(Predicate.not { obj: SortedSet<Double> -> obj.isEmpty() })
-            .map<List<Double>> { c: SortedSet<Double>? -> ArrayList(c) }
-            .orElseGet {
-                territoryToParameterMap.values.asSequence()
-                    .map { obj: ColorizationParameter -> obj.getValue() }
-                    .flatMap { obj: Optional<Double> -> obj.stream().asSequence() }
-                    .summarizingDouble { it }
-                    .takeIf { it.count > 0 }
-                    ?.let { sequenceOf(it.average) }
-                    .orEmpty()
-                    .toList()
-            }
-        val separatorCount = valueSeparators.size
-        colorScheme = generateScheme(minColor.rgbColor, maxColor.rgbColor, separatorCount)
+        valueSeparators = valueSeparatorSet
+            .takeUnless(SortedSet<Double>::isEmpty)
+            ?.let { ArrayList(it) }
+            ?: territoryToParameterMap.values.asSequence()
+            .map { it.value }
+            .flatMap { it?.let { sequenceOf(it) }.orEmpty() }
+            .summarizingDouble { it }
+            .takeIf { it.count > 0 }
+            ?.let { sequenceOf(it.average) }
+            .orEmpty()
+            .toList()
+        colorScheme = generateScheme(minColor.rgbColor, maxColor.rgbColor, valueSeparators.count())
     }
 
-    override fun calculateColor(colorizationParameter: ColorizationParameter): RGBColor = colorizationParameter
-        .getValue()
-        .map { findIndex(it) }
-        .map { colorScheme[it] }
-        .orElseGet(defaultColor::rgbColor)
+    override fun calculateColor(colorizationParameter: ColorizationParameter): RGBColor = colorizationParameter.value
+        ?.let { findIndex(it) }
+        ?.let { colorScheme[it] }
+        ?: defaultColor.rgbColor
 
     private fun findIndex(value: Double): Int = when {
         value.compareTo(valueSeparators[0]) < 0 -> 0

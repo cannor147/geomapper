@@ -17,6 +17,7 @@ import java.awt.Point
 import java.util.*
 import java.util.function.Function
 import java.util.function.Predicate
+import java.util.stream.Stream
 
 class RequestBuilder(private val geoMap: GeoMap) {
     private var unofficialStateBehavior: UnofficialStateBehavior = UnofficialStateBehavior.INCLUDE_UNMENTIONED
@@ -36,11 +37,11 @@ class RequestBuilder(private val geoMap: GeoMap) {
             .flatMap { (mentioned: Boolean, territory: Territory) ->
                 val owner = geoMap.findOwner(territory)
                 val inclusionOwner = owner
-                    .filter { territoryToParameterMap.containsKey(it) }
-                    .filter { mentioned && unofficialStateBehavior.includeMentioned }
-                    .or { owner.filter { !mentioned && unofficialStateBehavior.includeUnmentioned } }
-                if (inclusionOwner.isPresent) {
-                    val rgbColor = calculateColor(inclusionOwner.get())
+                    ?.takeIf { territoryToParameterMap.containsKey(it) }
+                    ?.takeIf { mentioned && unofficialStateBehavior.includeMentioned }
+                    ?: owner?.takeIf { !mentioned && unofficialStateBehavior.includeUnmentioned }
+                if (inclusionOwner != null) {
+                    val rgbColor = calculateColor(inclusionOwner)
                     val borderTask = toTask(territory.officialOwnerBorder, rgbColor, true)
                     val task = toTask(territory.points, rgbColor, false)
                     sequenceOf(borderTask, task)
@@ -50,10 +51,6 @@ class RequestBuilder(private val geoMap: GeoMap) {
             }
             .toCollection(LinkedList())
             .let { Request(it, geoMap) }
-    }
-
-    fun buildOptional(): Optional<Request> {
-        return Optional.of(build())
     }
 
     fun changeScheme(colorizationScheme: ColorizationScheme): RequestBuilder {
@@ -117,7 +114,7 @@ class RequestBuilder(private val geoMap: GeoMap) {
 
     private fun <T> withParameter(stream: EntryStream<String, T>, parameterizer: Parameterizer<T>): RequestBuilder {
         stream.mapKeys { territoryName: String? -> geoMap.find(territoryName) }
-            .flatMapKeys { obj: Optional<Territory> -> obj.stream() }
+            .flatMapKeys { if (it != null) Stream.of(it) else Stream.empty() }
             .filterKeys(Predicate.not { key: Territory -> territoryToParameterMap.containsKey(key) })
             .mapValues(parameterizer)
             .forKeyValue { territory: Territory, colorizationParameter: ColorizationParameter ->

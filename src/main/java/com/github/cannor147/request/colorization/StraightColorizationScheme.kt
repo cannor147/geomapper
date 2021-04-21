@@ -4,6 +4,6 @@ import com.github.cannor147.painter.RGBColor
 
 class StraightColorizationScheme : ColorizationScheme() {
     override fun calculateColor(colorizationParameter: ColorizationParameter): RGBColor {
-        return colorizationParameter.getColor().orElse(defaultColor).rgbColor
+        return (colorizationParameter.color ?: defaultColor).rgbColor
     }
 }

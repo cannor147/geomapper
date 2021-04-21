@@ -6,16 +6,11 @@ import com.github.cannor147.model.Color
 import com.github.cannor147.model.Territory
 import com.github.cannor147.painter.RGBColor
 import com.github.cannor147.painter.generateScheme
-import java.util.*
 import java.util.function.Function
-import java.util.function.ToDoubleFunction
-import java.util.stream.Collectors
 import kotlin.math.log
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.roundToLong
-import kotlin.streams.asSequence
-import kotlin.streams.asStream
 
 class ScaleColorizationScheme : ColorizationScheme() {
     private var maxColor: Color = Color.GREEN
@@ -59,8 +54,8 @@ class ScaleColorizationScheme : ColorizationScheme() {
 
     override fun prepareForCalculation(territoryToParameterMap: Map<Territory, ColorizationParameter>) {
         val valueStatistics = territoryToParameterMap.values.asSequence()
-            .map { obj: ColorizationParameter -> obj.getValue() }
-            .flatMap { obj: Optional<Double> -> obj.stream().asSequence() }
+            .map { obj: ColorizationParameter -> obj.value }
+            .flatMap { it?.let { sequenceOf(it) }.orEmpty() }
             .summarizingDouble { it }
         maxValue = transformer.apply(customMaxValue ?: valueStatistics.max)
         minValue = transformer.apply(customMinValue ?: valueStatistics.min)
@@ -68,12 +63,12 @@ class ScaleColorizationScheme : ColorizationScheme() {
     }
 
     override fun calculateColor(colorizationParameter: ColorizationParameter): RGBColor {
-        return colorizationParameter.getValue()
-            .map(transformer)
-            .map { ((it - minValue) / (maxValue - minValue) * 100).roundToLong() }
-            .map(Long::toInt)
-            .map { value: Int -> max(min(value, 100), 0) }
-            .map { index: Int -> colorScheme[index] }
-            .orElseGet(defaultColor::rgbColor)
+        return colorizationParameter.value
+            ?.let(transformer::apply)
+            ?.let { ((it - minValue) / (maxValue - minValue) * 100).roundToLong() }
+            ?.let(Long::toInt)
+            ?.let { value: Int -> max(min(value, 100), 0) }
+            ?.let { index: Int -> colorScheme[index] }
+            ?: defaultColor.rgbColor
     }
 }
