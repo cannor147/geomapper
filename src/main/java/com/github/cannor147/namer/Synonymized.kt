@@ -1,5 +1,5 @@
-package com.github.cannor147.namer;
+package com.github.cannor147.namer
 
-public interface Synonymized extends Named {
-    String[] getSynonyms();
+interface Synonymized : Named {
+    val synonyms: Array<String>
 }

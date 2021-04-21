@@ -1,37 +1,27 @@
-package com.github.cannor147.request.colorization;
+@file:Suppress("unused")
 
-import com.github.cannor147.model.Color;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.RequiredArgsConstructor;
+package com.github.cannor147.request.colorization
 
-import java.util.Optional;
+import com.github.cannor147.model.Color
+import java.util.*
 
-@EqualsAndHashCode
-@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public class ColorizationParameter {
-    private static final ColorizationParameter EMPTY_PARAMETER = new ColorizationParameter(null, null);
+class ColorizationParameter private constructor(private val color: Color?, private val value: Double?) {
+    constructor(color: Color?) : this(color, null)
+    constructor(value: Number) : this(null, value.toDouble())
 
-    private final Color color;
-    private final Double value;
-
-    public static ColorizationParameter empty() {
-        return EMPTY_PARAMETER;
+    fun getColor(): Optional<Color> {
+        return Optional.ofNullable(color)
     }
 
-    public ColorizationParameter(Color color) {
-        this(color, null);
+    fun getValue(): Optional<Double> {
+        return Optional.ofNullable(value)
     }
 
-    public <N extends Number> ColorizationParameter(N value) {
-        this(null, value.doubleValue());
-    }
-
-    public Optional<Color> getColor() {
-        return Optional.ofNullable(color);
-    }
-
-    public Optional<Double> getValue() {
-        return Optional.ofNullable(value);
+    companion object {
+        private val EMPTY_PARAMETER = ColorizationParameter(null, null)
+        @JvmStatic
+        fun empty(): ColorizationParameter {
+            return EMPTY_PARAMETER
+        }
     }
 }

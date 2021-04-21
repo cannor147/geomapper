@@ -1,47 +1,32 @@
-package com.github.cannor147.model;
+package com.github.cannor147.model
 
-import com.github.cannor147.namer.Namer;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.github.cannor147.namer.normalize
+import java.awt.image.BufferedImage
+import java.util.*
 
-import java.awt.image.BufferedImage;
-import java.util.*;
-import java.util.function.Predicate;
+class GeoMap(
+    val name: String,
+    private val nameToTerritoryMap: Map<String, Territory>,
+    val map: BufferedImage,
+    val background: BufferedImage? = null,
+) {
+    fun find(territoryName: String?): Optional<Territory> = territoryName
+        ?.let(::normalize)
+        ?.split("\\s+".toRegex())
+        ?.asSequence()
+        .orEmpty()
+        .filterNot("the"::equals)
+        .joinToString(" ")
+        .let { Optional.ofNullable(nameToTerritoryMap[it]) }
 
-import static java.awt.image.BufferedImage.TYPE_3BYTE_BGR;
-import static java.util.stream.Collectors.collectingAndThen;
-import static java.util.stream.Collectors.joining;
+    fun findOwner(territory: Territory): Optional<Territory> = Optional.ofNullable(territory.officialOwner)
+        .flatMap(this::find)
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class GeoMap {
-    private String name;
-    private Map<String, Territory> nameToTerritoryMap;
-    private BufferedImage map;
-    private BufferedImage background;
+    fun territories(): Set<Territory> = HashSet(nameToTerritoryMap.values)
 
-    public Optional<Territory> find(String territoryName) {
-        return Optional.ofNullable(territoryName)
-                .map(Namer::normalize)
-                .stream()
-                .flatMap(x -> Arrays.stream(x.split("\\s+")))
-                .filter(Predicate.not("the"::equals))
-                .collect(collectingAndThen(joining(" "), name -> Optional.ofNullable(nameToTerritoryMap.get(name))));
-    }
-
-    public Optional<Territory> findOwner(Territory territory) {
-        return Optional.ofNullable(territory.getOfficialOwner()).flatMap(this::find);
-    }
-
-    public Set<Territory> territories() {
-        return new HashSet<>(nameToTerritoryMap.values());
-    }
-
-    public BufferedImage copyMap() {
-        final BufferedImage result = new BufferedImage(map.getWidth(), map.getHeight(), TYPE_3BYTE_BGR);
-        result.getGraphics().drawImage(map, 0, 0, null);
-        return result;
+    fun copyMap(): BufferedImage {
+        val result = BufferedImage(map.width, map.height, BufferedImage.TYPE_3BYTE_BGR)
+        result.graphics.drawImage(map, 0, 0, null)
+        return result
     }
 }

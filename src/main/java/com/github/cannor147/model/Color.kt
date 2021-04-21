@@ -1,12 +1,10 @@
-package com.github.cannor147.model;
+@file:Suppress("unused")
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import com.github.cannor147.painter.RGBColor;
+package com.github.cannor147.model
 
-@Getter
-@RequiredArgsConstructor
-public enum Color {
+import com.github.cannor147.painter.RGBColor
+
+enum class Color(val rgbColor: RGBColor, val defaultOpposite: Color?) {
     WHITE(RGBColor.of(255, 255, 255), null),
     SILVER(RGBColor.of(192, 192, 192), null),
     GREY(RGBColor.of(121, 121, 121), SILVER),
@@ -36,13 +34,12 @@ public enum Color {
     TEAL(RGBColor.of(0, 185, 187), PALE_TEAL),
     BROWN(RGBColor.of(154, 78, 78), PALE_BROWN),
     PINK(RGBColor.of(255, 36, 146), PALE_PINK),
-    OLIVE(RGBColor.of(129, 129, 67), PALE_OLIVE),
-    ;
+    OLIVE(RGBColor.of(129, 129, 67), PALE_OLIVE);
 
-    private final RGBColor rgbColor;
-    private final Color defaultOpposite;
-
-    public static Color parseColor(String text) {
-        return Color.valueOf(text.toUpperCase());
+    companion object {
+        @JvmStatic
+        fun parseColor(text: String): Color {
+            return valueOf(text.toUpperCase())
+        }
     }
 }

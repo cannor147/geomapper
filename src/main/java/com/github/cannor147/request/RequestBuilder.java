@@ -8,7 +8,6 @@ import com.github.cannor147.request.colorization.ColorizationParameter;
 import com.github.cannor147.request.colorization.ColorizationScheme;
 import com.github.cannor147.request.colorization.ColorizationTask;
 import com.github.cannor147.request.colorization.StraightColorizationScheme;
-import lombok.RequiredArgsConstructor;
 import one.util.streamex.EntryStream;
 import one.util.streamex.StreamEx;
 import org.apache.commons.lang3.tuple.Pair;
@@ -23,7 +22,6 @@ import java.util.stream.Stream;
 import static java.util.stream.Collectors.*;
 
 @SuppressWarnings({"unused", "UnusedReturnValue"})
-@RequiredArgsConstructor
 public class RequestBuilder {
     private final GeoMap geoMap;
     private final Color defaultColor = Color.SILVER;
@@ -31,6 +29,10 @@ public class RequestBuilder {
     private final Map<Territory, ColorizationParameter> territoryToParameterMap = new HashMap<>();
     private final Map<Territory, ColorizationScheme> territoryToSchemeMap = new HashMap<>();
     private ColorizationScheme currentScheme = new StraightColorizationScheme();
+
+    public RequestBuilder(GeoMap geoMap) {
+        this.geoMap = geoMap;
+    }
 
     public Request build() {
         territoryToSchemeMap.values().stream()
@@ -42,8 +44,8 @@ public class RequestBuilder {
                     final Optional<Territory> owner = geoMap.findOwner(territory);
                     final Optional<Territory> inclusionOwner = owner
                             .filter(territoryToParameterMap::containsKey)
-                            .filter(x -> mentioned && unofficialStateBehavior.isIncludeMentioned())
-                            .or(() -> owner.filter(x -> !mentioned && unofficialStateBehavior.isIncludeUnmentioned()));
+                            .filter(x -> mentioned && unofficialStateBehavior.getIncludeMentioned())
+                            .or(() -> owner.filter(x -> !mentioned && unofficialStateBehavior.getIncludeUnmentioned()));
                     if (inclusionOwner.isPresent()) {
                         final RGBColor rgbColor = calculateColor(inclusionOwner.get());
                         final ColorizationTask borderTask = toTask(territory.getOfficialOwnerBorder(), rgbColor, true);

@@ -1,13 +1,13 @@
-package com.github.cannor147.painter;
+package com.github.cannor147.painter
 
-public interface RGB {
-    int getRed();
-    int getGreen();
-    int getBlue();
+interface RGB {
+    val red: Int
+    val green: Int
+    val blue: Int
 
-    RGB add(RGB other);
-    RGB subtract(RGB other);
-    RGB multiply(double proportion);
+    fun add(other: RGB): RGB
+    fun subtract(other: RGB): RGB
+    fun multiply(proportion: Double): RGB
 
-    RGBColor asColor();
+    fun asColor(): RGBColor
 }

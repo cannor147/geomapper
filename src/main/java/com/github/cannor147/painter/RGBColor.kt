@@ -1,51 +1,45 @@
-package com.github.cannor147.painter;
+package com.github.cannor147.painter
 
-import lombok.*;
+import java.awt.Color
 
-import java.awt.*;
-
-@Getter
-@ToString
-@EqualsAndHashCode
-@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public class RGBColor implements RGB {
-    public static RGBColor of(int red, int green, int blue) {
-        return new RGBColor(red & 0xff, green & 0xff, blue & 0xff);
+data class RGBColor internal constructor(
+    override val red: Int,
+    override val green: Int,
+    override val blue: Int,
+) : RGB {
+    override fun add(other: RGB): RGB {
+        return of(red + other.red, green + other.green, blue + other.blue)
     }
 
-    public static RGBColor fromInt(int rgbInt) {
-        return of(rgbInt >> 16, rgbInt >> 8, rgbInt);
+    override fun subtract(other: RGB): RGB {
+        return of(red - other.red, green - other.green, blue - other.blue)
     }
 
-    private final int red;
-    private final int green;
-    private final int blue;
-
-    @Override
-    public RGB add(RGB other) {
-        return of(this.red + other.getRed(), this.green + other.getGreen(), this.blue + other.getBlue());
+    override fun multiply(proportion: Double): RGB {
+        return of((red * proportion).toInt(), (green * proportion).toInt(), (blue * proportion).toInt())
     }
 
-    @Override
-    public RGB subtract(RGB other) {
-        return of(this.red - other.getRed(), this.green - other.getGreen(), this.blue - other.getBlue());
+    override fun asColor(): RGBColor {
+        return this
     }
 
-    @Override
-    public RGB multiply(double proportion) {
-        return of((int) (this.red * proportion), (int) (this.green * proportion), (int) (this.blue * proportion));
+    @Suppress("MemberVisibilityCanBePrivate")
+    fun toColor(): Color {
+        return Color(red, green, blue)
     }
 
-    @Override
-    public RGBColor asColor() {
-        return this;
+    fun toInt(): Int {
+        return toColor().rgb
     }
 
-    public Color toColor() {
-        return new Color(red, green, blue);
-    }
+    companion object {
+        @JvmStatic
+        fun of(red: Int, green: Int, blue: Int): RGBColor {
+            return RGBColor(red and 0xff, green and 0xff, blue and 0xff)
+        }
 
-    public int toInt() {
-        return toColor().getRGB();
+        fun fromInt(rgbInt: Int): RGBColor {
+            return of(rgbInt shr 16, rgbInt shr 8, rgbInt)
+        }
     }
 }

@@ -2,7 +2,7 @@ package com.github.cannor147.request.colorization;
 
 import com.github.cannor147.model.Color;
 import com.github.cannor147.model.Territory;
-import com.github.cannor147.painter.Painter;
+import com.github.cannor147.painter.PainterKt;
 import com.github.cannor147.painter.RGBColor;
 
 import java.util.*;
@@ -58,7 +58,7 @@ public class ScaleColorizationScheme extends ColorizationScheme {
                 .collect(Collectors.summarizingDouble(Double::doubleValue));
         this.maxValue = transformer.apply(Optional.ofNullable(customMaxValue).orElseGet(valueStatistics::getMax));
         this.minValue = transformer.apply(Optional.ofNullable(customMinValue).orElseGet(valueStatistics::getMin));
-        this.colorScheme = Painter.generateScheme(minColor.getRgbColor(), maxColor.getRgbColor());
+        this.colorScheme = PainterKt.generateScheme(minColor.getRgbColor(), maxColor.getRgbColor());
     }
 
     @Override

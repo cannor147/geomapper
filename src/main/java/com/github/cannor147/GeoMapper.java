@@ -3,7 +3,7 @@ package com.github.cannor147;
 import com.github.cannor147.model.GeoMap;
 import com.github.cannor147.model.GeoMapDto;
 import com.github.cannor147.model.Territory;
-import com.github.cannor147.namer.Namer;
+import com.github.cannor147.namer.NamerKt;
 import com.github.cannor147.request.Request;
 import com.github.cannor147.request.RequestService;
 
@@ -31,7 +31,7 @@ public class GeoMapper {
     public GeoMapper() throws IOException {
         this.requestService = new RequestService();
         this.resourceReader = new ResourceReader();
-        this.nameToGeoMapMap = Namer.createMap(resourceReader.readJson(GEO_MAPS, GeoMapDto[].class));
+        this.nameToGeoMapMap = NamerKt.createMap(resourceReader.readJson(GEO_MAPS, GeoMapDto[].class));
     }
 
     public BufferedImage createMap(Request request) {
@@ -45,7 +45,7 @@ public class GeoMapper {
     }
 
     public GeoMap findGeoMap(String geoMapName) throws IOException {
-        if (!nameToGeoMapMap.containsKey(Namer.normalize(geoMapName))) {
+        if (!nameToGeoMapMap.containsKey(NamerKt.normalize(geoMapName))) {
             throw new IllegalArgumentException("No such geo map.");
         }
 
@@ -54,7 +54,7 @@ public class GeoMapper {
                 .map(path -> resourceReader.safeReadJson(path, Territory[].class))
                 .filter(Objects::nonNull)
                 .flatMap(Arrays::stream)
-                .collect(Collectors.collectingAndThen(toList(), Namer::createMap));
+                .collect(Collectors.collectingAndThen(toList(), NamerKt::createMap));
         final BufferedImage map = resourceReader.readImage(dto.getMapFilePath());
         final BufferedImage background = dto.getBackgroundFilePath() != null
                 ? resourceReader.readImage(dto.getBackgroundFilePath()) : null;

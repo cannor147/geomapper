@@ -2,7 +2,7 @@ package com.github.cannor147.request.colorization;
 
 import com.github.cannor147.model.Color;
 import com.github.cannor147.model.Territory;
-import com.github.cannor147.painter.Painter;
+import com.github.cannor147.painter.PainterKt;
 import com.github.cannor147.painter.RGBColor;
 
 import java.util.*;
@@ -50,7 +50,7 @@ public class StepColorizationScheme extends ColorizationScheme {
                         .map(Collections::singletonList)
                         .orElseGet(Collections::emptyList));
         final int separatorCount = valueSeparators.size();
-        this.colorScheme = Painter.generateScheme(minColor.getRgbColor(), maxColor.getRgbColor(), separatorCount);
+        this.colorScheme = PainterKt.generateScheme(minColor.getRgbColor(), maxColor.getRgbColor(), separatorCount);
     }
 
     @Override

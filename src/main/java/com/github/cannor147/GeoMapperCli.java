@@ -8,7 +8,7 @@ import com.github.cannor147.request.colorization.ColorizationScheme;
 import com.github.cannor147.request.colorization.ScaleColorizationScheme;
 import com.github.cannor147.request.colorization.StepColorizationScheme;
 import com.github.cannor147.request.colorization.StraightColorizationScheme;
-import com.github.cannor147.util.CsvUtils;
+import com.github.cannor147.util.CsvUtilsKt;
 import one.util.streamex.StreamEx;
 import org.apache.commons.cli.*;
 import org.apache.commons.lang3.tuple.Pair;
@@ -140,7 +140,7 @@ public class GeoMapperCli {
 
     private static void handleList(Option option, File from, RequestBuilder builder, int offset) throws IOException {
         validateFrom("list", from);
-        final List<String> names = CsvUtils.readCsv(from, extractInt(option, offset));
+        final List<String> names = CsvUtilsKt.readCsv(from, extractInt(option, offset));
         builder.withColor(names, extractColor(option, offset + 1));
     }
 
@@ -148,7 +148,7 @@ public class GeoMapperCli {
         validateFrom("values", from);
         final int nameColumn = extractInt(option, offset);
         final int valueColumn = extractInt(option, offset + 1);
-        final List<Pair<String, String>> csvData = CsvUtils.readCsv(from, nameColumn, valueColumn);
+        final List<Pair<String, String>> csvData = CsvUtilsKt.readCsv(from, nameColumn, valueColumn);
         final Map<String, Number> parsedData = StreamEx.of(csvData)
                 .mapToEntry(Pair::getKey, Pair::getValue)
                 .mapValues(GeoMapper::safeParseNumber)

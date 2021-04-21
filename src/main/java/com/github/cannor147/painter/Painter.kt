@@ -1,80 +1,59 @@
-package com.github.cannor147.painter;
+package com.github.cannor147.painter
 
-import lombok.experimental.UtilityClass;
+import java.awt.Point
+import java.awt.image.BufferedImage
+import java.util.*
 
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.util.List;
-import java.util.Queue;
-import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+private val SHIFTS = arrayOf(Point(0, +1), Point(0, -1), Point(+1, 0), Point(-1, 0))
 
-@UtilityClass
-public class Painter {
-    private static final Point[] SHIFTS = new Point[]{
-            new Point(0, +1),
-            new Point(0, -1),
-            new Point(+1, 0),
-            new Point(-1, 0),
-    };
+fun findArea(image: BufferedImage, rgbColor: RGBColor): Set<Point> = generateCoordinates(image.width, image.height)
+    .flatten()
+    .filter { point: Point -> rgbColor == getRGBColor(image, point) }
+    .toSet()
 
-    public static Set<Point> findArea(BufferedImage image, RGBColor rgbColor) {
-        return IntStream.range(0, image.getWidth())
-                .boxed()
-                .flatMap(i -> IntStream.range(0, image.getHeight()).mapToObj(j -> new Point(i, j)))
-                .filter(point -> rgbColor.equals(getRGBColor(image, point)))
-                .collect(Collectors.toSet());
+fun fillArea(image: BufferedImage, point: Point, rgbColor: RGBColor) {
+    val originalColor = getRGBColor(image, point)
+    if (originalColor == rgbColor) {
+        return
     }
-
-    public static void fillArea(BufferedImage image, Point point, RGBColor rgbColor) {
-        final RGBColor originalColor = getRGBColor(image, point);
-        if (originalColor.equals(rgbColor)) {
-            return;
-        }
-
-        final Set<Point> area = new HashSet<>();
-        final Queue<Point> queue = new LinkedList<>();
-        queue.add(point);
-        area.add(point);
-
-        while (!queue.isEmpty()) {
-            final Point currentPoint = queue.poll();
-            Arrays.stream(SHIFTS)
-                    .map(Point::new)
-                    .peek(p -> p.translate(currentPoint.x, currentPoint.y))
-                    .filter(p -> p.x >= 0 && p.x < image.getWidth())
-                    .filter(p -> p.y >= 0 && p.y < image.getHeight())
-                    .filter(Predicate.not(area::contains))
-                    .filter(p -> originalColor.equals(getRGBColor(image, p)))
-                    .forEach(Stream.<Consumer<Point>>of(queue::add, area::add).reduce(Consumer::andThen).get());
-        }
-
-        area.forEach(c -> fillPoint(image, c, rgbColor));
+    val area: MutableSet<Point> = HashSet()
+    val queue: Queue<Point> = LinkedList()
+    queue.add(point)
+    area.add(point)
+    while (!queue.isEmpty()) {
+        val currentPoint = queue.poll()
+        SHIFTS.asSequence()
+            .map(::Point)
+            .onEach { it.translate(currentPoint.x, currentPoint.y) }
+            .filter { it.x >= 0 && it.x < image.width }
+            .filter { it.y >= 0 && it.y < image.height }
+            .filterNot { area.contains(it) }
+            .filter { originalColor == getRGBColor(image, it) }
+            .forEach {
+                queue.add(it)
+                area.add(it)
+            }
     }
-
-    public static void fillPoint(BufferedImage image, Point point, RGBColor rgbColor) {
-        image.setRGB(point.x, point.y, rgbColor.toInt());
-    }
-
-    private static RGBColor getRGBColor(BufferedImage image, Point point) {
-        return RGBColor.fromInt(image.getRGB(point.x, point.y));
-    }
-
-    public static List<RGBColor> generateScheme(RGB from, RGB to) {
-        return generateScheme(from, to, 100);
-    }
-
-    public static List<RGBColor> generateScheme(RGB from, RGB to, int count) {
-        final RGBDistance distance = RGBDistance.between(to, from);
-        return IntStream.range(0, count + 1)
-                .mapToDouble(x -> (double) x / count)
-                .mapToObj(distance::multiply)
-                .map(from::add)
-                .map(RGB::asColor)
-                .collect(Collectors.toList());
-    }
+    area.forEach { fillPoint(image, it, rgbColor) }
 }
+
+fun fillPoint(image: BufferedImage, point: Point, rgbColor: RGBColor) {
+    image.setRGB(point.x, point.y, rgbColor.toInt())
+}
+
+@JvmOverloads
+fun generateScheme(from: RGB, to: RGB, count: Int = 100): List<RGBColor> {
+    val distance = RGBDistance.between(to, from)
+    return (0..count + 1).asSequence()
+        .map { it.toDouble() / count }
+        .map(distance::multiply)
+        .map(from::add)
+        .map(RGB::asColor)
+        .toList()
+}
+
+private fun getRGBColor(image: BufferedImage, point: Point): RGBColor = image.getRGB(point.x, point.y)
+    .let(RGBColor::fromInt)
+
+private fun generateCoordinates(width: Int, height: Int): Array<Array<Point>> =
+    Array(width) { x -> Array(height) { y -> Point(x, y) } }

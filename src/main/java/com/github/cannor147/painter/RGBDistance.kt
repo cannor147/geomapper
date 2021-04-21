@@ -1,43 +1,39 @@
-package com.github.cannor147.painter;
+package com.github.cannor147.painter
 
-import lombok.*;
+import kotlin.math.max
+import kotlin.math.min
 
-@Getter
-@ToString
-@EqualsAndHashCode
-@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public class RGBDistance implements RGB {
-    public static RGBDistance of(int red, int green, int blue) {
-        final int realRed = Math.max(Math.min(red, 255), -255);
-        final int realGreen = Math.max(Math.min(green, 255), -255);
-        final int realBlue = Math.max(Math.min(blue, 255), -255);
-        return new RGBDistance(realRed, realGreen, realBlue);
-    }
-    public static RGBDistance between(RGB a, RGB b) {
-        return of(a.getRed() - b.getRed(), a.getGreen() - b.getGreen(), a.getBlue() - b.getBlue());
+data class RGBDistance internal constructor(
+    override val red: Int,
+    override val green: Int,
+    override val blue: Int,
+) : RGB {
+    override fun add(other: RGB): RGB {
+        return of(red + other.red, green + other.green, blue + other.blue)
     }
 
-    private final int red;
-    private final int green;
-    private final int blue;
-
-    @Override
-    public RGB add(RGB other) {
-        return of(this.red + other.getRed(), this.green + other.getGreen(), this.blue + other.getBlue());
+    override fun subtract(other: RGB): RGB {
+        return of(red - other.red, green - other.green, blue - other.blue)
     }
 
-    @Override
-    public RGB subtract(RGB other) {
-        return of(this.red - other.getRed(), this.green - other.getGreen(), this.blue - other.getBlue());
+    override fun multiply(proportion: Double): RGB {
+        return of((red * proportion).toInt(), (green * proportion).toInt(), (blue * proportion).toInt())
     }
 
-    @Override
-    public RGB multiply(double proportion) {
-        return of((int) (this.red * proportion), (int) (this.green * proportion), (int) (this.blue * proportion));
+    override fun asColor(): RGBColor {
+        return RGBColor.of(red, green, blue)
     }
 
-    @Override
-    public RGBColor asColor() {
-        return RGBColor.of(red, green, blue);
+    companion object {
+        fun of(red: Int, green: Int, blue: Int): RGBDistance {
+            val realRed = max(min(red, 255), -255)
+            val realGreen = max(min(green, 255), -255)
+            val realBlue = max(min(blue, 255), -255)
+            return RGBDistance(realRed, realGreen, realBlue)
+        }
+
+        fun between(a: RGB, b: RGB): RGBDistance {
+            return of(a.red - b.red, a.green - b.green, a.blue - b.blue)
+        }
     }
 }

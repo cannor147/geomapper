@@ -1,34 +1,24 @@
-package com.github.cannor147.namer;
+package com.github.cannor147.namer
 
-import lombok.experimental.UtilityClass;
-import org.apache.commons.lang3.tuple.Pair;
+import org.apache.commons.lang3.tuple.Pair
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
+fun findNames(obj: Synonymized): List<String> = obj.synonyms.asSequence()
+    .plus(obj.name)
+    .toList()
 
-@UtilityClass
-public class Namer {
-    public static List<String> findNames(Synonymized synonymized) {
-        return Stream.concat(Arrays.stream(synonymized.getSynonyms()), Stream.of(synonymized.getName()))
-                .collect(Collectors.toList());
+fun <T : Synonymized> createMap(items: Array<T>): Map<String, T> = createMap(listOf(*items))
+
+fun <T : Synonymized> createMap(items: Iterable<T>): Map<String, T> = items.asSequence()
+    .map { item: T -> Pair.of(findNames(item), item) }
+    .flatMap {
+        it.key
+            .asSequence()
+            .map { name: String -> Pair.of(normalize(name), it.right) }
     }
+    .associateBy(Pair<String, T>::key, Pair<String, T>::value)
 
-    public static <T extends Synonymized> Map<String, T> createMap(T[] items) {
-        return createMap(Arrays.asList(items));
-    }
-
-    public static <T extends Synonymized> Map<String, T> createMap(Iterable<T> items) {
-        return StreamSupport.stream(items.spliterator(), false)
-                .map(item -> Pair.of(findNames(item), item))
-                .flatMap(pair -> pair.getKey().stream().map(name -> Pair.of(normalize(name), pair.getRight())))
-                .collect(Collectors.toMap(Pair::getKey, Pair::getValue));
-    }
-
-    public static String normalize(String name) {
-        return name.toLowerCase().replace('–', '-').replace('—', '-').trim();
-    }
-}
+fun normalize(name: String): String = name
+    .toLowerCase()
+    .replace('–', '-')
+    .replace('—', '-')
+    .trim { it <= ' ' }

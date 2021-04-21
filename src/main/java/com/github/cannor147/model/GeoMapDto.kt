@@ -4,12 +4,11 @@ package com.github.cannor147.model
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.github.cannor147.namer.Synonymized
-import java.awt.Point
 
-data class Territory(
+data class GeoMapDto(
     @JsonProperty("name") override val name: String,
     @JsonProperty("synonyms") override val synonyms: Array<String>,
-    @JsonProperty("points") val points: Array<Point>,
-    @JsonProperty("officialOwner") val officialOwner: String?,
-    @JsonProperty("officialOwnerBorder") val officialOwnerBorder: Array<Point>?
+    @JsonProperty("data") val dataFilePaths: Array<String>,
+    @JsonProperty("map") val mapFilePath: String,
+    @JsonProperty("background") val backgroundFilePath: String?
 ) : Synonymized
