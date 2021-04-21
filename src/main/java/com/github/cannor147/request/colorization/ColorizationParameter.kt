@@ -6,7 +6,7 @@ import com.github.cannor147.model.Color
 import java.util.*
 
 class ColorizationParameter private constructor(private val color: Color?, private val value: Double?) {
-    constructor(color: Color?) : this(color, null)
+    constructor(color: Color) : this(color, null)
     constructor(value: Number) : this(null, value.toDouble())
 
     fun getColor(): Optional<Color> {
