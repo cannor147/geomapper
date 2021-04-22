@@ -12,7 +12,6 @@ import com.github.cannor147.request.colorization.ColorizationScheme
 import com.github.cannor147.request.colorization.ColorizationTask
 import com.github.cannor147.request.colorization.StraightColorizationScheme
 import one.util.streamex.EntryStream
-import org.apache.commons.lang3.tuple.Pair
 import java.awt.Point
 import java.util.*
 import java.util.function.Function
@@ -33,7 +32,7 @@ class RequestBuilder(private val geoMap: GeoMap) {
             }
         return geoMap.territories()
             .groupBy(territoryToParameterMap::containsKey)
-            .flatMap { (mentioned, territories) -> territories.map { Pair.of(mentioned, it) } }
+            .flatMap { (mentioned, territories) -> territories.map { mentioned to it } }
             .flatMap { (mentioned: Boolean, territory: Territory) ->
                 val owner = geoMap.findOwner(territory)
                 val inclusionOwner = owner
@@ -69,14 +68,14 @@ class RequestBuilder(private val geoMap: GeoMap) {
     fun withColor(names: Array<String?>, color: Color): RequestBuilder {
         return names.asSequence()
             .filterNotNull()
-            .map { Pair.of(it, color) }
+            .map { it to color }
             .let { pairs -> withParameter(pairs) { ColorizationParameter(it) } }
     }
 
     fun withColor(names: Iterable<String?>, color: Color): RequestBuilder {
         return names.asSequence()
             .filterNotNull()
-            .map { Pair.of(it, color) }
+            .map { it to color }
             .let { pairs -> withParameter(pairs) { ColorizationParameter(it) } }
     }
 
@@ -109,7 +108,7 @@ class RequestBuilder(private val geoMap: GeoMap) {
     }
 
     private fun <T> withParameter(pairs: Sequence<Pair<String, T>>, parameterizer: Parameterizer<T>): RequestBuilder {
-        return withParameter(EntryStream.of(pairs.associateBy({ it.key }, { it.value })), parameterizer)
+        return withParameter(EntryStream.of(pairs.associate { it }), parameterizer)
     }
 
     private fun <T> withParameter(stream: EntryStream<String, T>, parameterizer: Parameterizer<T>): RequestBuilder {

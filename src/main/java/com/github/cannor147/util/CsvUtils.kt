@@ -1,6 +1,5 @@
 package com.github.cannor147.util
 
-import org.apache.commons.lang3.tuple.Pair
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
@@ -21,7 +20,7 @@ fun readCsv(file: File, column: Int): List<String?> = readCsv(file)
 @Throws(IOException::class)
 fun readCsv(file: File, firstColumn: Int, secondColumn: Int): List<Pair<String?, String?>> = readCsv(file)
     .asSequence()
-    .map { row: List<String> -> Pair.of(safeGet(row, firstColumn), safeGet(row, secondColumn)) }
+    .map { row: List<String> -> safeGet(row, firstColumn) to safeGet(row, secondColumn) }
     .toList()
 
 @Suppress("unused")

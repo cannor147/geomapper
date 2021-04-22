@@ -144,7 +144,7 @@ object GeoMapperCli {
     internal fun handleValues(option: Option, from: File?, builder: RequestBuilder, offset: Int) {
         validateFrom("values", from)
         readCsv(from!!, extractInt(option, offset), extractInt(option, offset + 1)).asSequence()
-            .map { it.key to it.value }
+            .map { it.first to it.second }
             .map { (a, b) -> a to (b?.let(GeoMapper::safeParseNumber)) }
             .mapNotNull { (a, b) -> if (a == null || b == null) null else a to b }
             .toMap()
