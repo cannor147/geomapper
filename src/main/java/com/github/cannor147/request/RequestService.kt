@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage
 import java.util.*
 import java.util.function.Consumer
 
-class RequestService {
+internal object RequestService {
     fun handleRequest(request: Request): BufferedImage {
         val image = request.geoMap.copyMap()
         perform(image, request.tasks)

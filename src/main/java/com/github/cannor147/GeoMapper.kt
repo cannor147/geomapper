@@ -18,13 +18,11 @@ import java.util.*
 import javax.imageio.ImageIO
 
 class GeoMapper {
-    private val requestService: RequestService = RequestService()
-    private val resourceReader: ResourceReader = ResourceReader()
     private val nameToGeoMapMap: Map<String, GeoMapDto> =
-        resourceReader.readJson(GEO_MAPS, Array<GeoMapDto>::class.java).let(::createMap)
+        ResourceReader.readJson(GEO_MAPS, Array<GeoMapDto>::class.java).let(::createMap)
 
     fun createMap(request: Request): BufferedImage {
-        return requestService.handleRequest(request)
+        return RequestService.handleRequest(request)
     }
 
     @Throws(IOException::class)
@@ -39,13 +37,13 @@ class GeoMapper {
         require(nameToGeoMapMap.containsKey(normalizedKey)) { "No such geo map." }
         val dto: GeoMapDto = nameToGeoMapMap[normalizedKey]!!
         val nameToTerritoryMap: Map<String, Territory> = dto.dataFilePaths.asSequence()
-            .map { path: String -> resourceReader.safeReadJson(path, Array<Territory>::class.java) }
+            .map { path: String -> ResourceReader.safeReadJson(path, Array<Territory>::class.java) }
             .filterNotNull()
             .flatMap { it.asSequence() }
             .toList()
             .let(::createMap)
-        val map = resourceReader.readImage(dto.mapFilePath)
-        val background = if (dto.backgroundFilePath != null) resourceReader.readImage(dto.backgroundFilePath) else null
+        val map = ResourceReader.readImage(dto.mapFilePath)
+        val background = if (dto.backgroundFilePath != null) ResourceReader.readImage(dto.backgroundFilePath) else null
         return GeoMap(dto.name, nameToTerritoryMap, map, background)
     }
 

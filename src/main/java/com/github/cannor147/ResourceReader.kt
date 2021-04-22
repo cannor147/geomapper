@@ -7,7 +7,7 @@ import java.io.IOException
 import java.util.*
 import javax.imageio.ImageIO
 
-internal class ResourceReader {
+internal object ResourceReader {
     private val classLoader: ClassLoader = javaClass.classLoader
     private val objectMapper: ObjectMapper = ObjectMapper()
         .configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true)
