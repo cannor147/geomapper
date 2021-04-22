@@ -15,6 +15,7 @@ import com.github.cannor147.util.readCsv
 import org.apache.commons.cli.*
 import java.io.File
 import java.io.IOException
+import java.text.NumberFormat
 
 private val OPTIONS: Options = run {
     val it = Options()
@@ -146,7 +147,7 @@ private fun handleValues(option: Option, from: File?, builder: RequestBuilder, o
     validateFrom("values", from)
     readCsv(from!!, extractInt(option, offset), extractInt(option, offset + 1)).asSequence()
         .map { it.first to it.second }
-        .map { (a, b) -> a to (b?.let(GeoMapper::safeParseNumber)) }
+        .map { (a, b) -> a to (b?.let(::parseNumberSafely)) }
         .mapNotNull { (a, b) -> if (a == null || b == null) null else a to b }
         .toMap()
         .let(builder::withValues)
@@ -267,6 +268,13 @@ private fun extractDouble(option: Option, index: Int): Double = try {
 private fun <T> castIterable(kek: Iterable<*>, clazz: Class<T>): List<T> = kek.asSequence()
     .flatMap { x: Any? -> if (clazz.isInstance(x)) sequenceOf(clazz.cast(x)) else emptySequence() }
     .toList()
+
+private fun parseNumberSafely(number: String): Number? = try {
+    val text = number.replace(",", "").replace("%", "").trim { it <= ' ' }
+    NumberFormat.getNumberInstance().parse(text)
+} catch (e: java.text.ParseException) {
+    null
+}
 
 private fun OptionBuilder.withValueSeparator(c: Char): OptionBuilder = OptionBuilder.withValueSeparator(c)
 private fun OptionBuilder.hasArg(): OptionBuilder = OptionBuilder.hasArg()

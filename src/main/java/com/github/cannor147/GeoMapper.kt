@@ -12,10 +12,11 @@ import com.github.cannor147.request.RequestService
 import java.awt.image.BufferedImage
 import java.io.File
 import java.io.IOException
-import java.text.NumberFormat
-import java.text.ParseException
 import java.util.*
 import javax.imageio.ImageIO
+
+private const val GEO_MAPS = "geomaps.json"
+private const val PNG = "png"
 
 class GeoMapper {
     private val nameToGeoMapMap: Map<String, GeoMapDto> =
@@ -37,7 +38,7 @@ class GeoMapper {
         require(nameToGeoMapMap.containsKey(normalizedKey)) { "No such geo map." }
         val dto: GeoMapDto = nameToGeoMapMap[normalizedKey]!!
         val nameToTerritoryMap: Map<String, Territory> = dto.dataFilePaths.asSequence()
-            .map { path: String -> ResourceReader.safeReadJson(path, Array<Territory>::class.java) }
+            .map { path: String -> ResourceReader.readJsonSafely(path, Array<Territory>::class.java) }
             .filterNotNull()
             .flatMap { it.asSequence() }
             .toList()
@@ -46,20 +47,4 @@ class GeoMapper {
         val background = if (dto.backgroundFilePath != null) ResourceReader.readImage(dto.backgroundFilePath) else null
         return GeoMap(dto.name, nameToTerritoryMap, map, background)
     }
-
-    companion object {
-        private const val GEO_MAPS = "geomaps.json"
-        private const val PNG = "png"
-
-        @JvmStatic
-        fun safeParseNumber(number: String): Number? {
-            return try {
-                val text = number.replace(",", "").replace("%", "").trim { it <= ' ' }
-                NumberFormat.getNumberInstance().parse(text)
-            } catch (e: ParseException) {
-                null
-            }
-        }
-    }
-
 }

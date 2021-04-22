@@ -12,12 +12,10 @@ internal object ResourceReader {
     private val objectMapper: ObjectMapper = ObjectMapper()
         .configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true)
 
-    fun <T> safeReadJson(filePath: String, jsonType: Class<T>): T? {
-        return try {
-            readJson(filePath, jsonType)
-        } catch (e: IOException) {
-            null
-        }
+    fun <T> readJsonSafely(filePath: String, jsonType: Class<T>): T? = try {
+        readJson(filePath, jsonType)
+    } catch (e: IOException) {
+        null
     }
 
     @Throws(IOException::class)
