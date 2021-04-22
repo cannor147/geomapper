@@ -5,8 +5,6 @@ import com.github.cannor147.model.Territory
 import com.github.cannor147.painter.RGBColor
 import java.util.*
 import java.util.function.ToDoubleFunction
-import java.util.stream.Collectors
-import kotlin.streams.asStream
 
 abstract class ColorizationScheme {
     protected var defaultColor = Color.SILVER
@@ -23,5 +21,8 @@ abstract class ColorizationScheme {
 }
 
 fun <T> Sequence<T>.summarizingDouble(toDoubleFunction: ToDoubleFunction<T>): DoubleSummaryStatistics {
-    return this.asStream().collect(Collectors.summarizingDouble(toDoubleFunction))
+    return this.fold(DoubleSummaryStatistics()) { statistics: DoubleSummaryStatistics, element: T ->
+        statistics.accept(toDoubleFunction.applyAsDouble(element))
+        statistics
+    }
 }

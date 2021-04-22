@@ -15,8 +15,6 @@ import com.github.cannor147.util.readCsv
 import org.apache.commons.cli.*
 import java.io.File
 import java.io.IOException
-import java.util.stream.Collectors
-import java.util.stream.IntStream
 
 fun main(args: Array<String>) {
     if (args.isEmpty()) {
@@ -127,10 +125,10 @@ object GeoMapperCli {
         schemeOptions.addOption(OptionBuilder.withArgName("value").hasArg().create("logarithmization"))
         schemeOptions.addOption(OptionBuilder.withArgName("value").hasArg().create("separator"))
         schemeOptions.addOption(OptionBuilder.withArgName("values").hasArgs().withValueSeparator(',').create("separators"))
-        SCHEME_OPTION_NAMES = castIterable(schemeOptions.options, Option::class.java).stream()
-            .peek { OPTIONS.addOption(it) }
+        SCHEME_OPTION_NAMES = castIterable(schemeOptions.options, Option::class.java).asSequence()
+            .onEach { OPTIONS.addOption(it) }
             .map(Option::getOpt)
-            .collect(Collectors.toSet())
+            .toSet()
     }
 
     @Throws(IOException::class)
@@ -230,13 +228,9 @@ object GeoMapperCli {
     internal fun handleSeparators(option: Option, previousSchemeOption: Boolean, scheme: ColorizationScheme) {
         validateScheme("separators", previousSchemeOption, scheme)
         when (scheme) {
-            is StepColorizationScheme -> IntStream.range(0, option.values.size)
-                .mapToObj { i: Int -> extractDouble(option, i) }
-                .forEach { separator: Double? ->
-                    scheme.registerSeparator(
-                        separator!!
-                    )
-                }
+            is StepColorizationScheme -> (0 until option.values.size).asSequence()
+                .map { extractDouble(option, it) }
+                .forEach { scheme.registerSeparator(it) }
             else -> throw IllegalStateException("Can't add separators to current colorization scheme.")
         }
     }

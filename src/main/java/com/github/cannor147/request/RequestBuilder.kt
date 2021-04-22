@@ -11,12 +11,9 @@ import com.github.cannor147.request.colorization.ColorizationParameter.Companion
 import com.github.cannor147.request.colorization.ColorizationScheme
 import com.github.cannor147.request.colorization.ColorizationTask
 import com.github.cannor147.request.colorization.StraightColorizationScheme
-import one.util.streamex.EntryStream
 import java.awt.Point
 import java.util.*
 import java.util.function.Function
-import java.util.function.Predicate
-import java.util.stream.Stream
 
 class RequestBuilder(private val geoMap: GeoMap) {
     private var unofficialStateBehavior: UnofficialStateBehavior = UnofficialStateBehavior.INCLUDE_UNMENTIONED
@@ -25,11 +22,9 @@ class RequestBuilder(private val geoMap: GeoMap) {
     private var currentScheme: ColorizationScheme = StraightColorizationScheme()
 
     fun build(): Request {
-        territoryToSchemeMap.values.stream()
+        territoryToSchemeMap.values.asSequence()
             .distinct()
-            .forEach { colorizationScheme: ColorizationScheme ->
-                colorizationScheme.prepareForCalculation(territoryToParameterMap)
-            }
+            .forEach { it.prepareForCalculation(territoryToParameterMap) }
         return geoMap.territories()
             .groupBy(territoryToParameterMap::containsKey)
             .flatMap { (mentioned, territories) -> territories.map { mentioned to it } }
@@ -62,7 +57,7 @@ class RequestBuilder(private val geoMap: GeoMap) {
     }
 
     fun withColor(name: String, color: Color): RequestBuilder {
-        return withParameter(EntryStream.of(name, color)) { ColorizationParameter(it) }
+        return withParameter(sequenceOf(name to color)) { ColorizationParameter(it) }
     }
 
     fun withColor(names: Array<String?>, color: Color): RequestBuilder {
@@ -84,7 +79,7 @@ class RequestBuilder(private val geoMap: GeoMap) {
     }
 
     fun withColors(data: Map<String, Color>): RequestBuilder {
-        return withParameter(EntryStream.of(data)) { ColorizationParameter(it) }
+        return withParameter(data.toList().asSequence()) { ColorizationParameter(it) }
     }
 
     fun <N : Number> withValue(data: Pair<String, N>): RequestBuilder {
@@ -92,32 +87,29 @@ class RequestBuilder(private val geoMap: GeoMap) {
     }
 
     fun <N : Number> withValue(name: String, value: N): RequestBuilder {
-        return withParameter(EntryStream.of(name, value)) { ColorizationParameter(it) }
+        return withParameter(sequenceOf(name to value)) { ColorizationParameter(it) }
     }
 
     fun <N : Number> withValues(data: Map<String, N>): RequestBuilder {
-        return withParameter(EntryStream.of(data)) { ColorizationParameter(it) }
+        return withParameter(data.toList().asSequence()) { ColorizationParameter(it) }
     }
 
     fun <N : Number> withValues(data: Iterable<Pair<String, N>>): RequestBuilder {
         return withParameter(data.asSequence()) { ColorizationParameter(it) }
     }
 
-    fun <N : Number> withValues(names: List<String?>?, values: List<N>?): RequestBuilder {
-        return withParameter(EntryStream.zip(names, values)) { ColorizationParameter(it) }
+    fun <N : Number> withValues(names: List<String>, values: List<N>): RequestBuilder {
+        return withParameter(names.asSequence().zip(values.asSequence())) { ColorizationParameter(it) }
     }
 
     private fun <T> withParameter(pairs: Sequence<Pair<String, T>>, parameterizer: Parameterizer<T>): RequestBuilder {
-        return withParameter(EntryStream.of(pairs.associate { it }), parameterizer)
-    }
-
-    private fun <T> withParameter(stream: EntryStream<String, T>, parameterizer: Parameterizer<T>): RequestBuilder {
-        stream.mapKeys { territoryName: String? -> geoMap.find(territoryName) }
-            .flatMapKeys { if (it != null) Stream.of(it) else Stream.empty() }
-            .filterKeys(Predicate.not { key: Territory -> territoryToParameterMap.containsKey(key) })
-            .mapValues(parameterizer)
-            .forKeyValue { territory: Territory, colorizationParameter: ColorizationParameter ->
-                territoryToParameterMap[territory] = colorizationParameter
+        pairs
+            .map { (name, value) -> (geoMap.find(name) to value) }
+            .mapNotNull { (territory, value) -> if (territory == null) null else territory to value  }
+            .filterNot { territoryToParameterMap.containsKey(it.first) }
+            .map { (territory, value) -> territory to parameterizer.apply(value) }
+            .forEach { (territory, parameter) ->
+                territoryToParameterMap[territory] = parameter
                 territoryToSchemeMap[territory] = currentScheme
             }
         return this

@@ -44,7 +44,7 @@ fun fillPoint(image: BufferedImage, point: Point, rgbColor: RGBColor) {
 @JvmOverloads
 fun generateScheme(from: RGB, to: RGB, count: Int = 100): List<RGBColor> {
     val distance = RGBDistance.between(to, from)
-    return (0..count + 1).asSequence()
+    return (0..count).asSequence()
         .map { it.toDouble() / count }
         .map(distance::multiply)
         .map(from::add)
