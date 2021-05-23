@@ -1,17 +1,15 @@
 @file:Suppress("unused")
 
-package com.github.cannor147
+package com.github.cannor147.geomapper
 
-import com.github.cannor147.model.Color
-import com.github.cannor147.model.Color.Companion.parseColor
-import com.github.cannor147.request.Request
-import com.github.cannor147.request.RequestBuilder
-import com.github.cannor147.request.UnofficialStateBehavior
-import com.github.cannor147.request.colorization.ColorizationScheme
-import com.github.cannor147.request.colorization.ScaleColorizationScheme
-import com.github.cannor147.request.colorization.StepColorizationScheme
-import com.github.cannor147.request.colorization.StraightColorizationScheme
-import com.github.cannor147.util.readCsv
+import com.github.cannor147.geomapper.Color.Companion.parseColor
+import com.github.cannor147.geomapper.request.Request
+import com.github.cannor147.geomapper.request.RequestBuilder
+import com.github.cannor147.geomapper.request.UnofficialStateBehavior
+import com.github.cannor147.geomapper.request.colorization.ColorizationScheme
+import com.github.cannor147.geomapper.request.colorization.ScaleColorizationScheme
+import com.github.cannor147.geomapper.request.colorization.StepColorizationScheme
+import com.github.cannor147.geomapper.request.colorization.StraightColorizationScheme
 import org.apache.commons.cli.*
 import java.io.File
 import java.io.IOException

@@ -1,14 +1,11 @@
 @file:Suppress("MemberVisibilityCanBePrivate")
 
-package com.github.cannor147
+package com.github.cannor147.geomapper
 
-import com.github.cannor147.model.GeoMap
-import com.github.cannor147.model.GeoMapDto
-import com.github.cannor147.model.Territory
-import com.github.cannor147.namer.createMap
-import com.github.cannor147.namer.normalize
-import com.github.cannor147.request.Request
-import com.github.cannor147.request.RequestService
+import com.github.cannor147.geomapper.namer.createMap
+import com.github.cannor147.geomapper.namer.normalize
+import com.github.cannor147.geomapper.request.Request
+import com.github.cannor147.geomapper.request.RequestService
 import java.awt.image.BufferedImage
 import java.io.File
 import java.io.IOException

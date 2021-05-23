@@ -1,10 +1,10 @@
-package com.github.cannor147.request
+package com.github.cannor147.geomapper.request
 
-import com.github.cannor147.model.Color
-import com.github.cannor147.painter.fillArea
-import com.github.cannor147.painter.fillPoint
-import com.github.cannor147.painter.findArea
-import com.github.cannor147.request.colorization.ColorizationTask
+import com.github.cannor147.geomapper.Color
+import com.github.cannor147.geomapper.painter.fillArea
+import com.github.cannor147.geomapper.painter.fillPoint
+import com.github.cannor147.geomapper.painter.findArea
+import com.github.cannor147.geomapper.request.colorization.ColorizationTask
 import java.awt.Point
 import java.awt.image.BufferedImage
 import java.util.*

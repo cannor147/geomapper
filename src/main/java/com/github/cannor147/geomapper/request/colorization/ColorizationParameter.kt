@@ -1,8 +1,8 @@
 @file:Suppress("unused")
 
-package com.github.cannor147.request.colorization
+package com.github.cannor147.geomapper.request.colorization
 
-import com.github.cannor147.model.Color
+import com.github.cannor147.geomapper.Color
 
 class ColorizationParameter private constructor(val color: Color?, val value: Double?) {
     constructor(color: Color) : this(color, null)

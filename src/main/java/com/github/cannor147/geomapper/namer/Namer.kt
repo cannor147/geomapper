@@ -1,4 +1,4 @@
-package com.github.cannor147.namer
+package com.github.cannor147.geomapper.namer
 
 fun findNames(obj: Synonymized): List<String> = obj.synonyms.asSequence()
     .plus(obj.name)

@@ -1,8 +1,8 @@
 @file:Suppress("unused")
 
-package com.github.cannor147.model
+package com.github.cannor147.geomapper
 
-import com.github.cannor147.painter.RGBColor
+import com.github.cannor147.geomapper.painter.RGBColor
 
 enum class Color(val rgbColor: RGBColor, val defaultOpposite: Color?) {
     WHITE(RGBColor.of(255, 255, 255), null),

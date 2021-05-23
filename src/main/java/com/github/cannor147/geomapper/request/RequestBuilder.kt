@@ -1,16 +1,16 @@
 @file:Suppress("unused")
 
-package com.github.cannor147.request
+package com.github.cannor147.geomapper.request
 
-import com.github.cannor147.model.Color
-import com.github.cannor147.model.GeoMap
-import com.github.cannor147.model.Territory
-import com.github.cannor147.painter.RGBColor
-import com.github.cannor147.request.colorization.ColorizationParameter
-import com.github.cannor147.request.colorization.ColorizationParameter.Companion.empty
-import com.github.cannor147.request.colorization.ColorizationScheme
-import com.github.cannor147.request.colorization.ColorizationTask
-import com.github.cannor147.request.colorization.StraightColorizationScheme
+import com.github.cannor147.geomapper.Color
+import com.github.cannor147.geomapper.GeoMap
+import com.github.cannor147.geomapper.Territory
+import com.github.cannor147.geomapper.painter.RGBColor
+import com.github.cannor147.geomapper.request.colorization.ColorizationParameter
+import com.github.cannor147.geomapper.request.colorization.ColorizationParameter.Companion.empty
+import com.github.cannor147.geomapper.request.colorization.ColorizationScheme
+import com.github.cannor147.geomapper.request.colorization.ColorizationTask
+import com.github.cannor147.geomapper.request.colorization.StraightColorizationScheme
 import java.awt.Point
 import java.util.*
 import java.util.function.Function

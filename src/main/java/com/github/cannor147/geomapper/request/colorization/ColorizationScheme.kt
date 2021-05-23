@@ -1,8 +1,8 @@
-package com.github.cannor147.request.colorization
+package com.github.cannor147.geomapper.request.colorization
 
-import com.github.cannor147.model.Color
-import com.github.cannor147.model.Territory
-import com.github.cannor147.painter.RGBColor
+import com.github.cannor147.geomapper.Color
+import com.github.cannor147.geomapper.Territory
+import com.github.cannor147.geomapper.painter.RGBColor
 import java.util.*
 import java.util.function.ToDoubleFunction
 

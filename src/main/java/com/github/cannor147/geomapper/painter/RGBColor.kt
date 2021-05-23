@@ -1,4 +1,4 @@
-package com.github.cannor147.painter
+package com.github.cannor147.geomapper.painter
 
 import java.awt.Color
 

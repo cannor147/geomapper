@@ -1,9 +1,9 @@
-package com.github.cannor147.request.colorization
+package com.github.cannor147.geomapper.request.colorization
 
-import com.github.cannor147.model.Color
-import com.github.cannor147.model.Territory
-import com.github.cannor147.painter.RGBColor
-import com.github.cannor147.painter.generateScheme
+import com.github.cannor147.geomapper.Color
+import com.github.cannor147.geomapper.Territory
+import com.github.cannor147.geomapper.painter.RGBColor
+import com.github.cannor147.geomapper.painter.generateScheme
 import java.util.*
 
 class StepColorizationScheme : ColorizationScheme() {

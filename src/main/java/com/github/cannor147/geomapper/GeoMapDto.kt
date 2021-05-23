@@ -1,9 +1,9 @@
 @file:Suppress("ArrayInDataClass")
 
-package com.github.cannor147.model
+package com.github.cannor147.geomapper
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.github.cannor147.namer.Synonymized
+import com.github.cannor147.geomapper.namer.Synonymized
 
 data class GeoMapDto(
     @JsonProperty("name") override val name: String,

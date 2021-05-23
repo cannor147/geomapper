@@ -1,4 +1,4 @@
-package com.github.cannor147.painter
+package com.github.cannor147.geomapper.painter
 
 import java.awt.Point
 import java.awt.image.BufferedImage
@@ -53,7 +53,7 @@ fun generateScheme(from: RGB, to: RGB, count: Int = 100): List<RGBColor> {
 }
 
 private fun getRGBColor(image: BufferedImage, point: Point): RGBColor = image.getRGB(point.x, point.y)
-    .let(RGBColor::fromInt)
+    .let(RGBColor.Companion::fromInt)
 
 private fun generateCoordinates(width: Int, height: Int): Array<Array<Point>> =
     Array(width) { x -> Array(height) { y -> Point(x, y) } }

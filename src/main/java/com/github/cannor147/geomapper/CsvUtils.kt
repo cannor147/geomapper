@@ -1,4 +1,4 @@
-package com.github.cannor147.util
+package com.github.cannor147.geomapper
 
 import java.io.BufferedReader
 import java.io.File

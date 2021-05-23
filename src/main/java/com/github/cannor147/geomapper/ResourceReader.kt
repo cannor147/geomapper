@@ -1,4 +1,4 @@
-package com.github.cannor147
+package com.github.cannor147.geomapper
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper

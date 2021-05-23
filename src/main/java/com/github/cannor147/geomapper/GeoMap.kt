@@ -1,6 +1,6 @@
-package com.github.cannor147.model
+package com.github.cannor147.geomapper
 
-import com.github.cannor147.namer.normalize
+import com.github.cannor147.geomapper.namer.normalize
 import java.awt.image.BufferedImage
 import java.util.*
 

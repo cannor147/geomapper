@@ -1,4 +1,4 @@
-package com.github.cannor147.request
+package com.github.cannor147.geomapper.request
 
 enum class UnofficialStateBehavior(
     val includeUnmentioned: Boolean,
